@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>mail3</title>
+</head>
+<body style="padding:0;">
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+        <tbody>
+            <tr>
+                <td align="center" valign="top" style="padding:14px 0px">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                        <tbody>
+                            <tr>
+                                <td align="center" valign="top">
+                                    <h1 style="color:#606060!important;font-family:Arial,sans-serif;font-size:32px;font-weight:bold;letter-
+                                    spacing:-1px;line-height:115%;margin:0;padding:0;text-align:center"><?=$title?></h1>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top" style="padding-top:14px;padding-bottom:14px">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#f2f2f2;border-
+                                    collapse:separate!important;border-radius:4px">
+                                        <tbody style="color:#606060;font-family:Arial,sans-serif;font-size:15px;line-height:150%;">
+                                            <tr>
+                                                <td style="padding:30px 0 0 40px;"><strong>Project: </strong><?=$project['name']?></td>
+                                                <td style="padding:30px 0 0 40px;"><strong>Deadline: </strong><?=$task['deadline']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:20px 0 0 40px;"><strong>Assignee: </strong><?=$task['assignee']?></td>
+                                                <td style="padding:20px 0 0 40px;"><strong>Assigner: </strong><?=$task['assigner']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:20px 40px 0 40px;" colspan="2"><strong>Subject: </strong><?=$task['subject']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:20px 40px 0 40px;" colspan="2"><strong>Deliverables: </strong><?=$task['content']?></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:20px 0 0 40px;"><strong>Priority: </strong><?=$task['priority']?></td>
+                                                <td style="padding:20px 0 0 40px;"><strong>% Complete: </strong><?=$task['status']?>%</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:20px 0 0 40px;" colspan="2">
+                                                    <strong>File attachments: </strong>
+                                                    <? foreach ($attachments as $file) { ?>
+                                                    <a href="<?=$file['url']?>" target="_blank" style="color:#6dc6dd;text-decoration:none"><?=$file['name']?></a>
+                                                    <? } ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" align="center" valign="top" style="color:#606060;padding-top:40px;padding-right:40px;padding-bottom:30px;padding-left:40px;text-align:center">
+                                                    Click the big button below to update the status of the task.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" align="center" valign="middle" style="padding-right:40px;padding-bottom:35px;padding-left:40px">
+                                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#6dc6dd;border-collapse:separate!important;border-radius:3px">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="center" valign="middle" style="color:#ffffff;font-weight:bold;line-height:100%;padding:15px;">
+                                                                    <a href="http://www.flashbay.de/task/edit-task.php?tid=<?=$task['tid']?>&account=<?=$task['assignee']?>" style="color:#ffffff;text-decoration:none" target="_blank">Update Status</a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" valign="top" style="color:#606060;font-family:Arial,sans-serif;font-size:13px;line-height:125%">
+                                                    © 2014 TaskManager. All Rights Reserved.
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
