@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>date picker</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/datepicker3.css">
+</head>
+<body>
+
+	<div class="deadline">
+		<label for="deadline" class="control-label col-sm-2">Deadline:</label>
+		<div class="col-sm-4">
+			<input name="deadline" id="deadline" class="form-control datepicker"></div>
+	</div>
+
+	<script src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script>
+		//datepicker
+		$('body').on('click focus', '.datepicker', function(){
+			$(this).datepicker({
+				autoclose: true
+			})
+		});
+	</script>
+</body>
+</html>

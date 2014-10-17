@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>mindmeister.com首页效果</title>
+	<link rel="stylesheet" href="../css/bubble.css">
+	<link rel="stylesheet" href="../css/sequence.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#content-header {
+			position: relative;
+			min-height: 440px;
+			background-color: #ebf3f7;
+			overflow: hidden
+		}
+
+		#content-header .title {
+			font-size: 80px;
+			font-family: 'VariableBlackRegular'
+		}
+
+		#content-header .title span,#content-header .tagline span {
+			color: #0af
+		}
+
+		#content-header .tagline {
+			font-family: 'VariableBoldRegular';
+			font-size: 26px
+		}
+
+		#content-header .title,#content-header .tagline,#content-header .buttons {
+			position: absolute;
+			width: 100%;
+			display: block
+		}
+
+		#content-header.inactive .bubble {
+			-webkit-animation-play-state: paused;
+			-moz-animation-play-state: paused;
+			-ms-animation-play-state: paused;
+			-o-animation-play-state: paused;
+			animation-play-state: paused
+		}
+
+		#content-header.active .bubble {
+			-webkit-animation-play-state: running;
+			-moz-animation-play-state: running;
+			-ms-animation-play-state: running;
+			-o-animation-play-state: running;
+			animation-play-state: running
+		}
+
+		#description {
+			padding-top: 15px
+		}
+
+		#description p,#description li {
+			font-size: 13px!important;
+			color: #737b80
+		}
+
+		#description ul {
+			padding-left: 3px
+		}
+
+		#description hr {
+			margin-top: 15px!important
+		}
+	</style>
+
+	<script src="../js/base.min.js"></script>
+	<script src="js/jquery.sequence-min.js"></script>
+	<script>
+		$(document).ready(function(){
+		    var options = {
+		        autoPlay: true,
+		        preloader: true,
+		        navigationSkip: false
+		    };
+		    var sequence = $("#sequence").sequence(options).data("sequence");
+		});
+	</script>
+</head>
+<body>
+	<div id="content-header">
+		<div id="sequence">
+			<ul class="sequence-canvas">
+				<li class="slide-1 slide animate-in" style="z-index: 4;">
+					<h1 class="title" style="opacity: 1;">
+						<small>Collaborative</small>
+						<span>Mind</span>
+						Mapping
+					</h1>
+					<h3 class="tagline" style="">
+						Millions of people use MindMeister
+						<br>		
+						for their creative work.
+						<span>Be one of them!</span>
+					</h3>
+					<div class="buttons" style="">
+						<form accept-charset="UTF-8" action="/maps/demo" id="demo_form" method="post">
+							<div style="margin:0;padding:0;display:inline">
+								<input name="utf8" type="hidden" value="✓">		
+								<input name="authenticity_token" type="hidden" value="QPTaQDgFT/kzKNtp5Kcz2RsPVv9rnEeAdYZ4FnJr6s0="></div>
+							<a href="/pricing" class="button default first large" onclick="MM.utils.trackEvent(['Homepage_Click', 'Signup']);">Get Started</a>
+
+							<a href="/maps/demo" class="button second glossy large shadow" id="demo_button_submit" onclick="_('demo_form').submit(); MM.ui.disableButton('demo_button_submit'); MM.utils.trackEvent(['Homepage_Click', 'Demo']); return false;">Try a Live Demo</a>
+						</form>
+					</div>
+				</li>
+				<li class="slide-2 slide animate-out" style="z-index: 1;">
+					<h4 class="title" style="">
+						<span>Collaborate.</span>
+						Decide.
+					</h4>
+					<h3 class="tagline" style="">Invite friends to your maps and work together in real-time.</h3>
+					<div class="macbook-frame" style="">
+						<img alt="" class="macbook" src="http://cdn3.mindmeister.com/images/x1/content/home/macbook_collaboration.png?9dcef2"></div>
+				</li>
+				<li class="slide-3 slide animate-out" style="z-index: 1;">
+					<h4 class="title" style="">
+						<span>Present</span>
+						your ideas.
+					</h4>
+					<h3 class="tagline" style="">Wow your audience with a gorgeous new way of presenting.</h3>
+					<div class="macbook-frame" style="">
+						<img alt="" class="macbook" src="http://cdn2.mindmeister.com/images/x1/content/home/macbook_presentation.png?9dcef2"></div>
+				</li>
+				<li class="slide-4 slide animate-out" style="z-index: 1;">
+					<h4 class="title" style="">
+						<span>Anytime.</span>
+						Anywhere.
+					</h4>
+					<div class="macbook-frame" style="">
+						<img alt="" class="macbook" src="http://cdn1.mindmeister.com/images/x1/content/home/macbook_all_devices.png?9dcef2"></div>
+					<img alt="" class="iphone" src="http://cdn6.mindmeister.com/images/x1/content/home/iphone.png?9dcef2" style="">		
+					<img alt="" class="ipad" src="http://cdn5.mindmeister.com/images/x1/content/home/ipad.png?9dcef2" style="">
+				</li>
+			</ul>
+		</div>
+
+		<div class="bubbles left">
+			<div id="bl-blue" class="bubble blue a-bl-blue"></div>
+			<div id="bl-purple" class="bubble purple a-bl-purple"></div>
+			<div id="bl-green" class="bubble green a-bl-green"></div>
+			<div id="bl-white-3" class="bubble"></div>
+			<div id="bl-white-2" class="bubble a-bl-white-2"></div>
+			<div id="bl-white-1" class="bubble a-bl-white-1"></div>
+		</div>
+
+		<div class="bubbles right">
+			<div id="br-blue" class="bubble blue a-br-blue"></div>
+			<div id="br-purple" class="bubble purple a-br-purple"></div>
+			<div id="br-green" class="bubble green a-br-green"></div>
+			<div id="br-white-3" class="bubble a-br-white-3"></div>
+			<div id="br-white-2" class="bubble a-br-white-2"></div>
+			<div id="br-white-1" class="bubble a-br-white-1"></div>
+		</div>
+	</div>
+</body>
+</html>

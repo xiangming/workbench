@@ -1,0 +1,166 @@
+@import url(mixins.less);
+
+/* mindmeister.com首页气泡效果 */
+//样式
+.bubble{
+	background-color: #fff;
+	border-radius: 100%;
+	position: absolute;
+	.opacity(.8);
+
+	&.blue {
+		background-color: #0af
+	}
+
+	&.purple {
+		background-color: #a54cff
+	}
+
+	&.green {
+		background-color: #5fcc29
+	}
+}
+
+//位置
+#br-blue {
+	height: 300px;
+	width: 300px;
+	right: 9%;
+	top: 47%;
+	margin-top: -150px;
+	margin-right: -150px;
+	z-index: 100
+}
+
+#br-purple {
+	height: 250px;
+	width: 250px;
+	right: -1%;
+	top: 53%;
+	margin-top: -125px;
+	margin-right: -125px;
+	z-index: 101
+}
+
+#br-green {
+	height: 200px;
+	width: 200px;
+	right: 7%;
+	top: 10%;
+	margin-top: -100px;
+	margin-right: -100px;
+	z-index: 102
+}
+
+#br-white-1 {
+	height: 150px;
+	width: 150px;
+	right: 4%;
+	top: 80%;
+	margin-top: -75px;
+	margin-right: -75px;
+	z-index: 103
+}
+
+#br-white-2 {
+	height: 76px;
+	width: 76px;
+	right: 14%;
+	top: 13%;
+	margin-top: -38px;
+	margin-right: -38px;
+	z-index: 104
+}
+
+#br-white-3 {
+	height: 56px;
+	width: 56px;
+	right: 10%;
+	top: 85%;
+	margin-top: -28px;
+	margin-right: -28px;
+	z-index: 105
+}
+
+#bl-blue {
+	height: 230px;
+	width: 230px;
+	left: 5%;
+	top: 50%;
+	margin-top: -115px;
+	margin-left: -115px;
+	z-index: 101
+}
+
+#bl-purple {
+	height: 190px;
+	width: 190px;
+	left: 10%;
+	top: 96%;
+	margin-top: -95px;
+	margin-left: -95px;
+	z-index: 102
+}
+
+#bl-green {
+	height: 300px;
+	width: 300px;
+	left: 3%;
+	top: 95%;
+	margin-top: -150px;
+	margin-left: -150px;
+	z-index: 100
+}
+
+#bl-white-1 {
+	height: 150px;
+	width: 150px;
+	left: 12%;
+	top: 50%;
+	margin-top: -75px;
+	margin-left: -75px;
+	z-index: 103
+}
+
+#bl-white-2 {
+	height: 114px;
+	width: 114px;
+	left: 11%;
+	top: 2%;
+	margin-top: -57px;
+	margin-left: -57px;
+	z-index: 104
+}
+
+#bl-white-3 {
+	height: 76px;
+	width: 76px;
+	left: 4%;
+	top: 19%;
+	margin-top: -38px;
+	margin-left: -38px;
+	z-index: 105
+}
+
+//css3动画
+@-webkit-keyframes a-br-blue {
+	0% {
+		.transform(translate3d(0,0,0));
+		.transform(scale3d(1));
+	}
+
+	50% {
+		.transform(translate3d(30px,0,0));
+		.transform(scale3d(1.05));
+	}
+
+	100% {
+		.transform(translate3d(0,0,0));
+		.transform(scale3d(1));
+	}
+}
+
+.a-br-blue {
+	.animation(a-br-blue 30s 5 linear);
+}
+
