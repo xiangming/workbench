@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>simple-basic template</title>
+<style type="text/css">
+table.gridtable {
+	font-family:verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+	width:100%;
+	word-break:break-all;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #aaaaaa;
+	background-color: #ffffff;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #aaaaaa;
+	background-color: #ffffff;
+}</style>
+</head> 
+<body bgcolor="#EDEDED" style="width: 100% !important; height: auto; margin: 0px; padding: 0px; background-color: #EDEDED;  -webkit-text-size-adjust: none;">
+	<div align="center" style="width:600px;margin:0 auto;">
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
+        <tr>
+            <td align="center" valign="top">
+                <!-- // Begin Template Preheader \\ -->
+                <table border="0" cellpadding="10" cellspacing="0" width="100%" id="templatePreheader">
+                    <tr>
+                        <td valign="top" class="preheaderContent">
+                        
+                            <!-- // Begin Module: Standard Preheader \ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:verdana,arial,sans-serif;font-size:9px;color:#333;">
+                                <tr>
+                                    <td valign="top">
+                                        <div>
+                                             Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
+                                        </div>
+                                    </td>
+                                    <td valign="top" width="190">
+                                        <div>
+                                            Is this email not displaying correctly?<br /><a href="{NOTIFICATION_VIEW_URL}" target="_blank">View it in your browser</a>.
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- // End Module: Standard Preheader \ -->
+                        
+                        </td>
+                    </tr>
+                </table>
+                <!-- // End Template Preheader \\ -->
+
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateContainer" bgcolor="#ffffff" style="background-color: #ffffff; border: 1px solid #c7c7c7; border-bottom: 1px solid #a7a7a7; border-radius: 4px">
+                    <tr>
+                        <td align="center" valign="top">
+                            <!-- // Begin Template Header \\ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader" style="border-bottom: 5px solid #009BDE;padding:20px 20px 0;">
+                                <tr>
+                                    <td class="headerContent">
+                                    
+                                        <!-- // Begin Module: Standard Header Image \\ -->
+                                        <img src="https://www.formhero.com/images/formhero_180x44px.png" style="max-width:450px; float: left;" id="headerImage campaign-icon"/>
+                                        <!-- {COMPANY_LOGO} -->
+                                        <!-- // End Module: Standard Header Image \\ -->
+                                        
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3 class="h3" style="color:#5F6062;font-size:16px;font-weight:bold;font-family:verdana,arial,sans-serif;margin:0 0 5px;float:right;">{FORM_TITLE}</h3>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- // End Template Header \\ -->
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" valign="top">
+                            <!-- // Begin Template Body \\ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
+                                <tr>
+                                    <td valign="top" class="bodyContent">
+                        
+                                        <!-- // Begin Module: Standard Content \\ -->
+                                        <table border="0" cellpadding="20" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td valign="top" width="400" style="font-family:Verdana, Arial, sans-serif; font-size: 14px; line-height: 19px; color: #666666; background-color: #fff; border: none; border-radius: 4px; padding-right: 10px; padding-bottom: 20px padding-left:10px;">
+                                                    <div style="font-family:verdana,arial,sans-serif;font-size:12px;color:#666;line-height:19px;">
+                                                        <h3 style="color:#0088ce;font-size:16px;font-weight:bold;font-family:verdana,arial,sans-serif;">User Entered Data</h3>
+                                                        {ENTRY_DETAIL_TABLE}
+
+                                                        <h3 style="color:#0088ce;font-size:16px;font-weight:bold;font-family:verdana,arial,sans-serif;">EDP</h3>
+                                                        {ACTIVE_EXTERNAL_DATA_POINTS}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- // End Module: Standard Content \\ -->
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- // End Template Body \\ -->
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" valign="top">
+                            <!-- // Begin Module: Content Footer \\ -->
+                            <table border="0" cellpadding="20" cellspacing="0" width="100%" style="background:#0088ce; color:#fff;">
+                                <tr>
+                                    <td colspan="2" valign="middle">
+                                        <div style="font-family:verdana,arial,sans-serif;font-size:12px;color:#666;line-height:19px;text-align:center;color:#fff;">
+                                           © 2014 {COMPANY_NAME}. All rights reserved.
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- // End Module: Content Footer \\ -->
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <td align="center" valign="top">
+                            <!-- // Begin Template Footer \\ -->
+                            <table border="0" cellpadding="10" cellspacing="0" width="100%" id="templateFooter">
+                                <tr>
+                                    <td valign="top" class="footerContent">
+                                        <!-- // Begin Module: Standard Footer \\ -->
+                                        <table border="0" cellpadding="10" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td colspan="2" valign="middle" id="social">
+                                                    <div style="font-family:verdana,arial,sans-serif;font-size:12px;color:#666;line-height:19px;text-align:center;">
+                                                       Powered by FormHero
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- // End Module: Standard Footer \\ -->
+                                    
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- // End Template Footer \\ -->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
