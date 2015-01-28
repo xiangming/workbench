@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="gb2312" />
+    <title></title>
+</head>
+<body>
+    <div id="test" style="width:500px; height:340px; background: url(loading.gif) no-repeat center center;"></div>
+    <button onclick="changeImg();">change</button>
+<script>
+    function $(el){
+    return typeof el == 'string' ? document.getElementById(el) : el;
+    }
+
+    var img = new Image;
+    img.src = 'http://avatar.profile.csdn.net/D/2/3/2_yiqiejieruying.jpg';
+    img.onload = function(){
+    $('test').style.backgroundImage = 'url('+img.src+')';
+    }
+
+    function changeImg(){
+        $('test').style.background = 'url(loading.gif) no-repeat center center';
+        img.src = '';
+        img.src = 'http://beta.flashbay.de/images/360/AY_black.jpg';
+        img.onload = function(){
+            $('test').style.backgroundImage = 'url('+img.src+')';
+        }
+    }
+    
+</script>
+</body>
+</html>
