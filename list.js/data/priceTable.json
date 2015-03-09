@@ -1,0 +1,292 @@
+{
+	"CS": {
+		"25": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		},
+		"50": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		},
+		"100": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		},
+		"250": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		},
+		"500": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		},
+		"1000": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		},
+		"2500": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		},
+		"5000": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		},
+		"10000": {
+			"2GB": {
+				"currency": "USD",
+				"value": 8.5,
+				"formatted": "$8.50"
+			},
+			"4GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"8GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"16GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"32GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			},
+			"64GB": {
+				"currency": "USD",
+				"value": 9.5,
+				"formatted": "$9.50"
+			}
+		}
+	}
+}

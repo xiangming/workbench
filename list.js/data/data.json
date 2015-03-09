@@ -635,7 +635,7 @@
 			"price": {
 				"currency": "USD",
 				"value": 0.89,
-				"fomated": "$0.89"
+				"formated": "$0.89"
 			}
 		},
 		"MB": {
@@ -646,7 +646,7 @@
 			"price": {
 				"currency": "USD",
 				"value": 0.45,
-				"fomated": "$0.45"
+				"formated": "$0.45"
 			}
 		},
 		"MBM": {
@@ -657,7 +657,7 @@
 			"price": {
 				"currency": "USD",
 				"value": 0.45,
-				"fomated": "$0.45"
+				"formated": "$0.45"
 			}
 		},
 		"MBL": {
@@ -668,7 +668,7 @@
 			"price": {
 				"currency": "USD",
 				"value": 0.45,
-				"fomated": "$0.45"
+				"formated": "$0.45"
 			}
 		},
 		"NS": {
@@ -679,7 +679,7 @@
 			"price": {
 				"currency": "USD",
 				"value": 0.29,
-				"fomated": "$0.29"
+				"formated": "$0.29"
 			}
 		},
 		"PNS": {
@@ -690,7 +690,7 @@
 			"price": {
 				"currency": "USD",
 				"value": 0.75,
-				"fomated": "$0.75"
+				"formated": "$0.75"
 			}
 		},
 		"KC": {
@@ -701,7 +701,7 @@
 			"price": {
 				"currency": "USD",
 				"value": 0.29,
-				"fomated": "$0.29"
+				"formated": "$0.29"
 			}
 		},
 		"BL": {
@@ -712,7 +712,7 @@
 			"price": {
 				"currency": "USD",
 				"value": 0.29,
-				"fomated": "$0.29"
+				"formated": "$0.29"
 			}
 		}
 	},

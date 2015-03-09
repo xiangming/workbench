@@ -58,24 +58,37 @@
         .modal-open .modal{
             overflow: hidden;
         }
-
-        .nav-tabs{
+        .modal-heading .close{
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+        }
+        .modal-heading .nav-tabs{
             background: #f4f4f4;
         }
-        .nav-tabs>li{
+        .modal-heading .nav-tabs>li{
             border-right: 1px solid #ddd;
         }
-        .nav-tabs>li>a{
+        .modal-heading .nav-tabs>li>a{
             padding: 14px 15px;
             margin-right: 0;
             border-radius: 0;
             border: none!important;
             color: #555;
+            font-weight: 700;
         }
 
         .popover{
             width: 600px;
             max-width: 600px;
+        }
+
+        .glyphicon{
+            color: #999;
+        }
+        .glyphicon:hover{
+            color: #555;
         }
     </style>
 </head>
@@ -83,9 +96,13 @@
     <div class="container">
         <!-- header -->
         <div class="quote-header">
-            <div class="col-sm-6">LOGO</div>
-            <div class="col-sm-6"></div>
-            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <img style="height:90px" alt="Flashbay" border="0" src="http://www.flashbay.com/templates/images/flashbay_logo_us.jpg">
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="clearfix"></div>
+            </div>
         </div>
 
         <!-- sales & customer info -->
@@ -195,7 +212,10 @@
                 </div>
 
                 <div class="">
-                    <label for="" class="control-label col-sm-2">Language</label>
+                    <label for="" class="control-label col-sm-2">
+                        Language
+                        <a href="#" data-toggle="tooltip" title="" data-original-title="Default tooltip"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+                    </label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control">
                     </div>
@@ -209,7 +229,6 @@
                 <tr>
                     <th>Item</th>
                     <th>Description</th>
-                    <th>Price level</th>
                     <th>Quantity</th>
                     <th>Unit price</th>
                     <th>Amount</th>
@@ -224,14 +243,13 @@
                 <tr>
                     <td>CL.16GB.BLACK</td>
                     <td></td>
-                    <td>price level 10</td>
                     <td>100</td>
-                    <td>USD$15.5</td>
-                    <td>USD$1550</td>
+                    <td>$15.5</td>
+                    <td>$1550</td>
                     <td></td>
                     <td>10%</td>
-                    <td>USD$155</td>
-                    <td>USD$1705</td>
+                    <td>$155</td>
+                    <td>$1705</td>
                     <td>PT001</td>
                 </tr>
                 <tr>
@@ -241,7 +259,6 @@
                     <td>
                         <textarea name="" id="" class="editable form-control"></textarea>
                     </td>
-                    <td><input type="text" class="editable form-control"></td>
                     <td><input type="text" class="editable form-control"></td>
                     <td><input type="text" class="editable form-control"></td>
                     <td><input type="text" class="editable form-control"></td>
@@ -338,6 +355,7 @@
                             <a href="#service" role="tab" id="service-tab" data-toggle="tab" aria-controls="Service">Service</a>
                         </li>
                     </ul>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div id="myTabContent" class="tab-content">
@@ -350,19 +368,19 @@
                             <!-- filters -->
                             <div class="form-group row">
                                 <div class="col-md-3">
-                                    <select name="" id="type" class="form-control">
+                                    <select name="" id="model-type" class="form-control">
                                         <option value="all">--type--</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <select name="" id="usb" class="form-control">
+                                    <select name="" id="model-usb" class="form-control">
                                         <option value="all">--USB version--</option>
                                         <option value="USB2.0">USB2.0</option>
                                         <option value="USB3.0">USB3.0</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <select name="" id="capacity" class="form-control">
+                                    <select name="" id="model-capacity" class="form-control">
                                         <option value="all">--capacity--</option>
                                         <option value="2GB">2GB</option>
                                         <option value="4GB">4GB</option>
@@ -373,7 +391,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-3">
-                                    <select name="" id="color" class="form-control">
+                                    <select name="" id="model-color" class="form-control">
                                         <option value="all">--color--</option>
                                     </select>
                                 </div>
@@ -392,15 +410,6 @@
                                     </thead>
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
                                     <tbody class="list">
-                                        <!-- <tr>
-                                            <td class="type">Alloy</td>
-                                            <td class="usb">USB3.0</td>
-                                            <td class="capacity">16GB</td>
-                                            <td class="color">Silver</td>
-                                            <td class="price">USD$5 ~ USD$15
-                                                <a tabindex="0" role="button" data-toggle="popover" title="Classic" data-content="And here's some amazing content. It's very engaging. Right?"><i class="glyphicon glyphicon-question-sign"></i></a>
-                                            </td>
-                                        </tr> -->
                                         <tr>
                                             <td class="type"></td>
                                             <td class="usb"></td>
@@ -411,105 +420,6 @@
                                     </tbody>
                                 </table>
                             </div>
-
-                            <script>
-                                // debug
-                                function debug(o) {
-                                    console.log(o);
-                                }   
-
-                                // format the price range
-                                function getPriceRange(o){
-                                    var o = o || {};
-                                    return (o.min && o.min.currency) + (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.currency) + (o.max && o.max.formated) + "<a tabindex=\"0\" role=\"button\" data-toggle=\"popover\" title=\"Classic\" data-content=\"And here's some amazing content. It's very engaging. Right?\"> <i class=\"glyphicon glyphicon-question-sign\"><\/i><\/a>";
-                                };
-
-                                // format color
-                                function formatColors(a, t) {
-                                    var results = [];
-                                    for (var i = 0, l = a.length; i < l; i++) {
-                                        results.push(t[a[i]]);
-                                    };
-                                    return results;
-                                }
-
-                                // get colors in translations
-                                function getColors(t) {
-                                    for ( i in t) {
-                                        var color = t[i];
-                                        $('#color').append('<option value="'+ color +'">'+ color +'</option>');
-                                    }
-                                }
-
-                                /**
-                                 * list.js the datatable for model
-                                 */
-                                var options = {
-                                    valueNames: ['type', 'usb', 'capacity', 'color', 'price']
-                                };
-
-                                $.ajax({
-                                    url: 'data/json.js',
-                                    type: 'GET',
-                                    dataType: 'json',
-                                    async: false,
-                                    success: function(response){
-                                        var models = response.models || {};
-                                        var translations = response.translations || {};
-
-                                        var $type = $('#type');
-                                        var $usb = $('#usb');
-                                        var $capacity = $('#capacity');
-                                        var $color = $('#color');
-                                        getColors(translations);
-
-                                        var values = [];
-                                        $.each( models, function(i, v){
-                                            var type = v.name;
-                                            var priceRange = getPriceRange(v.prices);
-                                            var capacities = v.capacities;
-                                            var colors = formatColors(v.colors, translations);
-
-                                            // 生成filter
-                                            $type.append('<option value="'+ type +'">'+ type +'</option>');
-
-                                            // 遍历USB
-                                            for ( u in capacities) {
-                                                var capacity = capacities[u];
-                                                if (!!capacity[0]) {
-                                                    // 遍历capacity
-                                                    for ( ca in capacity ) {
-                                                        // 遍历colors
-                                                        for ( co in colors) {
-                                                            values.push({type: type, usb: u, capacity: capacity[ca], color: colors[co], price: priceRange});
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                                
-                                        });
-
-                                        var modelList = new List('model', options, values);
-
-                                        // filter function
-                                        $('#model select').change(function () {
-                                            var type = $('#type').val();
-                                            var usb = $('#usb').val();
-                                            var capacity = $('#capacity').val();
-                                            var color = $('#color').val();
-
-                                            // filter items in the list
-                                            modelList.filter(function (item) {
-                                                if ((item.values().type == type || type == 'all') && (item.values().usb == usb || usb == 'all') && (item.values().capacity == capacity || capacity == 'all') && (item.values().color == color || color == 'all')) {
-                                                    return true;
-                                                } else {
-                                                    return false;
-                                                }
-                                            });
-                                        });
-                                    }
-                                });
-                            </script>
                         </div>
 
                         <!-- accessory tab -->
@@ -522,18 +432,11 @@
                                 <div class="col-md-3">
                                     <select name="" id="accessory-type" class="form-control">
                                         <option value="all">--type--</option>
-                                        <option value="Presentation Tin">Presentation Tin</option>
-                                        <option value="Magnet Box">Magnet Box</option>
-                                        <option value="Neckstrap">Neckstrap</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
                                     <select name="" id="accessory-color" class="form-control">
                                         <option value="all">--color--</option>
-                                        <option value="White">white</option>
-                                        <option value="Silver">Silver</option>
-                                        <option value="Blue">blue</option>
-                                        <option value="Green">green</option>
                                     </select>
                                 </div>
                             </div>
@@ -550,47 +453,13 @@
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
                                     <tbody class="list">
                                         <tr>
-                                            <td class="type">Presentation Tin</td>
-                                            <td class="color">White</td>
-                                            <td class="price">USD$25</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="type">Magnet Box</td>
-                                            <td class="color">Silver</td>
-                                            <td class="price">USD$15</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="type">Neckstrap</td>
-                                            <td class="color">Blue</td>
-                                            <td class="price">USD$5</td>
+                                            <td class="type"></td>
+                                            <td class="color"></td>
+                                            <td class="price"></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
-                            <script>
-                                /**
-                                 * list.js the datatable for accessory
-                                 */
-                                var options = {
-                                    valueNames: ['type', 'color', 'price']
-                                };
-                                var accessoryList = new List('accessory', options);
-
-                                $('#accessory select').change(function () {
-                                    var type = $('#accessory-type').val();
-                                    var color = $('#accessory-color').val();
-
-                                    // filter items in the list
-                                    accessoryList.filter(function (item) {
-                                        if ((item.values().type == type || type == 'all') && (item.values().color == color || color == 'all')) {
-                                            return true;
-                                        } else {
-                                            return false;
-                                        }
-                                    });
-                                });
-                            </script>
                         </div>
 
                         <!-- service tab -->
@@ -610,34 +479,12 @@
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
                                     <tbody class="list">
                                         <tr>
-                                            <td class="type">Data Preloading</td>
-                                            <td class="price">USD$5</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="type">File Lock/Dual Zone</td>
-                                            <td class="price">USD$15</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="type">Pantone Matched Shells</td>
-                                            <td class="price">USD$25</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="type">AutoRun Function</td>
-                                            <td class="price">USD$5</td>
+                                            <td class="type"></td>
+                                            <td class="price"></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
-                            <script>
-                                /**
-                                 * list.js the datatable for service
-                                 */
-                                var options = {
-                                    valueNames: ['type', 'price']
-                                };
-                                var serviceList = new List('service', options);
-                            </script>
                         </div>
                     </div>
                 </div>
@@ -669,22 +516,181 @@
             /**
              * click Item column
              */
-            $('.item').on('click', function(){
+            $(document).on('click', '.item.editable', function(){
                 $('#item-modal').modal();
             });
 
             /**
-             * init popover
+             * quote main
+             */
+            var quote = {
+                common: {
+                    getColors: function(a, t){
+                        var results = [];
+                        for (var i = 0, l = a.length; i < l; i++) {
+                            results.push(t[a[i]]);
+                        };
+                        return results;
+                    },
+                    getColorOptions: function($o, t){
+                        for ( i in t) {
+                            var color = t[i];
+                            $o.append('<option value="'+ color +'">'+ color +'</option>');
+                        }
+                    }
+                },
+                models: {
+                    init: function(){
+                        
+                    },
+                    getPriceRange: function(o){
+                        var o = o || {};
+                        return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated) + "<a tabindex=\"0\" role=\"button\" data-toggle=\"popover\" title=\"Classic\" data-content=\"And here's some amazing content. It's very engaging. Right?\"> <i class=\"glyphicon glyphicon-question-sign\"><\/i><\/a>";
+                    },
+                    getPriceTable: function(){
+
+                    },
+                    options: {
+                        valueNames: ['type', 'usb', 'capacity', 'color', 'price']
+                    }
+                },
+                accessories: {
+                    init: function(){
+
+                    },
+                    options: {
+                        valueNames: ['type', 'color', 'price']
+                    }
+                },
+                services: {
+                    init: function(){
+
+                    },
+                    options: {
+                        valueNames: ['type', 'price']
+                    }
+                }
+            };
+
+            /**
+             * list.js the datatable for model & accessory & service
+             */
+            $.ajax({
+                url: 'data/data.json',
+                type: 'GET',
+                dataType: 'json',
+                async: false,
+                success: function(response){
+                    var models = response.models || {};
+                    var accessories = response.accessories || {};
+                    var services = response.services || {};
+                    var translations = response.translations || {};
+
+                    quote.common.getColorOptions($('#model-color'), translations);
+                    quote.common.getColorOptions($('#accessory-color'), translations);
+
+                    var models_options = quote.models.options;
+                    var accessories_options = quote.accessories.options;
+                    var services_options = quote.services.options;
+
+                    var models_values = [];
+                    $.each( models, function(i, v){
+                        var type = v.name;
+                        var priceRange = quote.models.getPriceRange(v.prices);
+                        var capacities = v.capacities;
+                        var colors = quote.common.getColors(v.colors, translations);
+
+                        // 生成filter
+                        $('#model-type').append('<option value="'+ type +'">'+ type +'</option>');
+
+                        // 遍历USB
+                        for ( u in capacities) {
+                            var capacity = capacities[u];
+                            if (!!capacity[0]) {
+                                // 遍历capacity
+                                for ( ca in capacity ) {
+                                    // 遍历colors
+                                    for ( co in colors) {
+                                        models_values.push({type: type, usb: u, capacity: capacity[ca], color: colors[co], price: priceRange});
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    var accessories_values = [];
+                    $.each( accessories, function(i, v){
+                        var type = v.name;
+                        var price = v.price.formated;
+                        var colors = quote.common.getColors(v.colors, translations);
+
+                        // 生成filter
+                        $('#accessory-type').append('<option value="'+ type +'">'+ type +'</option>');
+
+                        // 遍历colors
+                        for ( co in colors) {
+                            accessories_values.push({type: type, color: colors[co], price: price});
+                        }
+                    });
+
+                    var service_values = [];
+                    $.each( services, function(i, v){
+                        var type = v.name;
+                        var price = v.price.formated;
+
+                        // 生成filter
+                        $('#service-type').append('<option value="'+ type +'">'+ type +'</option>');
+
+                        service_values.push({type: type, price: price});
+                    });
+
+                    var modelList = new List('model', models_options, models_values);
+                    var accessoryList = new List('accessory', accessories_options, accessories_values);
+                    var serviceList = new List('service', services_options, service_values);
+
+                    // filters for models
+                    $('#model select').change(function () {
+                        var type = $('#model-type').val();
+                        var usb = $('#model-usb').val();
+                        var capacity = $('#model-capacity').val();
+                        var color = $('#model-color').val();
+
+                        // filter items in the list
+                        modelList.filter(function (item) {
+                            if ((item.values().type == type || type == 'all') && (item.values().usb == usb || usb == 'all') && (item.values().capacity == capacity || capacity == 'all') && (item.values().color == color || color == 'all')) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        });
+                    });
+
+                    // filters for accessories
+                    $('#accessory select').change(function () {
+                        var type = $('#accessory-type').val();
+                        var color = $('#accessory-color').val();
+
+                        // filter items in the list
+                        accessoryList.filter(function (item) {
+                            if ((item.values().type == type || type == 'all') && (item.values().color == color || color == 'all')) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        });
+                    });
+                }
+            });
+
+
+            /**
+             * init popover & tooltip
              */
             $('[data-toggle="popover"]').popover({
                 placement: 'bottom',
                 trigger: 'focus hover'
             });
-
-            /**
-             * data
-             */
-
+            $('[data-toggle="tooltip"]').tooltip()
         });
     </script>
 </body>
