@@ -9,8 +9,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="js/list.min.js"></script>
     <style type="text/css">
+        .quote-header{
+            border-bottom: 5px solid #767676;
+        }
+        .quote-form{
+            padding: 20px 0;
+        }
+
+        .table>thead>tr>th{
+            background: #767676;
+            color: #fff;
+            border: none;
+            text-align: center;
+        }
+
         .table>tbody>tr>td{
             padding: 5px;
+            border: none;
+            text-align: center;
         }
 
         .table-editable .editable{
@@ -26,23 +42,169 @@
         .table-editable textarea.editable.active{
             height: auto;
         }
+        .table-wrapper{
+            max-height: 400px;
+            overflow: auto;
+            border: 1px solid #ddd;
+        }
+        .table-wrapper .table{
+            margin-bottom: 0;
+        }
+        .table-wrapper .table>thead>tr>th,
+        .table-wrapper .table>tbody>tr>td{
+            border: none;
+        }
+
+        .modal-open .modal{
+            overflow: hidden;
+        }
+
+        .nav-tabs{
+            background: #f4f4f4;
+        }
+        .nav-tabs>li{
+            border-right: 1px solid #ddd;
+        }
+        .nav-tabs>li>a{
+            padding: 14px 15px;
+            margin-right: 0;
+            border-radius: 0;
+            border: none!important;
+            color: #555;
+        }
+
+        .popover{
+            width: 600px;
+            max-width: 600px;
+        }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <!-- Sortable -->
-        <ul id="sortable">
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
-        </ul>
+    <div class="container">
+        <!-- header -->
+        <div class="quote-header">
+            <div class="col-sm-6">LOGO</div>
+            <div class="col-sm-6"></div>
+            <div class="clearfix"></div>
+        </div>
+
+        <!-- sales & customer info -->
+        <form action="" class="form-horizontal quote-form">
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Company Address</label>
+                    <div class="col-sm-4">
+                        <textarea name="" id="" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Customer Address</label>
+                    <div class="col-sm-4">
+                        <textarea name="" id="" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Created By</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Contact Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Phone</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Phone</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Email</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">james@flashbay.com</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Email</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Created Date</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">04/03/2015</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Price Level</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2"></label>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Currency</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2"></label>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Language</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
         
-        <!-- Table -->
-        <table class="table table-bordered table-hover table-editable">
+        <!-- quote items -->
+        <table class="table table-striped table-hover table-editable">
             <thead>
                 <tr>
                     <th>Item</th>
@@ -60,28 +222,21 @@
             </thead>
             <tbody id="items">
                 <tr>
-                    <td>Jan 2015</td>
-                    <td>£85,785</td>
-                    <td> <font color="red">-28.95%</font>
-                    </td>
-                    <td>£47,925</td>
-                    <td> <font color="red">-38.69%</font>
-                    </td>
-                    <td>£37,860</td>
-                    <td>
-                        <font color="red">-11.06%</font>
-                    </td>
-
-                    <td>Feb 2015</td>
-                    <td>£118,251</td>
-                    <td>
-                        <font color="red">-10.72%</font>
-                    </td>
-                    <td>£65,496</td>
+                    <td>CL.16GB.BLACK</td>
+                    <td></td>
+                    <td>price level 10</td>
+                    <td>100</td>
+                    <td>USD$15.5</td>
+                    <td>USD$1550</td>
+                    <td></td>
+                    <td>10%</td>
+                    <td>USD$155</td>
+                    <td>USD$1705</td>
+                    <td>PT001</td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" class="item editable form-control">
+                        <input type="text" class="item editable form-control" placeholder="Click to choose">
                     </td>
                     <td>
                         <textarea name="" id="" class="editable form-control"></textarea>
@@ -171,7 +326,7 @@
     <div class="modal fade" id="item-modal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-body">
+                <div class="modal-heading">
                     <ul id="myTab" class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active">
                             <a href="#model" role="tab" id="model-tab" data-toggle="tab" aria-controls="Model" aria-expanded="true">Model</a>
@@ -183,18 +338,20 @@
                             <a href="#service" role="tab" id="service-tab" data-toggle="tab" aria-controls="Service">Service</a>
                         </li>
                     </ul>
+                </div>
+                <div class="modal-body">
                     <div id="myTabContent" class="tab-content">
+                        <!-- model tab -->
                         <div role="tabpanel" class="tab-pane fade in active" id="model" aria-labelledby="model-tab">
                             <div class="form-group">
                                 <input class="search form-control" placeholder="Search" />
                             </div>
-                            <!-- <button class="sort btn btn-primary" data-sort="price">Sort by price</button> -->
-                            <div class="row">
+                            
+                            <!-- filters -->
+                            <div class="form-group row">
                                 <div class="col-md-3">
                                     <select name="" id="type" class="form-control">
                                         <option value="all">--type--</option>
-                                        <option value="Classic">Classic</option>
-                                        <option value="Alloy">Alloy</option>
                                     </select>
                                 </div>
                                 <div class="col-md-3">
@@ -218,81 +375,150 @@
                                 <div class="col-md-3">
                                     <select name="" id="color" class="form-control">
                                         <option value="all">--color--</option>
-                                        <option value="White">white</option>
-                                        <option value="Silver">Silver</option>
-                                        <option value="Blue">blue</option>
-                                        <option value="Green">green</option>
                                     </select>
                                 </div>
                             </div>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Type</th>
-                                        <th>USB version</th>
-                                        <th>Capacity</th>
-                                        <th>Color</th>
-                                        <th>Reference price</th>
-                                    </tr>
-                                </thead>
-                                <!-- IMPORTANT, class="list" have to be at tbody -->                            
-                                <tbody class="list">
-                                    <tr>
-                                        <td class="type">Classic</td>
-                                        <td class="usb">USB2.0</td>
-                                        <td class="capacity">8GB</td>
-                                        <td class="color">White</td>
-                                        <td class="price">USD$5 ~ USD$15</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="type">Alloy</td>
-                                        <td class="usb">USB3.0</td>
-                                        <td class="capacity">16GB</td>
-                                        <td class="color">Silver</td>
-                                        <td class="price">USD$5 ~ USD$15</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="type">Alu</td>
-                                        <td class="usb">USB2.0</td>
-                                        <td class="capacity">2GB</td>
-                                        <td class="color">Blue</td>
-                                        <td class="price">USD$5 ~ USD$15</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>USB version</th>
+                                            <th>Capacity</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <!-- <tr>
+                                            <td class="type">Alloy</td>
+                                            <td class="usb">USB3.0</td>
+                                            <td class="capacity">16GB</td>
+                                            <td class="color">Silver</td>
+                                            <td class="price">USD$5 ~ USD$15
+                                                <a tabindex="0" role="button" data-toggle="popover" title="Classic" data-content="And here's some amazing content. It's very engaging. Right?"><i class="glyphicon glyphicon-question-sign"></i></a>
+                                            </td>
+                                        </tr> -->
+                                        <tr>
+                                            <td class="type"></td>
+                                            <td class="usb"></td>
+                                            <td class="capacity"></td>
+                                            <td class="color"></td>
+                                            <td class="price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <script>
+                                // debug
+                                function debug(o) {
+                                    console.log(o);
+                                }   
+
+                                // format the price range
+                                function getPriceRange(o){
+                                    var o = o || {};
+                                    return (o.min && o.min.currency) + (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.currency) + (o.max && o.max.formated) + "<a tabindex=\"0\" role=\"button\" data-toggle=\"popover\" title=\"Classic\" data-content=\"And here's some amazing content. It's very engaging. Right?\"> <i class=\"glyphicon glyphicon-question-sign\"><\/i><\/a>";
+                                };
+
+                                // format color
+                                function formatColors(a, t) {
+                                    var results = [];
+                                    for (var i = 0, l = a.length; i < l; i++) {
+                                        results.push(t[a[i]]);
+                                    };
+                                    return results;
+                                }
+
+                                // get colors in translations
+                                function getColors(t) {
+                                    for ( i in t) {
+                                        var color = t[i];
+                                        $('#color').append('<option value="'+ color +'">'+ color +'</option>');
+                                    }
+                                }
+
                                 /**
                                  * list.js the datatable for model
                                  */
                                 var options = {
                                     valueNames: ['type', 'usb', 'capacity', 'color', 'price']
                                 };
-                                var modelList = new List('model', options);
 
-                                $('#model select').change(function () {
-                                    var type = $('#type').val();
-                                    var usb = $('#usb').val();
-                                    var capacity = $('#capacity').val();
-                                    var color = $('#color').val();
+                                $.ajax({
+                                    url: 'data/json.js',
+                                    type: 'GET',
+                                    dataType: 'json',
+                                    async: false,
+                                    success: function(response){
+                                        var models = response.models || {};
+                                        var translations = response.translations || {};
 
-                                    // filter items in the list
-                                    modelList.filter(function (item) {
-                                        if ((item.values().type == type || type == 'all') && (item.values().usb == usb || usb == 'all') && (item.values().capacity == capacity || capacity == 'all') && (item.values().color == color || color == 'all')) {
-                                            return true;
-                                        } else {
-                                            return false;
-                                        }
-                                    });
+                                        var $type = $('#type');
+                                        var $usb = $('#usb');
+                                        var $capacity = $('#capacity');
+                                        var $color = $('#color');
+                                        getColors(translations);
+
+                                        var values = [];
+                                        $.each( models, function(i, v){
+                                            var type = v.name;
+                                            var priceRange = getPriceRange(v.prices);
+                                            var capacities = v.capacities;
+                                            var colors = formatColors(v.colors, translations);
+
+                                            // 生成filter
+                                            $type.append('<option value="'+ type +'">'+ type +'</option>');
+
+                                            // 遍历USB
+                                            for ( u in capacities) {
+                                                var capacity = capacities[u];
+                                                if (!!capacity[0]) {
+                                                    // 遍历capacity
+                                                    for ( ca in capacity ) {
+                                                        // 遍历colors
+                                                        for ( co in colors) {
+                                                            values.push({type: type, usb: u, capacity: capacity[ca], color: colors[co], price: priceRange});
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                                
+                                        });
+
+                                        var modelList = new List('model', options, values);
+
+                                        // filter function
+                                        $('#model select').change(function () {
+                                            var type = $('#type').val();
+                                            var usb = $('#usb').val();
+                                            var capacity = $('#capacity').val();
+                                            var color = $('#color').val();
+
+                                            // filter items in the list
+                                            modelList.filter(function (item) {
+                                                if ((item.values().type == type || type == 'all') && (item.values().usb == usb || usb == 'all') && (item.values().capacity == capacity || capacity == 'all') && (item.values().color == color || color == 'all')) {
+                                                    return true;
+                                                } else {
+                                                    return false;
+                                                }
+                                            });
+                                        });
+                                    }
                                 });
                             </script>
                         </div>
 
+                        <!-- accessory tab -->
                         <div role="tabpanel" class="tab-pane fade" id="accessory" aria-labelledby="accessory-tab">
                             <div class="form-group">
                                 <input class="search form-control" placeholder="Search" />
                             </div>
 
-                            <div class="row">
+                            <div class="form-group row">
                                 <div class="col-md-3">
                                     <select name="" id="accessory-type" class="form-control">
                                         <option value="all">--type--</option>
@@ -312,33 +538,35 @@
                                 </div>
                             </div>
 
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Type</th>
-                                        <th>Color</th>
-                                        <th>Reference price</th>
-                                    </tr>
-                                </thead>
-                                <!-- IMPORTANT, class="list" have to be at tbody -->                            
-                                <tbody class="list">
-                                    <tr>
-                                        <td class="type">Presentation Tin</td>
-                                        <td class="color">White</td>
-                                        <td class="price">USD$25</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="type">Magnet Box</td>
-                                        <td class="color">Silver</td>
-                                        <td class="price">USD$15</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="type">Neckstrap</td>
-                                        <td class="color">Blue</td>
-                                        <td class="price">USD$5</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td class="type">Presentation Tin</td>
+                                            <td class="color">White</td>
+                                            <td class="price">USD$25</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">Magnet Box</td>
+                                            <td class="color">Silver</td>
+                                            <td class="price">USD$15</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">Neckstrap</td>
+                                            <td class="color">Blue</td>
+                                            <td class="price">USD$5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
                             <script>
                                 /**
@@ -365,38 +593,41 @@
                             </script>
                         </div>
 
+                        <!-- service tab -->
                         <div role="tabpanel" class="tab-pane fade" id="service" aria-labelledby="service-tab">
                             <div class="form-group">
                                 <input class="search form-control" placeholder="Search" />
                             </div>
 
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Type</th>
-                                        <th>Reference price</th>
-                                    </tr>
-                                </thead>
-                                <!-- IMPORTANT, class="list" have to be at tbody -->                            
-                                <tbody class="list">
-                                    <tr>
-                                        <td class="type">Data Preloading</td>
-                                        <td class="price">USD$5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="type">File Lock/Dual Zone</td>
-                                        <td class="price">USD$15</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="type">Pantone Matched Shells</td>
-                                        <td class="price">USD$25</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="type">AutoRun Function</td>
-                                        <td class="price">USD$5</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td class="type">Data Preloading</td>
+                                            <td class="price">USD$5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">File Lock/Dual Zone</td>
+                                            <td class="price">USD$15</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">Pantone Matched Shells</td>
+                                            <td class="price">USD$25</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">AutoRun Function</td>
+                                            <td class="price">USD$5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
                             <script>
                                 /**
@@ -442,8 +673,17 @@
                 $('#item-modal').modal();
             });
 
-            
+            /**
+             * init popover
+             */
+            $('[data-toggle="popover"]').popover({
+                placement: 'bottom',
+                trigger: 'focus hover'
+            });
 
+            /**
+             * data
+             */
 
         });
     </script>
