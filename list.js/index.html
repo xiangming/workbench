@@ -2,13 +2,21 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
-    <title>Zimbra</title>
+    <title>quote tool</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js/jquery.editable.js"></script>
     <script src="js/list.min.js"></script>
     <style type="text/css">
+        textarea.form-control{
+            min-height: 100px;
+        }
+        .editable{
+            min-height: 34px;
+        }
+
         .quote-header{
             border-bottom: 5px solid #767676;
         }
@@ -29,11 +37,13 @@
             text-align: center;
         }
 
-        .table-editable .editable{
+        /*.table-editable .editable{
+            padding: 6px;
             border-color: transparent;
             background: transparent;
             box-shadow: none;
             height: 34px;
+            text-align: center;
         }
         .table-editable .editable.active{
             border-color: #66AFE9;
@@ -41,7 +51,7 @@
         }
         .table-editable textarea.editable.active{
             height: auto;
-        }
+        }*/
         .table-wrapper{
             max-height: 400px;
             overflow: auto;
@@ -111,14 +121,22 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Company Address</label>
                     <div class="col-sm-4">
-                        <textarea name="" id="" rows="5" class="form-control"></textarea>
+                        <p class="form-control-static editable" id="company-address" data-editable-type="textarea">
+                            Flashbay Ltd<br/>
+                            6 The Fountain Centre<br/>
+                            Imperial Wharf,<br/>
+                            London SW6 2TW<br/>
+                            United Kingdom<br/>
+                        </p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-sm-2">Customer Address</label>
                     <div class="col-sm-4">
-                        <textarea name="" id="" rows="5" class="form-control"></textarea>
+                        <p class="form-control-static editable" id="customer-address" data-editable-type="textarea">
+                            Click here to input!
+                        </p>
                     </div>
                 </div>
             </div>
@@ -182,7 +200,7 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Price Level</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <p class="form-control-static editable" data-editable-type="select" data-editable-choice='{"level10":"level10","level9":"level9"}'></p>
                     </div>
                 </div>
             </div>
@@ -214,7 +232,7 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">
                         Language
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="Default tooltip"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+                        <a href="#" data-toggle="tooltip" title="" data-original-title="Some tooltip here"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
                     </label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control">
@@ -241,7 +259,19 @@
             </thead>
             <tbody id="items">
                 <tr>
-                    <td>CL.16GB.BLACK</td>
+                    <td>CL.16GB.Black</td>
+                    <td></td>
+                    <td>100</td>
+                    <td>$15.5</td>
+                    <td>$1550</td>
+                    <td></td>
+                    <td>10%</td>
+                    <td>$155</td>
+                    <td>$1705</td>
+                    <td>PT001</td>
+                </tr>
+                <tr>
+                    <td>CL.16GB.Blue</td>
                     <td></td>
                     <td>100</td>
                     <td>$15.5</td>
@@ -263,72 +293,13 @@
                     <td><input type="text" class="editable form-control"></td>
                     <td><input type="text" class="editable form-control"></td>
                     <td>
-                        <select class="editable form-control">
-                            <option id="nl1" class="dropdownNotSelected">&nbsp;</option>
-                            <option id="nl2" class="dropdownNotSelected">Austria (LTD):AT_STANDARD-20%</option>
-                            <option id="nl3" class="dropdownNotSelected">Belgium (LTD) - old:VAT BE-EU-B2B-0%</option>
-                            <option id="nl4" class="dropdownNotSelected">Belgium (LTD) - old:VAT BEL - EXEMPT (E-BE)</option>
-                            <option id="nl5" class="dropdownNotSelected">Belgium (LTD) - old:VAT BEL-0% (O-BE)</option>
-                            <option id="nl6" class="dropdownNotSelected">Belgium (LTD) - old:VAT BEL-21%</option>
-                            <option id="nl7" class="dropdownNotSelected">Belgium (LTD):BE_EXEMPT - 0%</option>
-                            <option id="nl8" class="dropdownNotSelected">Belgium (LTD):BE_STANDARD-21%</option>
-                            <option id="nl9" class="dropdownNotSelected">Denmark (LTD):DK_STANDARD-25%</option>
-                            <option id="nl10" class="dropdownNotSelected">EU zero-rated  (LTD):EU_ valid on VIES - 0%</option>
-                            <option id="nl11" class="dropdownNotSelected">EU zero-rated  (LTD):EU_EXEMPT - 0%</option>
-                            <option id="nl12" class="dropdownNotSelected">Excluded:from VAT reporting- 0%</option>
-                            <option id="nl13" class="dropdownNotSelected">FB-US (CAN):GST - 0.0%</option>
-                            <option id="nl14" class="dropdownNotSelected">FB-US (USA):MX IVA-0.0%</option>
-                            <option id="nl15" class="dropdownNotSelected">FB-US (USA):NON CAL – 0.0%</option>
-                            <option id="nl16" class="dropdownNotSelected">FB-US (USA):USA CAL-0.0%</option>
-                            <option id="nl17" class="dropdownNotSelected">FB-US (USA):USA CAL-10.0%</option>
-                            <option id="nl18" class="dropdownNotSelected">FB-US (USA):USA CAL-10.25%</option>
-                            <option id="nl19" class="dropdownNotSelected">FB-US (USA):USA CAL-3.5%</option>
-                            <option id="nl20" class="dropdownNotSelected">FB-US (USA):USA CAL-7.25%</option>
-                            <option id="nl21" class="dropdownNotSelected">FB-US (USA):USA CAL-7.375%</option>
-                            <option id="nl22" class="dropdownNotSelected">FB-US (USA):USA CAL-7.5%</option>
-                            <option id="nl23" class="dropdownNotSelected">FB-US (USA):USA CAL-7.625%</option>
-                            <option id="nl24" class="dropdownNotSelected">FB-US (USA):USA CAL-7.75%</option>
-                            <option id="nl25" class="dropdownNotSelected">FB-US (USA):USA CAL-7.875%</option>
-                            <option id="nl26" class="dropdownNotSelected">FB-US (USA):USA CAL-7.975%</option>
-                            <option id="nl27" class="dropdownNotSelected">FB-US (USA):USA CAL-8.0%</option>
-                            <option id="nl28" class="dropdownNotSelected">FB-US (USA):USA CAL-8.125%</option>
-                            <option id="nl29" class="dropdownNotSelected">FB-US (USA):USA CAL-8.225%</option>
-                            <option id="nl30" class="dropdownNotSelected">FB-US (USA):USA CAL-8.25%</option>
-                            <option id="nl31" class="dropdownNotSelected">FB-US (USA):USA CAL-8.275%</option>
-                            <option id="nl32" class="dropdownNotSelected">FB-US (USA):USA CAL-8.375%</option>
-                            <option id="nl33" class="dropdownNotSelected">FB-US (USA):USA CAL-8.475%</option>
-                            <option id="nl34" class="dropdownNotSelected">FB-US (USA):USA CAL-8.5%</option>
-                            <option id="nl35" class="dropdownNotSelected">FB-US (USA):USA CAL-8.625%</option>
-                            <option id="nl36" class="dropdownNotSelected">FB-US (USA):USA CAL-8.725%</option>
-                            <option id="nl37" class="dropdownNotSelected">FB-US (USA):USA CAL-8.750%</option>
-                            <option id="nl38" class="dropdownNotSelected">FB-US (USA):USA CAL-8.875%</option>
-                            <option id="nl39" class="dropdownNotSelected">FB-US (USA):USA CAL-8.975%</option>
-                            <option id="nl40" class="dropdownNotSelected">FB-US (USA):USA CAL-9.00%</option>
-                            <option id="nl41" class="dropdownNotSelected">FB-US (USA):USA CAL-9.225%</option>
-                            <option id="nl42" class="dropdownNotSelected">FB-US (USA):USA CAL-9.250%</option>
-                            <option id="nl43" class="dropdownNotSelected">FB-US (USA):USA CAL-9.5%</option>
-                            <option id="nl44" class="dropdownNotSelected">FB-US (USA):USA CAL-9.75%</option>
-                            <option id="nl45" class="dropdownNotSelected">FB-US (USA):USA CAL/RSLLR – 0.0%</option>
-                            <option id="nl46" class="dropdownNotSelected">FB-US (USA):USA GOVNT – 0.0%</option>
-                            <option id="nl47" class="dropdownNotSelected">Finalnd (LTD):FI_STANDARD-24%</option>
-                            <option id="nl48" class="dropdownNotSelected">Ireland (LTD):IE_STANDARD-20%</option>
-                            <option id="nl49" class="dropdownNotSelected">Netherlands (LTD):NL_STANDARD-21%</option>
-                            <option id="nl50" class="dropdownNotSelected">Norway (LTD):NO_EXEMPT - 0%</option>
-                            <option id="nl51" class="dropdownNotSelected">Norway (LTD):NO_STANDARD - 25%</option>
-                            <option id="nl52" class="dropdownNotSelected">Poland (LTD):PL-STANDARD-23%</option>
-                            <option id="nl53" class="dropdownNotSelected">Sweden (LTD):SE_STANDARD-25%</option>
-                            <option id="nl54" class="dropdownNotSelected">Switzerland (LTD):CH_EXEMPT - 0%</option>
-                            <option id="nl55" class="dropdownNotSelected">TM-CN (CHN):CN-0%</option>
-                            <option id="nl56" class="dropdownNotSelected">TM-CN (CHN):CN-17%</option>
-                            <option id="nl57" class="dropdownNotSelected">TM-CN (CHN):CN-3%</option>
-                            <option id="nl58" class="dropdownNotSelected">UK (LTD):EU_  not valid on VIES - 20%</option>
-                            <option id="nl59" class="dropdownSelected">UK (LTD):UK _ EXEMPT- 0%</option>
+                        <!-- <select class="editable form-control">
                             <option id="nl60" class="dropdownNotSelected">UK (LTD):UK_ ZERO - 0%</option>
                             <option id="nl61" class="dropdownNotSelected">UK (LTD):UK_EXPORT - 0%</option>
                             <option id="nl62" class="dropdownNotSelected">UK (LTD):VAT ES-GB-0% (B2B)</option>
                             <option id="nl63" class="dropdownNotSelected">UK (LTD):VAT EZ-GB-0% (Zero)</option>
                             <option id="nl64" class="dropdownNotSelected">UK (LTD):VAT GBR-5% (R-GB)</option>
-                        </select>
+                        </select> -->
                     </td>
                     <td><input type="text" class="editable form-control"></td>
                     <td><input type="text" class="editable form-control"></td>
@@ -340,7 +311,7 @@
     </div>
 
     <!-- click item column -->
-    <div class="modal fade" id="item-modal">
+    <div class="modal fade in" id="item-modal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-heading">
@@ -401,17 +372,17 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Type</th>
-                                            <th>USB version</th>
-                                            <th>Capacity</th>
-                                            <th>Color</th>
-                                            <th>Reference price</th>
+                                            <th class="sort" data-sort="type">Type</th>
+                                            <th class="sort" data-sort="usb">USB version</th>
+                                            <th class="sort" data-sort="capacity">Capacity</th>
+                                            <th class="sort" data-sort="color">Color</th>
+                                            <th class="sort" data-sort="price">Reference price</th>
                                         </tr>
                                     </thead>
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
                                     <tbody class="list">
                                         <tr>
-                                            <td class="type"></td>
+                                            <td><a href="javascript:void(0);" class="type" onclick="quote.models.addTarget(this);"></a></td>
                                             <td class="usb"></td>
                                             <td class="capacity"></td>
                                             <td class="color"></td>
@@ -445,15 +416,15 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Type</th>
-                                            <th>Color</th>
-                                            <th>Reference price</th>
+                                            <th class="sort" data-sort="type">Type</th>
+                                            <th class="sort" data-sort="color">Color</th>
+                                            <th class="sort" data-sort="price">Reference price</th>
                                         </tr>
                                     </thead>
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
                                     <tbody class="list">
                                         <tr>
-                                            <td class="type"></td>
+                                            <td><a href="javascript:void(0);" class="type"></a></td>
                                             <td class="color"></td>
                                             <td class="price"></td>
                                         </tr>
@@ -472,14 +443,14 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Type</th>
-                                            <th>Reference price</th>
+                                            <th class="sort" data-sort="type">Type</th>
+                                            <th class="sort" data-sort="price">Reference price</th>
                                         </tr>
                                     </thead>
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
                                     <tbody class="list">
                                         <tr>
-                                            <td class="type"></td>
+                                            <td><a href="javascript:void(0);" class="type"></a></td>
                                             <td class="price"></td>
                                         </tr>
                                     </tbody>
@@ -493,107 +464,48 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            /**
-             * sortable
-             */
-            $( "#items" ).sortable();
-            $( "#items" ).disableSelection();
-
-            /**
-             * editable
-             */
-            $('.table-editable').on('focus', '.editable', function(){
-                $this = $(this);
-                $('.table-editable .editable').removeClass('active');
-                $this.addClass('active');
-            }).on('blur', '.editable', function(){
-                $this = $(this);
-                // $('.table-editable .editable').removeClass('active');
-                $this.removeClass('active');
-            });
-
-            /**
-             * click Item column
-             */
-            $(document).on('click', '.item.editable', function(){
-                $('#item-modal').modal();
-            });
-
-            /**
-             * quote main
-             */
-            var quote = {
-                common: {
-                    getColors: function(a, t){
-                        var results = [];
-                        for (var i = 0, l = a.length; i < l; i++) {
-                            results.push(t[a[i]]);
-                        };
-                        return results;
-                    },
-                    getColorOptions: function($o, t){
-                        for ( i in t) {
-                            var color = t[i];
-                            $o.append('<option value="'+ color +'">'+ color +'</option>');
+        /**
+         * quote main
+         */
+        var quote = {
+            common: {
+                init: function(){
+                    $.ajax({
+                        url: 'data/data.json',
+                        type: 'GET',
+                        dataType: 'json',
+                        async: false,
+                        success: function(response){
+                            quote.models.init(response);
+                            quote.accessories.init(response);
+                            quote.services.init(response);
                         }
-                    }
+                    });
                 },
-                models: {
-                    init: function(){
-                        
-                    },
-                    getPriceRange: function(o){
-                        var o = o || {};
-                        return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated) + "<a tabindex=\"0\" role=\"button\" data-toggle=\"popover\" title=\"Classic\" data-content=\"And here's some amazing content. It's very engaging. Right?\"> <i class=\"glyphicon glyphicon-question-sign\"><\/i><\/a>";
-                    },
-                    getPriceTable: function(){
-
-                    },
-                    options: {
-                        valueNames: ['type', 'usb', 'capacity', 'color', 'price']
-                    }
+                getColors: function(a, t){
+                    var results = [];
+                    for (var i = 0, l = a.length; i < l; i++) {
+                        results.push(t[a[i]]);
+                    };
+                    return results;
                 },
-                accessories: {
-                    init: function(){
-
-                    },
-                    options: {
-                        valueNames: ['type', 'color', 'price']
-                    }
-                },
-                services: {
-                    init: function(){
-
-                    },
-                    options: {
-                        valueNames: ['type', 'price']
+                getColorOptions: function($o, t){
+                    for ( i in t) {
+                        var color = t[i];
+                        $o.append('<option value="'+ color +'">'+ color +'</option>');
                     }
                 }
-            };
-
-            /**
-             * list.js the datatable for model & accessory & service
-             */
-            $.ajax({
-                url: 'data/data.json',
-                type: 'GET',
-                dataType: 'json',
-                async: false,
-                success: function(response){
-                    var models = response.models || {};
-                    var accessories = response.accessories || {};
-                    var services = response.services || {};
-                    var translations = response.translations || {};
+            },
+            models: {
+                init: function(obj){
+                    var models = obj.models || {};
+                    var translations = obj.translations || {};
 
                     quote.common.getColorOptions($('#model-color'), translations);
-                    quote.common.getColorOptions($('#accessory-color'), translations);
 
-                    var models_options = quote.models.options;
-                    var accessories_options = quote.accessories.options;
-                    var services_options = quote.services.options;
+                    var options = quote.models.options;
 
-                    var models_values = [];
+                    var values = [];
                     $.each( models, function(i, v){
                         var type = v.name;
                         var priceRange = quote.models.getPriceRange(v.prices);
@@ -611,42 +523,14 @@
                                 for ( ca in capacity ) {
                                     // 遍历colors
                                     for ( co in colors) {
-                                        models_values.push({type: type, usb: u, capacity: capacity[ca], color: colors[co], price: priceRange});
+                                        values.push({type: type, usb: u, capacity: capacity[ca], color: colors[co], price: priceRange});
                                     }
                                 }
                             }
                         }
                     });
 
-                    var accessories_values = [];
-                    $.each( accessories, function(i, v){
-                        var type = v.name;
-                        var price = v.price.formated;
-                        var colors = quote.common.getColors(v.colors, translations);
-
-                        // 生成filter
-                        $('#accessory-type').append('<option value="'+ type +'">'+ type +'</option>');
-
-                        // 遍历colors
-                        for ( co in colors) {
-                            accessories_values.push({type: type, color: colors[co], price: price});
-                        }
-                    });
-
-                    var service_values = [];
-                    $.each( services, function(i, v){
-                        var type = v.name;
-                        var price = v.price.formated;
-
-                        // 生成filter
-                        $('#service-type').append('<option value="'+ type +'">'+ type +'</option>');
-
-                        service_values.push({type: type, price: price});
-                    });
-
-                    var modelList = new List('model', models_options, models_values);
-                    var accessoryList = new List('accessory', accessories_options, accessories_values);
-                    var serviceList = new List('service', services_options, service_values);
+                    var modelList = new List('model', options, values);
 
                     // filters for models
                     $('#model select').change(function () {
@@ -664,6 +548,53 @@
                             }
                         });
                     });
+                },
+                getPriceRange: function(o){
+                    var o = o || {};
+                    return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated) + "<a tabindex=\"0\" role=\"button\" data-toggle=\"popover\" title=\"Classic\" data-content=\"And here's some amazing content. It's very engaging. Right?\"> <i class=\"glyphicon glyphicon-question-sign\"><\/i><\/a>";
+                },
+                getPriceTable: function(){
+
+                },
+                addTarget: function(obj){
+                    var type     = $(obj).text();
+                    var usb      = $(obj).parent('td').siblings('.usb').text();
+                    var capacity = $(obj).parent('td').siblings('.capacity').text();
+                    var color    = $(obj).parent('td').siblings('.color').text();
+
+                    $('.item.editable').val(type+'.'+usb+'.'+capacity+'.'+color);
+
+                    $('#item-modal').modal('hide');
+                },
+                options: {
+                    valueNames: ['type', 'usb', 'capacity', 'color', 'price']
+                }
+            },
+            accessories: {
+                init: function(obj){
+                    var accessories = obj.accessories || {};
+                    var translations = obj.translations || {};
+
+                    quote.common.getColorOptions($('#accessory-color'), translations);
+
+                    var options = quote.accessories.options;
+                    
+                    var values = [];
+                    $.each( accessories, function(i, v){
+                        var type = v.name;
+                        var price = v.price.formated;
+                        var colors = quote.common.getColors(v.colors, translations);
+
+                        // 生成filter
+                        $('#accessory-type').append('<option value="'+ type +'">'+ type +'</option>');
+
+                        // 遍历colors
+                        for ( co in colors) {
+                            values.push({type: type, color: colors[co], price: price});
+                        }
+                    });
+
+                    var accessoryList = new List('accessory', options, values);
 
                     // filters for accessories
                     $('#accessory select').change(function () {
@@ -679,13 +610,97 @@
                             }
                         });
                     });
+                },
+                options: {
+                    valueNames: ['type', 'color', 'price']
                 }
+            },
+            services: {
+                init: function(obj){
+                    var services = obj.services || {};
+                    var translations = obj.translations || {};
+
+                    var options = quote.services.options;
+
+                    var values = [];
+                    $.each( services, function(i, v){
+                        var type = v.name;
+                        var price = v.price.formated;
+
+                        // 生成filter
+                        $('#service-type').append('<option value="'+ type +'">'+ type +'</option>');
+
+                        values.push({type: type, price: price});
+                    });
+
+                    var serviceList = new List('service', options, values);
+                },
+                options: {
+                    valueNames: ['type', 'price']
+                }
+            }
+        };
+
+        $(document).ready(function() {
+            /**
+             * sortable
+             */
+            $( "#items" ).sortable();
+            $( "#items" ).disableSelection();
+
+            // /**
+            //  * editable
+            //  */
+            // $('.table-editable').on('focus', '.editable', function(){
+            //     $this = $(this);
+            //     $('.table-editable .editable').removeClass('active');
+            //     $this.addClass('active');
+            // }).on('blur', '.editable', function(){
+            //     $this = $(this);
+            //     // $('.table-editable .editable').removeClass('active');
+            //     $this.removeClass('active');
+            // });
+
+            /**
+             * click Item column
+             */
+            $(document).on('click', '.item.editable', function(){
+                $('#item-modal').modal();
+            });
+
+        
+            quote.common.init();
+
+
+            /**
+             * editable
+             */
+            // company address
+            $('#company-address').editable({
+                action: 'click',
+                class: 'form-control'
+            }, function(e){
+                console.log(e.value);
+            });
+            // customer address
+            $('#customer-address').editable({
+                action: 'click',
+                class: 'form-control'
+            }, function(e){
+                console.log(e.value);
             });
 
 
             /**
              * init popover & tooltip
              */
+            // $(document).on('mouseenter', '[data-toggle="popover"]', function(){
+            //     console.log(this);
+            //     $(this).popover({
+            //         placement: 'bottom',
+            //         trigger: 'focus hover'
+            //     });
+            // });
             $('[data-toggle="popover"]').popover({
                 placement: 'bottom',
                 trigger: 'focus hover'
