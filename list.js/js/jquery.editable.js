@@ -18,16 +18,12 @@
             $this = $(this);
             var settings = $.extend({}, defaults, $this.data(), typeof options == 'object' && options);
             if (typeof callback !== 'function') callback = function() {};
-            if (typeof options === 'object') {
-                var trigger = settings.trigger || $this;
-                if (typeof trigger === 'string') trigger = $(trigger);
-                var action = settings.action;
-                var type = settings.type;
-                var className = settings.className;
-                var choice = settings.choice;
-            } else {
-                throw ('Argument Error - jQuery.editable({}, function(){ ... })');
-            }
+            var trigger = settings.trigger || $this;
+            if (typeof trigger === 'string') trigger = $(trigger);
+            var action = settings.action;
+            var type = settings.type;
+            var className = settings.className;
+            var choice = settings.choice;
 
             var target = $this;
             var edit = {};
