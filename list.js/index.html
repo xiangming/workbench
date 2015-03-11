@@ -121,8 +121,8 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Company Address</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable" id="company-address" data-editable-type="textarea">
-                            Flashbay Ltd<br/>6 The Fountain Centre<br/>Imperial Wharf,<br/>London SW6 2TW<br/>United Kingdom<br/>
+                        <p class="form-control-static editable" data-type="textarea">
+                            Flashbay Ltd<br>6 The Fountain Centre<br>Imperial Wharf,<br>London SW6 2TW<br>United Kingdom<br>
                         </p>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Customer Address</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable" id="customer-address" data-editable-type="textarea">
+                        <p class="form-control-static editable" data-type="textarea">
                             Click here to input!
                         </p>
                     </div>
@@ -196,7 +196,7 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Price Level</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable" data-editable-type="select" data-editable-choice='{"level10":"level10","level9":"level9"}'></p>
+                        <p class="form-control-static editable" data-type="select" data-choice='{"level10":"level10","level9":"level9"}'></p>
                     </div>
                 </div>
             </div>
@@ -673,25 +673,10 @@
              */
             // customer address
             $('.editable').editable({
-                action: 'click',
-                class: 'form-control'
+                className: 'form-control'
             }, function(e){
                 console.log(e.value);
             });
-            // // company address
-            // $('#company-address').editable({
-            //     action: 'click',
-            //     class: 'form-control'
-            // }, function(e){
-            //     console.log(e.value);
-            // });
-            // // customer address
-            // $('#customer-address').editable({
-            //     action: 'click',
-            //     class: 'form-control'
-            // }, function(e){
-            //     console.log(e.value);
-            // });
 
 
             /**

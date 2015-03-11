@@ -1,4 +1,10 @@
 (function($) {
+    var defaults = {
+        action: 'click',
+        type: 'input',
+        className: '',
+        choice: {}
+    };
     var escape_html = function(str) {
             return str.replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
         };
@@ -6,26 +12,21 @@
             return str.replace(/&lt;/gm, '<').replace(/&gt;/gm, '>');
         };
 
-    $.fn.editable = function(event, callback) {
+    $.fn.editable = function(options, callback) {
 
         return this.each(function(){
             $this = $(this);
+            var settings = $.extend({}, defaults, $this.data(), typeof options == 'object' && options);
             if (typeof callback !== 'function') callback = function() {};
-            if (typeof event === 'string') {
-                var trigger = $this;
-                var action  = event;
-                var type    = $this.data('editable-type') || 'input';
-                var className = $this.data('editable-class') || '';
-                var choice  = $this.data('editable-choice') || {};
-            } else if (typeof event === 'object') {
-                var trigger = event.trigger || $this;
+            if (typeof options === 'object') {
+                var trigger = settings.trigger || $this;
                 if (typeof trigger === 'string') trigger = $(trigger);
-                var action = event.action || 'click';
-                var type = event.type || $this.data('editable-type') || 'input';
-                var className = event.class || $this.data('editable-class') || '';
-                var choice = event.choice || $this.data('editable-choice') || {};
+                var action = settings.action;
+                var type = settings.type;
+                var className = settings.className;
+                var choice = settings.choice;
             } else {
-                throw ('Argument Error - jQuery.editable("click", function(){ ... })');
+                throw ('Argument Error - jQuery.editable({}, function(){ ... })');
             }
 
             var target = $this;
