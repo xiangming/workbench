@@ -61,7 +61,7 @@
                 if (type === 'textarea') input.css('height', target.height());
 
                 var finish = function() {
-                    var result = input.val().replace(/^\s+/, '').replace(/\s+$/, '');
+                    var result = input.val() && input.val().replace(/^\s+/, '').replace(/\s+$/, '') || '';
                     var html = escape_html(result);
                     if (type === 'textarea') html = html.replace(/[\r\n]/gm, '<br />');
                     target.html(html);
@@ -103,5 +103,6 @@
             };
             edit.register();
         });
+
     };
 })(jQuery);

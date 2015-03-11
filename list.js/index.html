@@ -36,6 +36,9 @@
             border: none;
             text-align: center;
         }
+        .table-striped>tbody>tr:nth-child(odd){
+            background: #EEE;
+        }
 
         /*.table-editable .editable{
             padding: 6px;
@@ -130,9 +133,7 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Customer Address</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable" data-type="textarea">
-                            Click here to input!
-                        </p>
+                        <p class="form-control-static editable" data-type="textarea">Click here to edit!</p>
                     </div>
                 </div>
             </div>
@@ -141,14 +142,14 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Created By</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <p class="form-control-static editable">Click here to edit!</p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-sm-2">Contact Name</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <p class="form-control-static editable">Click here to edit!</p>
                     </div>
                 </div>
             </div>
@@ -157,14 +158,14 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Phone</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <p class="form-control-static editable">Click here to edit!</p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-sm-2">Phone</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <p class="form-control-static editable">Click here to edit!</p>
                     </div>
                 </div>
             </div>
@@ -173,14 +174,14 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Email</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable">james@flashbay.com</p>
+                        <p class="form-control-static editable">arvin@flashbay.com</p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-sm-2">Email</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <p class="form-control-static editable">Click here to edit!</p>
                     </div>
                 </div>
             </div>
@@ -189,14 +190,14 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Created Date</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static">04/03/2015</p>
+                        <p class="form-control-static editable">04/03/2015</p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-sm-2">Price Level</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable" data-type="select" data-choice='{"level10":"level10","level9":"level9"}'></p>
+                        <p class="form-control-static editable" data-type="select" data-choice='{"level10":"level10","level9":"level9"}'>Click here to choose!</p>
                     </div>
                 </div>
             </div>
@@ -212,7 +213,9 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Currency</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <p class="form-control-static editable" data-type="select" data-choice='{}'>
+                            Click here to choose!
+                        </p>
                     </div>
                 </div>
             </div>
@@ -231,14 +234,16 @@
                         <a href="#" data-toggle="tooltip" title="" data-original-title="Some tooltip here"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
                     </label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control">
+                        <p class="form-control-static editable" data-type="select" data-choice='{}'>
+                            Click here to choose!
+                        </p>
                     </div>
                 </div>
             </div>
         </form>
         
         <!-- quote items -->
-        <table class="table table-striped table-hover table-editable">
+        <table class="table table-striped table-editable">
             <thead>
                 <tr>
                     <th>Item</th>
@@ -255,28 +260,28 @@
             </thead>
             <tbody id="items">
                 <tr>
-                    <td>CL.16GB.Black</td>
-                    <td></td>
-                    <td>100</td>
-                    <td>$15.5</td>
-                    <td>$1550</td>
-                    <td></td>
-                    <td>10%</td>
-                    <td>$155</td>
-                    <td>$1705</td>
-                    <td>PT001</td>
+                    <td class="editable item">CL.16GB.Black</td>
+                    <td class="editable"></td>
+                    <td class="editable">100</td>
+                    <td class="editable">$15.5</td>
+                    <td class="editable">$1550</td>
+                    <td class="editable"></td>
+                    <td class="editable">10%</td>
+                    <td class="editable">$155</td>
+                    <td class="editable">$1705</td>
+                    <td class="editable">PT001</td>
                 </tr>
                 <tr>
-                    <td>CL.16GB.Blue</td>
-                    <td></td>
-                    <td>100</td>
-                    <td>$15.5</td>
-                    <td>$1550</td>
-                    <td></td>
-                    <td>10%</td>
-                    <td>$155</td>
-                    <td>$1705</td>
-                    <td>PT001</td>
+                    <td class="editable item">CL.16GB.Blue</td>
+                    <td class="editable"></td>
+                    <td class="editable">100</td>
+                    <td class="editable">$15.5</td>
+                    <td class="editable">$1550</td>
+                    <td class="editable"></td>
+                    <td class="editable">10%</td>
+                    <td class="editable">$155</td>
+                    <td class="editable">$1705</td>
+                    <td class="editable">PT001</td>
                 </tr>
                 <tr>
                     <td>
@@ -368,11 +373,11 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="sort" data-sort="type">Type</th>
-                                            <th class="sort" data-sort="usb">USB version</th>
-                                            <th class="sort" data-sort="capacity">Capacity</th>
-                                            <th class="sort" data-sort="color">Color</th>
-                                            <th class="sort" data-sort="price">Reference price</th>
+                                            <th>Type</th>
+                                            <th>USB version</th>
+                                            <th>Capacity</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
                                         </tr>
                                     </thead>
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
@@ -412,9 +417,9 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="sort" data-sort="type">Type</th>
-                                            <th class="sort" data-sort="color">Color</th>
-                                            <th class="sort" data-sort="price">Reference price</th>
+                                            <th>Type</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
                                         </tr>
                                     </thead>
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
@@ -439,8 +444,8 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="sort" data-sort="type">Type</th>
-                                            <th class="sort" data-sort="price">Reference price</th>
+                                            <th>Type</th>
+                                            <th>Reference price</th>
                                         </tr>
                                     </thead>
                                     <!-- IMPORTANT, class="list" have to be at tbody -->                            
