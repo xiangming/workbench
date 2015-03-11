@@ -122,11 +122,7 @@
                     <label for="" class="control-label col-sm-2">Company Address</label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable" id="company-address" data-editable-type="textarea">
-                            Flashbay Ltd<br/>
-                            6 The Fountain Centre<br/>
-                            Imperial Wharf,<br/>
-                            London SW6 2TW<br/>
-                            United Kingdom<br/>
+                            Flashbay Ltd<br/>6 The Fountain Centre<br/>Imperial Wharf,<br/>London SW6 2TW<br/>United Kingdom<br/>
                         </p>
                     </div>
                 </div>
@@ -177,7 +173,7 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Email</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static">james@flashbay.com</p>
+                        <p class="form-control-static editable">james@flashbay.com</p>
                     </div>
                 </div>
 
@@ -675,20 +671,27 @@
             /**
              * editable
              */
-            // company address
-            $('#company-address').editable({
-                action: 'click',
-                class: 'form-control'
-            }, function(e){
-                console.log(e.value);
-            });
             // customer address
-            $('#customer-address').editable({
+            $('.editable').editable({
                 action: 'click',
                 class: 'form-control'
             }, function(e){
                 console.log(e.value);
             });
+            // // company address
+            // $('#company-address').editable({
+            //     action: 'click',
+            //     class: 'form-control'
+            // }, function(e){
+            //     console.log(e.value);
+            // });
+            // // customer address
+            // $('#customer-address').editable({
+            //     action: 'click',
+            //     class: 'form-control'
+            // }, function(e){
+            //     console.log(e.value);
+            // });
 
 
             /**

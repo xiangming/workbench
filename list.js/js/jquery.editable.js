@@ -7,98 +7,100 @@
         };
 
     $.fn.editable = function(event, callback) {
-        if (typeof callback !== 'function') callback = function() {};
-        if (typeof event === 'string') {
-            var trigger = this;
-            var action  = event;
-            var type    = this.data('editable-type') || 'input';
-            var className = this.data('editable-class') || '';
-            var choice  = this.data('editable-choice') || {};
-        } else if (typeof event === 'object') {
-            var trigger = event.trigger || this;
-            if (typeof trigger === 'string') trigger = $(trigger);
-            var action = event.action || 'click';
-            var type = event.type || this.data('editable-type') || 'input';
-            var className = event.class || this.data('editable-class') || '';
-            var choice = event.choice || this.data('editable-choice') || {};
-        } else {
-            throw ('Argument Error - jQuery.editable("click", function(){ ... })');
-        }
 
-        var target = this;
-        var edit = {};
+        return this.each(function(){
+            $this = $(this);
+            if (typeof callback !== 'function') callback = function() {};
+            if (typeof event === 'string') {
+                var trigger = $this;
+                var action  = event;
+                var type    = $this.data('editable-type') || 'input';
+                var className = $this.data('editable-class') || '';
+                var choice  = $this.data('editable-choice') || {};
+            } else if (typeof event === 'object') {
+                var trigger = event.trigger || $this;
+                if (typeof trigger === 'string') trigger = $(trigger);
+                var action = event.action || 'click';
+                var type = event.type || $this.data('editable-type') || 'input';
+                var className = event.class || $this.data('editable-class') || '';
+                var choice = event.choice || $this.data('editable-choice') || {};
+            } else {
+                throw ('Argument Error - jQuery.editable("click", function(){ ... })');
+            }
 
-        edit.start = function(e) {
-            trigger.unbind(action === 'clickhold' ? 'mousedown' : action);
-            if (trigger !== target) trigger.hide();
-            var old_value = (type === 'textarea' ? target.html().replace(/<br( \/)?>/gm, '\n').replace(/&gt;/gm, '>').replace(/&lt;/gm, '<') : target.text()).replace(/^\s+/, '').replace(/\s+$/, '');
+            var target = $this;
+            var edit = {};
 
-            var input = null;
-            if (type === 'select') {
-                input = $('<select class="'+className+'">');
-                var data = choice;
-                for(i in data) {
-                    var value = data[i];
-                    input.append('<option value="'+ i +'">'+ value +'</option>');
+            edit.start = function(e) {
+                trigger.unbind(action === 'clickhold' ? 'mousedown' : action);
+                if (trigger !== target) trigger.hide();
+                var old_value = (type === 'textarea' ? target.html().replace(/<br( \/)?>/gm, '\n').replace(/&gt;/gm, '>').replace(/&lt;/gm, '<') : target.text()).replace(/^\s+/, '').replace(/\s+$/, '');
+
+                var input = null;
+                if (type === 'select') {
+                    input = $('<select class="'+className+'">');
+                    var data = choice;
+                    for(i in data) {
+                        var value = data[i];
+                        input.append('<option value="'+ i +'">'+ value +'</option>');
+                    }
+                } else if(type === 'textarea'){
+                    input = $('<textarea class="'+className+'">');
+                } else {
+                    input = $('<input class="'+className+'">');
+                };
+
+                input.val(old_value)
+                //.css('width', type === 'textarea' ? '100%' : target.width())
+                //.css('font-size', '100%')
+                //.css('margin', 0)
+                .attr('id', 'editable_' + (new Date() * 1))
+                .addClass('editable');
+
+                if (type === 'textarea') input.css('height', target.height());
+
+                var finish = function() {
+                    var result = input.val().replace(/^\s+/, '').replace(/\s+$/, '');
+                    var html = escape_html(result);
+                    if (type === 'textarea') html = html.replace(/[\r\n]/gm, '<br />');
+                    target.html(html);
+                    callback({
+                        value: result,
+                        target: target,
+                        old_value: old_value
+                    });
+                    edit.register();
+                    if (trigger !== target) trigger.show();
+                };
+
+                // 回车自动完成
+                input.blur(finish);
+                if (type === 'input') {
+                    input.keydown(function(e) {
+                        if (e.keyCode === 13) finish();
+                    });
                 }
-            } else if(type === 'textarea'){
-                input = $('<textarea class="'+className+'">');
-            } else {
-                input = $('<input class="'+className+'">');
+
+                target.html(input);
+                input.focus();
             };
 
-            input.val(old_value)
-            //.css('width', type === 'textarea' ? '100%' : target.width())
-            //.css('font-size', '100%')
-            //.css('margin', 0)
-            .attr('id', 'editable_' + (new Date() * 1))
-            .addClass('editable');
-
-            if (type === 'textarea') input.css('height', target.height());
-
-            var finish = function() {
-                var result = input.val().replace(/^\s+/, '').replace(/\s+$/, '');
-                var html = escape_html(result);
-                if (type === 'textarea') html = html.replace(/[\r\n]/gm, '<br />');
-                target.html(html);
-                callback({
-                    value: result,
-                    target: target,
-                    old_value: old_value
-                });
-                edit.register();
-                if (trigger !== target) trigger.show();
+            edit.register = function() {
+                if (action === 'clickhold') {
+                    var tid = null;
+                    trigger.bind('mousedown', function(e) {
+                        tid = setTimeout(function() {
+                            edit.start(e);
+                        }, 500);
+                    });
+                    trigger.bind('mouseup mouseout', function(e) {
+                        clearTimeout(tid);
+                    });
+                } else {
+                    trigger.bind(action, edit.start);
+                }
             };
-
-            // 回车自动完成
-            input.blur(finish);
-            if (type === 'input') {
-                input.keydown(function(e) {
-                    if (e.keyCode === 13) finish();
-                });
-            }
-
-            target.html(input);
-            input.focus();
-        };
-
-        edit.register = function() {
-            if (action === 'clickhold') {
-                var tid = null;
-                trigger.bind('mousedown', function(e) {
-                    tid = setTimeout(function() {
-                        edit.start(e);
-                    }, 500);
-                });
-                trigger.bind('mouseup mouseout', function(e) {
-                    clearTimeout(tid);
-                });
-            } else {
-                trigger.bind(action, edit.start);
-            }
-        };
-        edit.register();
-
-        return this;
+            edit.register();
+        });
     };
 })(jQuery);
