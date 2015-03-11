@@ -492,13 +492,17 @@
                     });
                 },
                 addTarget: function(elem){
-                    var $elem = $(elem);
+                    var $elem    = $(elem);
                     var type     = $elem.text();
                     var usb      = $elem.parent('td').siblings('.usb').text();
                     var capacity = $elem.parent('td').siblings('.capacity').text();
                     var color    = $elem.parent('td').siblings('.color').text();
 
-                    $(quote.target).text(type+'.'+usb+'.'+capacity+'.'+color);
+                    usb = usb ? '.'+usb : '';
+                    capacity = capacity ? '.'+capacity : '';
+                    color = color ? '.'+color : '';
+
+                    $(quote.target).text(type+usb+capacity+color);
 
                     $('#item-modal').modal('hide');
                 },
@@ -527,10 +531,10 @@
                     var options = quote.models.options;
                     var values = [];
                     $.each( models, function(i, v){
-                        var type = v.name;
+                        var type       = v.name;
                         var priceRange = quote.models.getPriceRange(v.prices);
                         var capacities = v.capacities;
-                        var colors = quote.common.getColors(v.colors, translations);
+                        var colors     = quote.common.getColors(v.colors, translations);
 
                         // 生成filter
                         $('#model-type').append('<option value="'+ type +'">'+ type +'</option>');
@@ -553,10 +557,10 @@
 
                     // filters for models
                     $('#model select').change(function () {
-                        var type = $('#model-type').val();
-                        var usb = $('#model-usb').val();
+                        var type     = $('#model-type').val();
+                        var usb      = $('#model-usb').val();
                         var capacity = $('#model-capacity').val();
-                        var color = $('#model-color').val();
+                        var color    = $('#model-color').val();
 
                         // filter items in the list
                         modelList.filter(function (item) {
