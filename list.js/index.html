@@ -21,6 +21,9 @@
         td.editable{
             height: 34px;
         }
+        td.editable.item{
+            text-align: left;
+        }
 
         .quote-header{
             border-bottom: 5px solid #767676;
@@ -34,6 +37,9 @@
             color: #fff;
             border: none;
             text-align: center;
+        }
+        .table>thead>tr>th.item{
+            text-align: left;
         }
 
         .table>tbody>tr>td{
@@ -253,12 +259,10 @@
         <table class="table table-striped table-editable">
             <thead>
                 <tr>
-                    <th>Item</th>
-                    <th>Description</th>
+                    <th class="item">Item</th>
                     <th>Quantity</th>
                     <th>Unit price</th>
                     <th>Amount</th>
-                    <th>Tax code</th>
                     <th>Tax rate</th>
                     <th>Tax amount</th>
                     <th>Gross amount</th>
@@ -268,11 +272,9 @@
             <tbody id="items">
                 <tr>
                     <td class="editable item">CL.16GB.Black</td>
-                    <td class="editable" data-type="textarea"></td>
                     <td class="editable">100</td>
                     <td class="editable">$15.5</td>
                     <td class="editable">$1550</td>
-                    <td class="editable"></td>
                     <td class="editable">10%</td>
                     <td class="editable">$155</td>
                     <td class="editable">$1705</td>
@@ -280,11 +282,9 @@
                 </tr>
                 <tr>
                     <td class="editable item">CL.16GB.Blue</td>
-                    <td class="editable" data-type="textarea"></td>
                     <td class="editable">100</td>
                     <td class="editable">$15.5</td>
                     <td class="editable">$1550</td>
-                    <td class="editable"></td>
                     <td class="editable">10%</td>
                     <td class="editable">$155</td>
                     <td class="editable">$1705</td>
@@ -292,8 +292,6 @@
                 </tr>
                 <tr>
                     <td class="editable item"></td>
-                    <td class="editable" data-type="textarea"></td>
-                    <td class="editable"></td>
                     <td class="editable"></td>
                     <td class="editable"></td>
                     <td class="editable"></td>
