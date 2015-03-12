@@ -13,113 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     
-    <style type="text/css">
-        textarea.form-control{
-            min-height: 100px;
-        }
-        .editable{
-            min-height: 34px;
-        }
-        td.editable{
-            height: 34px;
-        }
-        td.editable.item{
-            text-align: left;
-        }
-
-        .quote-header{
-            border-bottom: 5px solid #767676;
-        }
-        .quote-form{
-            padding: 20px 0;
-        }
-
-        .table>thead>tr>th{
-            background: #767676;
-            color: #fff;
-            border: none;
-            text-align: center;
-        }
-        .table>thead>tr>th.item{
-            text-align: left;
-        }
-
-        .table>tbody>tr>td{
-            padding: 5px;
-            border: none;
-            text-align: center;
-        }
-        .table-striped>tbody>tr:nth-child(odd){
-            background: #EEE;
-        }
-
-        /*.table-editable .editable{
-            padding: 6px;
-            border-color: transparent;
-            background: transparent;
-            box-shadow: none;
-            height: 34px;
-            text-align: center;
-        }
-        .table-editable .editable.active{
-            border-color: #66AFE9;
-            background: #FFF;
-        }
-        .table-editable textarea.editable.active{
-            height: auto;
-        }*/
-        .table-wrapper{
-            max-height: 400px;
-            overflow: auto;
-            border: 1px solid #ddd;
-        }
-        .table-wrapper .table{
-            margin-bottom: 0;
-        }
-        .table-wrapper .table>thead>tr>th,
-        .table-wrapper .table>tbody>tr>td{
-            border: none;
-        }
-
-        .modal-open .modal{
-            overflow: hidden;
-        }
-        .modal-heading .close{
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 30px;
-        }
-        .modal-heading .nav-tabs{
-            background: #f4f4f4;
-        }
-        .modal-heading .nav-tabs>li{
-            border-right: 1px solid #ddd;
-        }
-        .modal-heading .nav-tabs>li>a{
-            padding: 14px 15px;
-            margin-right: 0;
-            border-radius: 0;
-            border: none!important;
-            color: #555;
-            font-weight: 700;
-        }
-
-        .popover{
-            width: 600px;
-            max-width: 600px;
-        }
-
-        .glyphicon{
-            color: #999;
-        }
-        .glyphicon:hover{
-            color: #555;
-        }
-        .ui-sortable-handle{
-            cursor: move;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="container">
@@ -271,46 +165,43 @@
                     <th>Tax rate</th>
                     <th>Tax amount</th>
                     <th>Gross amount</th>
-                    <th>Virtual proof</th>
+                    <!-- <th>Virtual proof</th> -->
                 </tr>
             </thead>
             <tbody id="items">
                 <tr data-toggle="context">
                     <td class="editable item">Key.USB2.0.2GB.Silver</td>
                     <td class="editable">100</td>
-                    <td class="editable">$15.5</td>
-                    <td class="editable">$1550</td>
+                    <td class="editable">15.5</td>
+                    <td class="non-editable">1550</td>
                     <td class="editable">10%</td>
-                    <td class="editable">$155</td>
-                    <td class="editable">$1705</td>
-                    <td class="editable">PT001</td>
+                    <td class="non-editable">155</td>
+                    <td class="non-editable">1705</td>
                 </tr>
                 <tr data-toggle="context">
                     <td class="editable item">Classic.USB2.0.2GB.Black</td>
                     <td class="editable">100</td>
-                    <td class="editable">$15.5</td>
-                    <td class="editable">$1550</td>
+                    <td class="editable">15.5</td>
+                    <td class="non-editable">1550</td>
                     <td class="editable">10%</td>
-                    <td class="editable">$155</td>
-                    <td class="editable">$1705</td>
-                    <td class="editable">PT001</td>
+                    <td class="non-editable">155</td>
+                    <td class="non-editable">1705</td>
                 </tr>
                 <tr data-toggle="context">
                     <td class="editable item"></td>
                     <td class="editable"></td>
                     <td class="editable"></td>
+                    <td class="non-editable"></td>
                     <td class="editable"></td>
-                    <td class="editable"></td>
-                    <td class="editable"></td>
-                    <td class="editable"></td>
-                    <td class="editable"></td>
+                    <td class="non-editable"></td>
+                    <td class="non-editable"></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
     <!-- click item column -->
-    <div class="modal fade in" id="item-modal">
+    <div class="modal fade" id="item-modal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-heading">
@@ -674,7 +565,7 @@
                 var action = $(event.target).data('action');
                 switch(action) {
                     case 'add': 
-                        $(context).after($('<tr data-toggle="context"><td class="editable item"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td></tr>'));
+                        $(context).after($('<tr data-toggle="context"><td class="editable item"></td><td class="editable"></td><td class="editable"></td><td class="non-editable"></td><td class="editable"></td><td class="non-editable"></td><td class="non-editable"></td></tr>'));
                         break;
                     case 'copy':
                         $(context).after($(context).clone(true));
