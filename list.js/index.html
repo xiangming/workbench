@@ -10,8 +10,8 @@
     <script src="js/jquery.editable.js"></script>
     <script src="js/list.min.js"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -143,7 +143,7 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">
                         Language
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="Some tooltip here"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+                        <!-- <a href="#" data-toggle="tooltip" title="" data-original-title="Some tooltip here"> <i class="glyphicon glyphicon-exclamation-sign"></i></a> -->
                     </label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable" data-type="select" data-choice='{"English":"English"}'>
@@ -155,7 +155,7 @@
         </form>
         
         <!-- items -->
-        <table class="table table-striped table-editable">
+        <table class="table table-hover table-editable">
             <thead>
                 <tr>
                     <th class="item">Item</th>
@@ -178,7 +178,7 @@
                     <td class="non-editable">155</td>
                     <td class="non-editable">1705</td>
                 </tr>
-                <tr data-toggle="context">
+                <!-- <tr data-toggle="context">
                     <td class="editable item"></td>
                     <td class="editable" data-pattern="^\d+$"></td>
                     <td class="editable" data-pattern="^(\d+)(\.\d+)?$"></td>
@@ -186,7 +186,7 @@
                     <td class="non-editable"></td>
                     <td class="non-editable"></td>
                     <td class="non-editable"></td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -354,10 +354,14 @@
     <div id="context-menu">
         <ul class="dropdown-menu" role="menu">
             <li>
-                <a href="javascript:void(0);" tabindex="-1" data-action="add">Add new row</a>
+                <a href="javascript:void(0);" tabindex="-1" data-action="add"><i class="glyphicon glyphicon-plus"></i> Add new row</a>
             </li>
             <li>
-                <a href="javascript:void(0);" tabindex="-1" data-action="copy">Copy this row</a>
+                <a href="javascript:void(0);" tabindex="-1" data-action="copy"><i class="glyphicon glyphicon-duplicate"></i> Copy this row</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:void(0);" tabindex="-1" data-action="remove"><i class="glyphicon glyphicon-trash"></i> Remove this row</a>
             </li>
         </ul>
     </div>
@@ -370,6 +374,20 @@
             target: null,
             common: {
                 init: function(){
+                    quote.common.sortable();
+                    quote.common.editable();
+                    quote.common.contextmenu();
+
+                    /**
+                     * click Item column
+                     */
+                    $(document).on('click', '.item.editable', function(event){
+                        $('#item-modal').modal();
+                        var target = $(event.target);
+
+                        quote.target = target;
+                    });
+
                     $.ajax({
                         url: 'data/data.json',
                         type: 'GET',
@@ -384,7 +402,64 @@
                             $(document).on('click', '.list .type', function(){
                                 quote.common.addTarget(this);
                             });
+
+                            /**
+                             * init popover & tooltip
+                             */
+                            $('[data-toggle="popover"]').popover({
+                                placement: 'bottom',
+                                trigger: 'focus hover'
+                            });
+                            $('[data-toggle="tooltip"]').tooltip();
                         }
+                    });
+                },
+                contextmenu: function(){
+                    $('[data-toggle="context"]').contextmenu({
+                        target: '#context-menu',
+                        onItem: function(context, event) {
+                            var action = $(event.target).data('action');
+                            switch(action) {
+                                case 'add': 
+                                    $(context).after($('<tr data-toggle="context"><td class="editable item"></td><td class="editable"data-pattern="^\d+$"></td><td class="editable"data-pattern="^(\d+)(\.\d+)?$"></td><td class="non-editable"></td><td class="non-editable"></td><td class="non-editable"></td><td class="non-editable"></td></tr>'));
+                                    break;
+                                case 'copy':
+                                    $(context).after($(context).clone(true));
+                                    break;
+                                case 'remove':
+                                    if ($('[data-toggle="context"]').length > 1) {
+                                        $(context).detach();
+                                    } else {
+                                        alert('One item at least!');
+                                    }
+                                    break;
+                                default:
+                                    // do nothing
+                            };
+
+                            // init for the new row
+                            $('.editable').unbind();
+                            quote.common.editable();
+                            $('[data-toggle="context"]').unbind();
+                            quote.common.contextmenu();
+                        }
+                    });
+                },
+                sortable: function(){
+                    $( "#items" ).sortable();
+                    $( "#items" ).disableSelection();
+                },
+                editable: function(){
+                    $('.editable').editable({
+                        className: 'form-control'
+                    }, function(e){
+                        var target = e.target;
+                        var reg = new RegExp(target.data('pattern'));
+                        if (e.value.match(reg)) {
+                            // do nothing
+                        } else {
+                            target.text(e.old_value);
+                        };
                     });
                 },
                 addTarget: function(elem){
@@ -470,7 +545,8 @@
                 },
                 getPriceRange: function(o){
                     var o = o || {};
-                    return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated) + "<a tabindex=\"0\" role=\"button\" data-toggle=\"popover\" title=\"Classic\" data-content=\"And here's some amazing content. It's very engaging. Right?\"> <i class=\"glyphicon glyphicon-question-sign\"><\/i><\/a>";
+                    return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated);
+                    // return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated) + '<a tabindex="0" role="button" data-toggle="popover" title="Price Table" data-content="Price Table"> <i class="glyphicon glyphicon-question-sign"></i></a>';
                 },
                 getPriceTable: function(){
 
@@ -550,79 +626,11 @@
             }
         };
 
-        $('[data-toggle="context"]').contextmenu({
-            target: '#context-menu',
-            onItem: function(context, event) {
-                var action = $(event.target).data('action');
-                switch(action) {
-                    case 'add': 
-                        $(context).after($('<tr data-toggle="context"><td class="editable item"></td><td class="editable"></td><td class="editable"></td><td class="non-editable"></td><td class="editable"></td><td class="non-editable"></td><td class="non-editable"></td></tr>'));
-                        break;
-                    case 'copy':
-                        $(context).after($(context).clone(true));
-                        break;
-                    default:
-                        // do nothing
-                }
-
-                $('.editable').unbind().editable({
-                    className: 'form-control'
-                }, function(e){
-                    var target = e.target;
-                    var reg = new RegExp(target.data('pattern'));
-                    if (e.value.match(reg)) {
-                        // do nothing
-                    } else {
-                        target.text(e.old_value);
-                    };
-                });
-            }
-        });
-
         $(document).ready(function() {
-            /**
-             * sortable
-             */
-            $( "#items" ).sortable();
-            $( "#items" ).disableSelection();
 
-            /**
-             * click Item column
-             */
-            $(document).on('click', '.item.editable', function(event){
-                $('#item-modal').modal();
-                var target = $(event.target);
-
-                quote.target = target;
-            });
-
-            // init modal content
+            // init
             quote.common.init();
 
-            /**
-             * editable
-             */
-            $('.editable').editable({
-                className: 'form-control'
-            }, function(e){
-                var target = e.target;
-                var reg = new RegExp(target.data('pattern'));
-                if (e.value.match(reg)) {
-                    // do nothing
-                } else {
-                    target.text(e.old_value);
-                };
-            });
-            
-
-            /**
-             * init popover & tooltip
-             */
-            $('[data-toggle="popover"]').popover({
-                placement: 'bottom',
-                trigger: 'focus hover'
-            });
-            $('[data-toggle="tooltip"]').tooltip()
         });
     </script>
 </body>

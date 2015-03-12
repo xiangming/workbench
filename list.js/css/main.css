@@ -49,10 +49,10 @@
 }
 
 .glyphicon{
-    color: #999;
+    /*color: #999;*/
 }
 .glyphicon:hover{
-    color: #555;
+    /*color: #555;*/
 }
 textarea.form-control{
     min-height: 100px;
@@ -66,7 +66,7 @@ textarea.form-control{
     text-align: left;
 }
 .table-editable>tbody>tr:last-child{
-    background: #EEE;/*light-yellow*/
+    /*background: #EEE;*/
 }
 .table-editable>tbody td.editable{
     height: 34px;
