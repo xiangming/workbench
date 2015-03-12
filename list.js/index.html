@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>quote tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="js/bootstrap-contextmenu.js"></script>
     <script src="js/jquery.editable.js"></script>
     <script src="js/list.min.js"></script>
 
@@ -113,6 +115,9 @@
         }
         .glyphicon:hover{
             color: #555;
+        }
+        .ui-sortable-handle{
+            cursor: move;
         }
     </style>
 </head>
@@ -270,8 +275,8 @@
                 </tr>
             </thead>
             <tbody id="items">
-                <tr>
-                    <td class="editable item">CL.16GB.Black</td>
+                <tr data-toggle="context">
+                    <td class="editable item">Key.USB2.0.2GB.Silver</td>
                     <td class="editable">100</td>
                     <td class="editable">$15.5</td>
                     <td class="editable">$1550</td>
@@ -280,8 +285,8 @@
                     <td class="editable">$1705</td>
                     <td class="editable">PT001</td>
                 </tr>
-                <tr>
-                    <td class="editable item">CL.16GB.Blue</td>
+                <tr data-toggle="context">
+                    <td class="editable item">Classic.USB2.0.2GB.Black</td>
                     <td class="editable">100</td>
                     <td class="editable">$15.5</td>
                     <td class="editable">$1550</td>
@@ -290,7 +295,7 @@
                     <td class="editable">$1705</td>
                     <td class="editable">PT001</td>
                 </tr>
-                <tr>
+                <tr data-toggle="context">
                     <td class="editable item"></td>
                     <td class="editable"></td>
                     <td class="editable"></td>
@@ -462,6 +467,17 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="context-menu">
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a href="javascript:void(0);" tabindex="-1" data-action="add">Add new row</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" tabindex="-1" data-action="copy">Copy this row</a>
+            </li>
+        </ul>
     </div>
 
     <script>
@@ -652,6 +668,29 @@
             }
         };
 
+        $('[data-toggle="context"]').contextmenu({
+            target: '#context-menu',
+            onItem: function(context, event) {
+                var action = $(event.target).data('action');
+                switch(action) {
+                    case 'add': 
+                        $(context).after($('<tr data-toggle="context"><td class="editable item"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td><td class="editable"></td></tr>'));
+                        break;
+                    case 'copy':
+                        $(context).after($(context).clone(true));
+                        break;
+                    default:
+                        // do nothing
+                }
+
+                $('.editable').unbind().editable({
+                    className: 'form-control'
+                }, function(e){
+                    console.log('editable');
+                });
+            }
+        });
+
         $(document).ready(function() {
             /**
              * sortable
@@ -665,11 +704,6 @@
             $(document).on('click', '.item.editable', function(event){
                 $('#item-modal').modal();
                 var target = $(event.target);
-            //});
-            //$('#item-modal').on('show.bs.modal', function(event){
-                //var target = $(event.relatedTarget);
-                
-                console.log(target);
 
                 quote.target = target;
             });
@@ -680,7 +714,6 @@
             /**
              * editable
              */
-            // customer address
             $('.editable').editable({
                 className: 'form-control'
             }, function(e){
@@ -705,13 +738,6 @@
             /**
              * init popover & tooltip
              */
-            // $(document).on('mouseenter', '[data-toggle="popover"]', function(){
-            //     console.log(this);
-            //     $(this).popover({
-            //         placement: 'bottom',
-            //         trigger: 'focus hover'
-            //     });
-            // });
             $('[data-toggle="popover"]').popover({
                 placement: 'bottom',
                 trigger: 'focus hover'

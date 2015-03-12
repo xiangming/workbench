@@ -1,0 +1,81 @@
+
+给定email,得到customer address/contact name/Phone的列表：
+action=list_addr&email=customer@email.com
+返回：
+成功：
+{
+    "data": {
+        "customer_addrs": {
+            "1": {
+                "customer_id": 1,
+                "address": "Shenzhen City, Guangdong Province"
+            },
+            "10": {
+                "customer_id": 10,
+                "address": "Shenzhen City, Guangdong Province"
+            },
+            "11": {
+                "customer_id": 11,
+                "address": "Shenzhen City, Guangdong Province"
+            },
+            "13": {
+                "customer_id": 13,
+                "address": "Shenzhen City, Guangdong Province"
+            },
+            "15": {
+                "customer_id": 15,
+                "address": "Shenzhen City, Guangdong Province"
+            }
+        },
+        "contact_names": {
+            "1": {
+                "customer_id": 1,
+                "name": "First name second name"
+            },
+            "10": {
+                "customer_id": 10,
+                "name": "First name second name"
+            },
+            "11": {
+                "customer_id": 11,
+                "name": "First name second name"
+            },
+            "13": {
+                "customer_id": 13,
+                "name": "First name second name"
+            },
+            "15": {
+                "customer_id": 15,
+                "name": "First name second name"
+            }
+        },
+        "customer_phones": {
+            "1": {
+                "customer_id": 1,
+                "phone": "1234567"
+            },
+            "10": {
+                "customer_id": 10,
+                "phone": "1234567"
+            },
+            "11": {
+                "customer_id": 11,
+                "phone": "1234567"
+            },
+            "13": {
+                "customer_id": 13,
+                "phone": "1234567"
+            },
+            "15": {
+                "customer_id": 15,
+                "phone": "1234567"
+            }
+        }
+    },
+    "success": true
+}
+失败：
+{
+    "message": "Parameter invalid.",
+    "success": false
+}
