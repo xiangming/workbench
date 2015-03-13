@@ -178,16 +178,19 @@
                     <td class="non-editable tax">155</td>
                     <td class="non-editable gross">1705</td>
                 </tr>
-                <!-- <tr data-toggle="context" class="item-row">
-                    <td class="editable item"></td>
-                    <td class="editable quantity" data-pattern="^\d+$"></td>
-                    <td class="editable price" data-pattern="^(\d+)(\.\d+)?$"></td>
-                    <td class="non-editable amount"></td>
-                    <td class="non-editable taxRate">10%</td>
-                    <td class="non-editable tax"></td>
-                    <td class="non-editable gross"></td>
-                </tr> -->
             </tbody>
+        </table>
+
+        <table id="item-tpl" class="hide">
+            <tr data-toggle="context" class="item-row">
+                <td class="editable item"></td>
+                <td class="editable quantity" data-pattern="^\d+$"></td>
+                <td class="editable price" data-pattern="^(\d+)(\.\d+)?$"></td>
+                <td class="non-editable amount"></td>
+                <td class="non-editable taxRate">10%</td>
+                <td class="non-editable tax"></td>
+                <td class="non-editable gross"></td>
+            </tr>
         </table>
 
         <!-- right-click menu -->
@@ -373,6 +376,8 @@
          */
         var quote = {
             target: null,
+            itemTpl: $('#item-tpl .item-row'),
+            // itemTpl: $('<tr data-toggle="context"class="item-row"><td class="editable item"></td><td class="editable quantity"data-pattern="^\\d+$"></td><td class="editable price"data-pattern="^(\\d+)(\\.\\d+)?$"></td><td class="non-editable amount"></td><td class="non-editable taxRate">10%</td><td class="non-editable tax"></td><td class="non-editable gross"></td></tr>'),
             common: {
                 init: function(){
                     quote.common.sortable();
@@ -422,10 +427,24 @@
                             var action = $(event.target).data('action');
                             switch(action) {
                                 case 'add': 
-                                    $(context).after($('<tr data-toggle="context"class="item-row"><td class="editable item"></td><td class="editable quantity"data-pattern="^\\d+$"></td><td class="editable price"data-pattern="^(\\d+)(\\.\\d+)?$"></td><td class="non-editable amount"></td><td class="non-editable taxRate">10%</td><td class="non-editable tax"></td><td class="non-editable gross"></td></tr>'));
+                                    $(context).after(quote.itemTpl.clone(true));
+                                    
+                                    // init for the new row
+                                    $('.editable').unbind();
+                                    quote.common.editable();
+                                    $('[data-toggle="context"]').unbind();
+                                    quote.common.contextmenu();
+
                                     break;
                                 case 'copy':
                                     $(context).after($(context).clone(true));
+
+                                    // init for the new row
+                                    $('.editable').unbind();
+                                    quote.common.editable();
+                                    $('[data-toggle="context"]').unbind();
+                                    quote.common.contextmenu();
+
                                     break;
                                 case 'remove':
                                     if ($('[data-toggle="context"]').length > 1) {
@@ -437,38 +456,12 @@
                                 default:
                                     // do nothing
                             };
-
-                            // init for the new row
-                            $('.editable').unbind();
-                            quote.common.editable();
-                            $('[data-toggle="context"]').unbind();
-                            quote.common.contextmenu();
                         }
                     });
                 },
                 sortable: function(){
                     $( "#items" ).sortable();
                     $( "#items" ).disableSelection();
-                },
-                calculate: function($trigger){
-                    var $row = $trigger.parent('.item-row');
-                    var $quantity = $row.children('.quantity');
-                    var $price = $row.children('.price');
-                    var $amount = $row.children('.amount');
-                    var $taxRate = $row.children('.taxRate');
-                    var $tax = $row.children('.tax');
-                    var $gross = $row.children('.gross');
-
-                    var q = parseInt($quantity.text());
-                    var p = parseFloat($price.text());
-                    var a = q*p;
-                    var tr = parseFloat($taxRate.text())/100;
-                    var t = tr*a;
-                    var g = a + t;
-                    
-                    $amount.html(a);
-                    $tax.html(t);
-                    $gross.html(g);
                 },
                 editable: function(){
                     $('.editable').editable({
@@ -484,6 +477,27 @@
                             target.text(e.old_value);
                         };
                     });
+                },
+                calculate: function($trigger){
+                    var $row = $trigger.parent('.item-row');
+                    var $quantity = $row.children('.quantity');
+                    var $price = $row.children('.price');
+                    var $amount = $row.children('.amount');
+                    var $taxRate = $row.children('.taxRate');
+                    var $tax = $row.children('.tax');
+                    var $gross = $row.children('.gross');
+                    
+                    // 保留两位小数
+                    var q = parseInt($quantity.text());
+                    var p = parseFloat($price.text());
+                    var a = parseFloat((q*p).toFixed(2));
+                    var tr = parseFloat($taxRate.text())/100;
+                    var t = parseFloat((tr*a).toFixed(2));
+                    var g = (a + t).toFixed(2);
+                    
+                    $amount.html(a);
+                    $tax.html(t);
+                    $gross.html(g);
                 },
                 addTarget: function(elem){
                     var $elem    = $(elem);
