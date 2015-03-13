@@ -108,3 +108,8 @@ textarea.form-control{
 .editable{
     min-height: 34px;
 }
+.btn-generate{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

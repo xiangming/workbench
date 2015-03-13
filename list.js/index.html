@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <a href="#" class="btn btn-primary btn-generate">Generate PDF</a>
+
     <div class="container">
         <!-- logo -->
         <div class="quote-header">
@@ -23,7 +25,9 @@
                 <div class="col-sm-6">
                     <img style="height:90px" alt="Flashbay" border="0" src="http://www.flashbay.com/templates/images/flashbay_logo_us.jpg">
                 </div>
-                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    
+                </div>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -502,9 +506,9 @@
                     var t = parseFloat((tr*a).toFixed(2));
                     var g = (a + t).toFixed(2);
                     
-                    $amount.html(a);
-                    $tax.html(t);
-                    $gross.html(g);
+                    $amount.html(a?a:'');
+                    $tax.html(t?t:'');
+                    $gross.html(g?g:'');
                 },
                 addTarget: function(elem){
                     var $elem    = $(elem);
