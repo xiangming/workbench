@@ -7,11 +7,13 @@ var quote = {
     target: null,
     itemTpl: $('#item-tpl .item-row'),
     // itemTpl: $('<tr data-toggle="context"class="item-row"><td class="editable item"></td><td class="editable quantity"data-pattern="^\\d+$"></td><td class="editable price"data-pattern="^(\\d+)(\\.\\d+)?$"></td><td class="non-editable amount"></td><td class="non-editable taxRate">10%</td><td class="non-editable tax"></td><td class="non-editable gross"></td></tr>'),
+    customer_info: null,
     common: {
         init: function(){
             quote.common.sortable();
             quote.common.editable();
             quote.common.contextmenu();
+            quote.common.getCustomerInfo();
 
             /**
              * click Item column
@@ -55,6 +57,28 @@ var quote = {
                         
                 }
             });
+        },
+        getCustomerInfo: function(){
+            $.ajax({
+                url: 'data/list_addr.json',
+                type: 'GET',
+                dataType: 'json',
+                async: false,
+                success: function(response){
+                    if (response.success) {
+                        quote.customer_info = response.data;
+                        return response.data;
+                    } else {
+                        alert('Can\'t get customer info');
+                    };
+                }
+            });
+        },
+        updateCustomerInfo: function(id){
+            var info = quote.customer_info[id];
+            $('#customer_addr').html(info.customer_addr.replace('\n', '<br>'));
+            $('#contact_name').html(info.contact_name);
+            $('#customer_phone').html(info.customer_phone);
         },
         contextmenu: function(){
             $('[data-toggle="context"]').contextmenu({
@@ -106,10 +130,11 @@ var quote = {
                 var target = e.target;
                 var reg = new RegExp(target.data('pattern'));
                 if (e.value.match(reg)) {
-                    //console.log(e.value);
-                    quote.common.calculate(target);
+                    console.log(e.value);
+                    if (target.parent('.item-row').length) quote.common.calculate(target);
+                    if (target.attr('id') === 'customer_id') quote.common.updateCustomerInfo(e.value);
                 } else {
-                    //console.log(e.value);
+                    console.log(e.value);
                     target.text(e.old_value);
                 };
             });

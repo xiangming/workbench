@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/components/internal_tools/netsuite/quote_tool/css/main.css">
 </head>
 <body>
-    <a href="#" class="btn btn-primary btn-generate">Generate PDF</a>
+    <a href="#" id="generatePDF" class="btn btn-primary btn-generate nopdf">Generate PDF</a>
 
     <div class="container">
         <!-- logo -->
@@ -45,7 +45,7 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Customer Address</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable" data-type="textarea">
+                        <p class="form-control-static editable" data-type="textarea" id="customer_addr">
                             <?php echo @$customerInfo['customer_addr'];?>
                         </p>
                     </div>
@@ -63,7 +63,9 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Contact Name</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable"><?php echo @$customerInfo['contact_name'];?></p>
+                        <p class="form-control-static editable" id="contact_name">
+                            <?php echo @$customerInfo['contact_name'];?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -79,7 +81,9 @@
                 <div class="">
                     <label for="" class="control-label col-sm-2">Phone</label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable"><?php echo @$customerInfo['customer_phone'];?></p>
+                        <p class="form-control-static editable" id="customer_phone">
+                            <?php echo @$customerInfo['customer_phone'];?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -144,14 +148,14 @@
                     </div>
                 </div>
 
-                <div class="">
+                <div class="nopdf">
                     <label for="" class="control-label col-sm-2">
                         Language
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+                        <a href="#" data-toggle="tooltip" title="" data-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
                     </label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable" data-type="select" data-choice='<?php echo json_encode ($languagesSupported); ?>'>
-                        <?php echo @$customerInfo['language'];?>
+                        <?php echo $language;?>
                         </p>
                     </div>
                 </div>
@@ -165,13 +169,13 @@
                     </div>
                 </div>
 
-                <div class="">
+                <div class="nopdf">
                     <label for="" class="control-label col-sm-2">
                         Customer ID
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+                        <a href="#" data-toggle="tooltip" title="" data-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
                     </label>
                     <div class="col-sm-4">
-                        <p class="form-control-static editable" data-type="select" data-choice='<?php echo json_encode ($languagesSupported); ?>'>
+                        <p class="form-control-static editable" data-type="select" data-choice='<?php echo json_encode ($candidateCustomerIDs); ?>'>
                         <?php echo @$customerInfo['customer_id'];?>
                         </p>
                     </div>
@@ -418,11 +422,13 @@
             target: null,
             itemTpl: $('#item-tpl .item-row'),
             // itemTpl: $('<tr data-toggle="context"class="item-row"><td class="editable item"></td><td class="editable quantity"data-pattern="^\\d+$"></td><td class="editable price"data-pattern="^(\\d+)(\\.\\d+)?$"></td><td class="non-editable amount"></td><td class="non-editable taxRate">10%</td><td class="non-editable tax"></td><td class="non-editable gross"></td></tr>'),
+            customer_info: null,
             common: {
                 init: function(){
                     quote.common.sortable();
                     quote.common.editable();
                     quote.common.contextmenu();
+                    quote.common.getCustomerInfo();
 
                     /**
                      * click Item column
@@ -465,6 +471,28 @@
                                 
                         }
                     });
+                },
+                getCustomerInfo: function(){
+                    $.ajax({
+                        url: 'http://beta.flashbay.com/item_builder?action=list_addr',
+                        type: 'GET',
+                        dataType: 'json',
+                        async: false,
+                        success: function(response){
+                            if (response.success) {
+                                quote.customer_info = response.data;
+                                return response.data;
+                            } else {
+                                alert('Can\'t get customer info');
+                            };
+                        }
+                    });
+                },
+                updateCustomerInfo: function(id){
+                    var info = quote.customer_info[id];
+                    $customer_addr = $('#customer_addr').text(info.customer_addr);
+                    $contact_name = $('#contact_name').text(info.contact_name);
+                    $customer_phone = $('#customer_phone').text(info.customer_phone);
                 },
                 contextmenu: function(){
                     $('[data-toggle="context"]').contextmenu({
@@ -516,10 +544,11 @@
                         var target = e.target;
                         var reg = new RegExp(target.data('pattern'));
                         if (e.value.match(reg)) {
-                            //console.log(e.value);
-                            quote.common.calculate(target);
+                            console.log(e.value);
+                            if (target.parent('.item-row').length) quote.common.calculate(target);
+                            if (target.attr('id') === 'customer_id') quote.common.updateCustomerInfo(e.value);
                         } else {
-                            //console.log(e.value);
+                            console.log(e.value);
                             target.text(e.old_value);
                         };
                     });
@@ -715,6 +744,27 @@
             quote.common.init();
 
         });
+        function PDFBind ()
+        {
+            $('#generatePDF').click (function (e) {
+                $('.nopdf').remove ();
+                var html = document.documentElement;
+                $.ajax ({url: '/item_builder?action=save',
+                        type: 'POST',
+                        data: 'page=' + window.encodeURIComponent (html),
+                        dataType: 'json',
+                        success: function (response) {
+                            if (response.success) {
+                                window.opener.postMessage('QUOTE_TOOL_MESSAGE:Flashbay_quote.pdf|||http://www.flashbay.de/gen.php?uri=' + response.data, 'https://zimbra.flashbay.mars');
+                                window.close();
+                            } else {
+                                alert ('Failed to generate PDF');
+                            }
+                        }
+                });	
+            });
+        }
+        PDFBind ();
     </script>
 </body>
 </html>
