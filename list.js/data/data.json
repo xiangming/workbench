@@ -1,787 +1,1326 @@
 ﻿{
-	"models": {
-		"WA": {
-			"id": "16",
-			"item_code": "WA",
-			"name": "Wafer",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "FB", "BL", "MBM", "SBC"],
-			"services": ["DP", "DPUS", "AR", "VL"],
-			"colors": ["_CLEAR"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.5,
-					"formated": "$3.50"
+	"success": true,
+	"data": {
+		"models": {
+			"WA": {
+				"id": "16",
+				"item_code": "WA",
+				"name": "Wafer",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
 				},
-				"max": {
-					"currency": "USD",
-					"value": 40.15,
-					"formated": "$40.15"
+				"accessories": ["PT", "FB", "BL", "MBM", "SBC"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_CLEAR"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.88,
+						"formatted": "$3.88"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.25,
+						"formatted": "$43.25"
+					}
+				}
+			},
+			"TW": {
+				"id": "4",
+				"item_code": "TW",
+				"name": "Twister",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL", "IN"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.59,
+						"formatted": "$3.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"KN": {
+				"id": "43",
+				"item_code": "KN",
+				"name": "Kinetic",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.59,
+						"formatted": "$3.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"KS": {
+				"id": "40",
+				"item_code": "KS",
+				"name": "Key",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_SILVER", "_BLACK", "_GOLD"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.83,
+						"formatted": "$3.83"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.2,
+						"formatted": "$43.20"
+					}
+				}
+			},
+			"FC": {
+				"id": "60",
+				"item_code": "FC",
+				"name": "Focus",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_PEARL_SILVER"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.98,
+						"formatted": "$3.98"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.35,
+						"formatted": "$43.35"
+					}
+				}
+			},
+			"NT": {
+				"id": "61",
+				"item_code": "NT",
+				"name": "Note",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["BL", "MBL", "\r\n"],
+				"services": ["DP", "DPUS", "AR", "VL", "\r\n"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.78,
+						"formatted": "$3.78"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.15,
+						"formatted": "$43.15"
+					}
+				}
+			},
+			"EX": {
+				"id": "55",
+				"item_code": "EX",
+				"name": "Executive",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_BLACK", "_BROWN", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.09,
+						"formatted": "$4.09"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.55,
+						"formatted": "$43.55"
+					}
+				}
+			},
+			"RT": {
+				"id": "36",
+				"item_code": "RT",
+				"name": "Rotator",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "SB", "FB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.98,
+						"formatted": "$3.98"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.35,
+						"formatted": "$43.35"
+					}
+				}
+			},
+			"CT": {
+				"id": "48",
+				"item_code": "CT",
+				"name": "Christmas",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_LIGHTWOOD"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 5.66,
+						"formatted": "$5.66"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 23.38,
+						"formatted": "$23.38"
+					}
+				}
+			},
+			"CS": {
+				"id": "1",
+				"item_code": "CS",
+				"name": "Classic",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": ["8GB", "16GB", "32GB", "64GB", ""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL", "IN"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.59,
+						"formatted": "$3.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"AY": {
+				"id": "15",
+				"item_code": "AY",
+				"name": "Alloy",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "FB", "BL", "MBM", "SBC"],
+				"services": ["DP", "DPUS", "AR", "VL", "IN"],
+				"colors": ["_SILVER", "_BLACK"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.88,
+						"formatted": "$3.88"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.25,
+						"formatted": "$43.25"
+					}
+				}
+			},
+			"HA": {
+				"id": "13",
+				"item_code": "HA",
+				"name": "Halo",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL", "IN"],
+				"colors": ["_BLUE_LED", "_GREEN_LED", "_RED_LED", "_YELLOW_LED", "_WHITE_LED"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.68,
+						"formatted": "$3.68"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"PO": {
+				"id": "7",
+				"item_code": "PO",
+				"name": "Pod",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.59,
+						"formatted": "$3.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"TX": {
+				"id": "21",
+				"item_code": "TX",
+				"name": "Trix",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.59,
+						"formatted": "$3.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"NA": {
+				"id": "2",
+				"item_code": "NA",
+				"name": "Nature",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_LIGHTWOOD"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.84,
+						"formatted": "$4.84"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 44.3,
+						"formatted": "$44.30"
+					}
+				}
+			},
+			"CF": {
+				"id": "58",
+				"item_code": "CF",
+				"name": "Carbon",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_BLACK"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.68,
+						"formatted": "$3.68"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"EL": {
+				"id": "57",
+				"item_code": "EL",
+				"name": "Ellipse",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.88,
+						"formatted": "$3.88"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.25,
+						"formatted": "$43.25"
+					}
+				}
+			},
+			"LE": {
+				"id": "5",
+				"item_code": "LE",
+				"name": "Leather",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_BLACK", "_BROWN", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.38,
+						"formatted": "$4.38"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 33.19,
+						"formatted": "$33.19"
+					}
+				}
+			},
+			"CL": {
+				"id": "53",
+				"item_code": "CL",
+				"name": "Clip",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.68,
+						"formatted": "$3.68"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"PS": {
+				"id": "47",
+				"item_code": "PS",
+				"name": "Pop",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.79,
+						"formatted": "$3.79"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.25,
+						"formatted": "$43.25"
+					}
+				}
+			},
+			"SL": {
+				"id": "59",
+				"item_code": "SL",
+				"name": "Slap",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "FB", "MBM", "SB"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.88,
+						"formatted": "$3.88"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.25,
+						"formatted": "$43.25"
+					}
+				}
+			},
+			"VY": {
+				"id": "37",
+				"item_code": "VY",
+				"name": "Voyager",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MBM", "SB", "FB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_BLACK", "_BROWN", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.38,
+						"formatted": "$4.38"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 33.19,
+						"formatted": "$33.19"
+					}
+				}
+			},
+			"LT": {
+				"id": "56",
+				"item_code": "LT",
+				"name": "Light",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.83,
+						"formatted": "$3.83"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.2,
+						"formatted": "$43.20"
+					}
+				}
+			},
+			"OB": {
+				"id": "38",
+				"item_code": "OB",
+				"name": "Outback",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MBM", "SB", "FB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_BLACK", "_BROWN", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.59,
+						"formatted": "$4.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 21.9,
+						"formatted": "$21.90"
+					}
+				}
+			},
+			"CO": {
+				"id": "12",
+				"item_code": "CO",
+				"name": "Concept",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": [""],
+					"USB3.0": [""]
+				},
+				"accessories": [""],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_LIGHT_WOOD"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 0,
+						"formatted": "$0.00"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 0,
+						"formatted": "$0.00"
+					}
+				}
+			},
+			"IK": {
+				"id": "17",
+				"item_code": "IK",
+				"name": "Ink",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["BL", "MBL"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.69,
+						"formatted": "$3.69"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.15,
+						"formatted": "$43.15"
+					}
+				}
+			},
+			"BS": {
+				"id": "39",
+				"item_code": "BS",
+				"name": "Bamboo",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_LIGHTWOOD"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 5.39,
+						"formatted": "$5.39"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 22.7,
+						"formatted": "$22.70"
+					}
+				}
+			},
+			"ST": {
+				"id": "9",
+				"item_code": "ST",
+				"name": "Sterling",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB"],
+					"USB3.0": [""]
+				},
+				"accessories": [""],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_SILVER"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 52.99,
+						"formatted": "$52.99"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 81.8,
+						"formatted": "$81.80"
+					}
+				}
+			},
+			"ES": {
+				"id": "14",
+				"item_code": "ES",
+				"name": "Eclipse",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_RED", "_GREEN", "_YELLOW", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.74,
+						"formatted": "$3.74"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 32.55,
+						"formatted": "$32.55"
+					}
+				}
+			},
+			"WB": {
+				"id": "20",
+				"item_code": "WB",
+				"name": "Lizzard",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "FB", "MBM", "SB"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.59,
+						"formatted": "$3.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"EV": {
+				"id": "44",
+				"item_code": "EV",
+				"name": "Event",
+				"moq": "100",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MBM"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.09,
+						"formatted": "$4.09"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 31.38,
+						"formatted": "$31.38"
+					}
+				}
+			},
+			"IM": {
+				"id": "6",
+				"item_code": "IM",
+				"name": "Image",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.59,
+						"formatted": "$3.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"PI": {
+				"id": "10",
+				"item_code": "PI",
+				"name": "Pill",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MBM", "FB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_RED", "_GREEN", "_YELLOW", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.79,
+						"formatted": "$3.79"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 32.6,
+						"formatted": "$32.60"
+					}
+				}
+			},
+			"TO": {
+				"id": "8",
+				"item_code": "TO",
+				"name": "Torpedo",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["1GB", "2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.13,
+						"formatted": "$4.13"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"FS": {
+				"id": "54",
+				"item_code": "FS",
+				"name": "Flip",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.59,
+						"formatted": "$3.59"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"TS": {
+				"id": "46",
+				"item_code": "TS",
+				"name": "Tie",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["1GB", "2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.48,
+						"formatted": "$4.48"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.4,
+						"formatted": "$43.40"
+					}
+				}
+			},
+			"AL": {
+				"id": "3",
+				"item_code": "AL",
+				"name": "Alu",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["1GB", "2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "P", "VL", "IN"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.13,
+						"formatted": "$4.13"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"ID": {
+				"id": "11",
+				"item_code": "ID",
+				"name": "ID",
+				"moq": "250",
+				"capacities": {
+					"USB2.0": ["2GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["NS", "KC"],
+				"services": [""],
+				"colors": ["_BLACK", "_WHITE", "_SILVER"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 15.99,
+						"formatted": "$15.99"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 18.87,
+						"formatted": "$18.87"
+					}
+				}
+			},
+			"CA": {
+				"id": "52",
+				"item_code": "CA",
+				"name": "Canvas",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["1GB", "2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_CLEAR"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 4.13,
+						"formatted": "$4.13"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 43.05,
+						"formatted": "$43.05"
+					}
+				}
+			},
+			"MO": {
+				"id": "45",
+				"item_code": "MO",
+				"name": "Money",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
+				"services": ["DP", "DPUS", "AR", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.99,
+						"formatted": "$3.99"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 21.3,
+						"formatted": "$21.30"
+					}
+				}
+			},
+			"OA": {
+				"id": "18",
+				"item_code": "OA",
+				"name": "Oasis",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "FB", "MBM", "SB"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_RED", "_GREEN", "_YELLOW", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.79,
+						"formatted": "$3.79"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 32.6,
+						"formatted": "$32.60"
+					}
+				}
+			},
+			"GE": {
+				"id": "19",
+				"item_code": "GE",
+				"name": "Gecko",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "FB", "MBM", "SB"],
+				"services": ["DP", "DPUS", "AR", "P", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_RED", "_GREEN", "_YELLOW", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 3.79,
+						"formatted": "$3.79"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 32.6,
+						"formatted": "$32.60"
+					}
+				}
+			},
+			"MS": {
+				"id": "35",
+				"item_code": "MS",
+				"name": "MelodyStick",
+				"moq": "25",
+				"capacities": {
+					"USB2.0": ["2GB", "4GB", "8GB"],
+					"USB3.0": [""]
+				},
+				"accessories": ["PT", "FB", "MBM", "SB"],
+				"services": ["DP", "AR", "VL"],
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 10.99,
+						"formatted": "$10.99"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 23.1,
+						"formatted": "$23.10"
+					}
+				}
+			},
+			"SSD-MLC": {
+				"id": "41",
+				"item_code": "SSD-MLC",
+				"name": "MLC",
+				"moq": "5",
+				"capacities": {
+					"USB2.0": ["32GB", "64GB", "128GB", "256GB"],
+					"USB3.0": [""]
+				},
+				"accessories": [""],
+				"services": [""],
+				"colors": ["_SILVER"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 15.3,
+						"formatted": "$15.30"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 91.28,
+						"formatted": "$91.28"
+					}
+				}
+			},
+			"SSD-SLC": {
+				"id": "42",
+				"item_code": "SSD-SLC",
+				"name": "SLC",
+				"moq": "5",
+				"capacities": {
+					"USB2.0": ["32GB", "64GB"],
+					"USB3.0": [""]
+				},
+				"accessories": [""],
+				"services": [""],
+				"colors": ["_SILVER"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 15.3,
+						"formatted": "$15.30"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 47.4,
+						"formatted": "$47.40"
+					}
+				}
+			},
+			"TE": {
+				"id": "34",
+				"item_code": "TE",
+				"name": "Tensile",
+				"moq": "250",
+				"capacities": {
+					"USB2.0": ["100GB", "250GB"],
+					"USB3.0": [""]
+				},
+				"accessories": [""],
+				"services": [""],
+				"colors": ["_SILVER"],
+				"prices": {
+					"min": {
+						"currency": "USD",
+						"value": 18.15,
+						"formatted": "$18.15"
+					},
+					"max": {
+						"currency": "USD",
+						"value": 18.5,
+						"formatted": "$18.50"
+					}
 				}
 			}
 		},
-		"TW": {
-			"id": "4",
-			"item_code": "TW",
-			"name": "Twister",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
+		"accessories": {
+			"PT": {
+				"id": "13",
+				"item_code": "PT",
+				"name": "Presentation Tin",
+				"colors": ["_SILVER"],
+				"price": {
+					"currency": "USD",
+					"value": 1.45,
+					"fomated": "$1.45"
+				}
 			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL", "IN"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
+			"MB": {
+				"id": "6",
+				"item_code": "MB",
+				"name": "Magnet Box",
+				"colors": ["_WHITE"],
+				"price": {
 					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
+					"value": 0.69,
+					"fomated": "$0.69"
+				}
+			},
+			"MBM": {
+				"id": "12",
+				"item_code": "MBM",
+				"name": "Magnet Box Medium",
+				"colors": ["_WHITE"],
+				"price": {
 					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
+					"value": 0.69,
+					"fomated": "$0.69"
+				}
+			},
+			"MBL": {
+				"id": "17",
+				"item_code": "MBL",
+				"name": "Magnetic Box Long",
+				"colors": ["_WHITE"],
+				"price": {
+					"currency": "USD",
+					"value": 0.69,
+					"fomated": "$0.69"
+				}
+			},
+			"NS": {
+				"id": "7",
+				"item_code": "NS",
+				"name": "Neckstrap",
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"price": {
+					"currency": "USD",
+					"value": 0.39,
+					"fomated": "$0.39"
+				}
+			},
+			"PNS": {
+				"id": "18",
+				"item_code": "PNS",
+				"name": "Printable Neckstrap",
+				"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
+				"price": {
+					"currency": "USD",
+					"value": 1.19,
+					"fomated": "$1.19"
+				}
+			},
+			"KC": {
+				"id": "8",
+				"item_code": "KC",
+				"name": "Key Chain",
+				"colors": ["_SILVER"],
+				"price": {
+					"currency": "USD",
+					"value": 0.39,
+					"fomated": "$0.39"
+				}
+			},
+			"BL": {
+				"id": "14",
+				"item_code": "BL",
+				"name": "Blister Pack",
+				"colors": ["_CLEAR"],
+				"price": {
+					"currency": "USD",
+					"value": 0.39,
+					"fomated": "$0.39"
 				}
 			}
 		},
-		"KN": {
-			"id": "43",
-			"item_code": "KN",
-			"name": "Kinetic",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
+		"services": {
+			"DP": {
+				"name": "SOL_DP",
+				"item_code": "DP",
+				"priceType": "unit",
+				"price": {
+					"currency": "USD",
+					"value": 0.39,
+					"formated": "$0.39"
+				}
 			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
+			"DPUS": {
+				"name": "SOL_DPUS",
+				"item_code": "DPUS",
+				"priceType": "fixed",
+				"price": {
 					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
+					"value": 119,
+					"formated": "$119.00"
+				}
+			},
+			"P": {
+				"name": "SOL_P",
+				"item_code": "P",
+				"priceType": "fixed",
+				"price": {
 					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
+					"value": 119,
+					"formated": "$119.00"
+				}
+			},
+			"AR": {
+				"name": "SOL_AR",
+				"item_code": "AR",
+				"priceType": "included",
+				"price": {
+					"currency": "USD",
+					"value": 0,
+					"formated": "$0.00"
+				}
+			},
+			"VL": {
+				"name": "SOL_VL",
+				"item_code": "VL",
+				"priceType": "included",
+				"price": {
+					"currency": "USD",
+					"value": 0,
+					"formated": "$0.00"
 				}
 			}
 		},
-		"KS": {
-			"id": "40",
-			"item_code": "KS",
-			"name": "Key",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "VL"],
-			"colors": ["_SILVER", "_BLACK", "_GOLD"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.45,
-					"formated": "$3.45"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.1,
-					"formated": "$40.10"
-				}
-			}
-		},
-		"FC": {
-			"id": "60",
-			"item_code": "FC",
-			"name": "Focus",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "VL"],
-			"colors": ["_PEARL_SILVER"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.6,
-					"formated": "$3.60"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.25,
-					"formated": "$40.25"
-				}
-			}
-		},
-		"RT": {
-			"id": "36",
-			"item_code": "RT",
-			"name": "Rotator",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "SB", "FB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.6,
-					"formated": "$3.60"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.25,
-					"formated": "$40.25"
-				}
-			}
-		},
-		"EX": {
-			"id": "55",
-			"item_code": "EX",
-			"name": "Executive",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "VL"],
-			"colors": ["_BLACK", "_BROWN", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.8,
-					"formated": "$3.80"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.45,
-					"formated": "$40.45"
-				}
-			}
-		},
-		"NT": {
-			"id": "61",
-			"item_code": "NT",
-			"name": "Note",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["BL", "MBL", "\r\n"],
-			"services": ["DP", "DPUS", "AR", "VL", "\r\n"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.4,
-					"formated": "$3.40"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.05,
-					"formated": "$40.05"
-				}
-			}
-		},
-		"TX": {
-			"id": "21",
-			"item_code": "TX",
-			"name": "Trix",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
-		},
-		"CS": {
-			"id": "1",
-			"item_code": "CS",
-			"name": "Classic",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": ["8GB", "16GB", "32GB", "64GB", ""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL", "IN"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
-		},
-		"EL": {
-			"id": "57",
-			"item_code": "EL",
-			"name": "Ellipse",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.5,
-					"formated": "$3.50"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.15,
-					"formated": "$40.15"
-				}
-			}
-		},
-		"AY": {
-			"id": "15",
-			"item_code": "AY",
-			"name": "Alloy",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "FB", "BL", "MBM", "SBC"],
-			"services": ["DP", "DPUS", "AR", "VL", "IN"],
-			"colors": ["_SILVER", "_BLACK"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.5,
-					"formated": "$3.50"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.15,
-					"formated": "$40.15"
-				}
-			}
-		},
-		"NA": {
-			"id": "2",
-			"item_code": "NA",
-			"name": "Nature",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "VL"],
-			"colors": ["_LIGHTWOOD"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 4.55,
-					"formated": "$4.55"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 41.2,
-					"formated": "$41.20"
-				}
-			}
-		},
-		"CF": {
-			"id": "58",
-			"item_code": "CF",
-			"name": "Carbon",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "VL"],
-			"colors": ["_BLACK"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
-		},
-		"SL": {
-			"id": "59",
-			"item_code": "SL",
-			"name": "Slap",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "FB", "MBM", "SB"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.5,
-					"formated": "$3.50"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.15,
-					"formated": "$40.15"
-				}
-			}
-		},
-		"HA": {
-			"id": "13",
-			"item_code": "HA",
-			"name": "Halo",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "VL", "IN"],
-			"colors": ["_BLUE_LED", "_GREEN_LED", "_RED_LED", "_YELLOW_LED", "_WHITE_LED"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
-		},
-		"PO": {
-			"id": "7",
-			"item_code": "PO",
-			"name": "Pod",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
-		},
-		"CL": {
-			"id": "53",
-			"item_code": "CL",
-			"name": "Clip",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
-		},
-		"PS": {
-			"id": "47",
-			"item_code": "PS",
-			"name": "Pop",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.5,
-					"formated": "$3.50"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.15,
-					"formated": "$40.15"
-				}
-			}
-		},
-		"WB": {
-			"id": "20",
-			"item_code": "WB",
-			"name": "Lizzard",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "FB", "MBM", "SB"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
-		},
-		"IK": {
-			"id": "17",
-			"item_code": "IK",
-			"name": "Ink",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["BL", "MBL"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.4,
-					"formated": "$3.40"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.05,
-					"formated": "$40.05"
-				}
-			}
-		},
-		"EV": {
-			"id": "44",
-			"item_code": "EV",
-			"name": "Event",
-			"moq": "100",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MBM"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.8,
-					"formated": "$3.80"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 30.18,
-					"formated": "$30.18"
-				}
-			}
-		},
-		"LT": {
-			"id": "56",
-			"item_code": "LT",
-			"name": "Light",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.45,
-					"formated": "$3.45"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 40.1,
-					"formated": "$40.10"
-				}
-			}
-		},
-		"FS": {
-			"id": "54",
-			"item_code": "FS",
-			"name": "Flip",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
-		},
-		"IM": {
-			"id": "6",
-			"item_code": "IM",
-			"name": "Image",
-			"moq": "25",
-			"capacities": {
-				"USB2.0": ["2GB", "4GB", "8GB", "16GB", "32GB", "64GB"],
-				"USB3.0": [""]
-			},
-			"accessories": ["PT", "MB", "MBM", "FB", "SB", "BL", "NS", "KC", "PNS"],
-			"services": ["DP", "DPUS", "AR", "P", "VL"],
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"prices": {
-				"min": {
-					"currency": "USD",
-					"value": 3.3,
-					"formated": "$3.30"
-				},
-				"max": {
-					"currency": "USD",
-					"value": 39.95,
-					"formated": "$39.95"
-				}
-			}
+		"translations": {
+			"_CLEAR": "Clear",
+			"_BLACK": "Black",
+			"_BLUE": "Pantone Reflex Blue C",
+			"_GREEN": "Pantone Green 361 C",
+			"_YELLOW": "Pantone Yellow C",
+			"_ORANGE": "Pantone Orange 021C",
+			"_RED": "Pantone Red 186 C",
+			"_PINK": "Pantone Rhodamine Red",
+			"_WHITE": "White",
+			"_SILVER": "Silver",
+			"_GOLD": "Gold",
+			"_PEARL_SILVER": "Pearl Silver",
+			"_BROWN": "Brown",
+			"_LIGHTWOOD": "Light Wood",
+			"_BLUE_LED": "Light is Blue",
+			"_GREEN_LED": "Light is Green",
+			"_RED_LED": "Light is Red",
+			"_YELLOW_LED": "Light is Yellow",
+			"_WHITE_LED": "Light is White",
+			"_LIGHT_WOOD": null,
+			"SOL_DP": "Data Preloading",
+			"SOL_DPUS": "File Lock\/Dual Zone",
+			"SOL_P": "Pantone Matched Shells",
+			"SOL_AR": "AutoRun Function",
+			"SOL_VL": "Volume Label"
 		}
-	},
-	"accessories": {
-		"PT": {
-			"id": "13",
-			"item_code": "PT",
-			"name": "Presentation Tin",
-			"colors": ["_SILVER"],
-			"price": {
-				"currency": "USD",
-				"value": 0.89,
-				"formated": "$0.89"
-			}
-		},
-		"MB": {
-			"id": "6",
-			"item_code": "MB",
-			"name": "Magnet Box",
-			"colors": ["_WHITE"],
-			"price": {
-				"currency": "USD",
-				"value": 0.45,
-				"formated": "$0.45"
-			}
-		},
-		"MBM": {
-			"id": "12",
-			"item_code": "MBM",
-			"name": "Magnet Box Medium",
-			"colors": ["_WHITE"],
-			"price": {
-				"currency": "USD",
-				"value": 0.45,
-				"formated": "$0.45"
-			}
-		},
-		"MBL": {
-			"id": "17",
-			"item_code": "MBL",
-			"name": "Magnetic Box Long",
-			"colors": ["_WHITE"],
-			"price": {
-				"currency": "USD",
-				"value": 0.45,
-				"formated": "$0.45"
-			}
-		},
-		"NS": {
-			"id": "7",
-			"item_code": "NS",
-			"name": "Neckstrap",
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"price": {
-				"currency": "USD",
-				"value": 0.29,
-				"formated": "$0.29"
-			}
-		},
-		"PNS": {
-			"id": "18",
-			"item_code": "PNS",
-			"name": "Printable Neckstrap",
-			"colors": ["_BLACK", "_BLUE", "_GREEN", "_YELLOW", "_ORANGE", "_RED", "_PINK", "_WHITE"],
-			"price": {
-				"currency": "USD",
-				"value": 0.75,
-				"formated": "$0.75"
-			}
-		},
-		"KC": {
-			"id": "8",
-			"item_code": "KC",
-			"name": "Key Chain",
-			"colors": ["_SILVER"],
-			"price": {
-				"currency": "USD",
-				"value": 0.29,
-				"formated": "$0.29"
-			}
-		},
-		"BL": {
-			"id": "14",
-			"item_code": "BL",
-			"name": "Blister Pack",
-			"colors": ["_CLEAR"],
-			"price": {
-				"currency": "USD",
-				"value": 0.29,
-				"formated": "$0.29"
-			}
-		}
-	},
-	"services": {
-		"DP": {
-			"name": "SOL_DP",
-			"item_code": "DP",
-			"price": {
-				"currency": "USD",
-				"value": 0.29,
-				"formated": "$0.29"
-			}
-		},
-		"DPUS": {
-			"name": "SOL_DPUS",
-			"item_code": "DPUS",
-			"price": {
-				"currency": "USD",
-				"value": 74.9,
-				"formated": "$74.90"
-			}
-		},
-		"P": {
-			"name": "SOL_P",
-			"item_code": "P",
-			"price": {
-				"currency": "USD",
-				"value": 74.9,
-				"formated": "$74.90"
-			}
-		},
-		"AR": {
-			"name": "SOL_AR",
-			"item_code": "AR",
-			"price": {
-				"currency": "USD",
-				"value": null,
-				"formated": "$0.00"
-			}
-		},
-		"VL": {
-			"name": "SOL_VL",
-			"item_code": "VL",
-			"price": {
-				"currency": "USD",
-				"value": null,
-				"formated": "$0.00"
-			}
-		}
-	},
-	"translations": {
-		"_CLEAR": "Clear",
-		"_BLACK": "Black",
-		"_BLUE": "Pantone Reflex Blue C",
-		"_GREEN": "Pantone Green 361 C",
-		"_YELLOW": "Pantone Yellow C",
-		"_ORANGE": "Pantone Orange 021C",
-		"_RED": "Pantone Red 186 C",
-		"_PINK": "Pantone Rhodamine Red",
-		"_WHITE": "White",
-		"_SILVER": "Silver",
-		"_GOLD": "Gold",
-		"_PEARL_SILVER": "Pearl Silver",
-		"_BROWN": "Brown",
-		"_LIGHTWOOD": "Light Wood",
-		"_BLUE_LED": "Light is Blue",
-		"_GREEN_LED": "Light is Green",
-		"_RED_LED": "Light is Red",
-		"_YELLOW_LED": "Light is Yellow",
-		"_WHITE_LED": "Light is White"
 	}
 }

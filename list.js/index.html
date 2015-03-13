@@ -396,27 +396,34 @@
 
                     $.ajax({
                         url: 'data/data.json',
+                        // url: 'http://beta.flashbay.com/item_builder?init=1',
                         type: 'GET',
                         dataType: 'json',
                         async: false,
                         success: function(response){
-                            quote.models.init(response);
-                            quote.accessories.init(response);
-                            quote.services.init(response);
+                            if (response.success) {
+                                var data = response.data;
+                                quote.models.init(data);
+                                quote.accessories.init(data);
+                                quote.services.init(data);
 
-                            //addTarget handle
-                            $(document).on('click', '.list .type', function(){
-                                quote.common.addTarget(this);
-                            });
+                                //addTarget handle
+                                $(document).on('click', '.list .type', function(){
+                                    quote.common.addTarget(this);
+                                });
 
-                            /**
-                             * init popover & tooltip
-                             */
-                            $('[data-toggle="popover"]').popover({
-                                placement: 'bottom',
-                                trigger: 'focus hover'
-                            });
-                            $('[data-toggle="tooltip"]').tooltip();
+                                /**
+                                 * init popover & tooltip
+                                 */
+                                $('[data-toggle="popover"]').popover({
+                                    placement: 'bottom',
+                                    trigger: 'focus hover'
+                                });
+                                $('[data-toggle="tooltip"]').tooltip();
+                            } else {
+                                alert('Session expired, please reopen with zimbra.')
+                            };
+                                
                         }
                     });
                 },
@@ -447,7 +454,7 @@
 
                                     break;
                                 case 'remove':
-                                    if ($('[data-toggle="context"]').length > 1) {
+                                    if ($('#items [data-toggle="context"]').length > 1) {
                                         $(context).detach();
                                     } else {
                                         alert('One item at least!');
@@ -582,8 +589,8 @@
                 },
                 getPriceRange: function(o){
                     var o = o || {};
-                    return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated);
-                    // return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated) + '<a tabindex="0" role="button" data-toggle="popover" title="Price Table" data-content="Price Table"> <i class="glyphicon glyphicon-question-sign"></i></a>';
+                    return (o.min && o.min.formatted) + ' ~ ' + (o.max && o.max.formatted);
+                    // return (o.min && o.min.formatted) + ' ~ ' + (o.max && o.max.formatted) + '<a tabindex="0" role="button" data-toggle="popover" title="Price Table" data-content="Price Table"> <i class="glyphicon glyphicon-question-sign"></i></a>';
                 },
                 getPriceTable: function(){
 
@@ -604,7 +611,7 @@
                     var values = [];
                     $.each( accessories, function(i, v){
                         var type = v.name;
-                        var price = v.price.formated;
+                        var price = v.price.formatted;
                         var colors = quote.common.getColors(v.colors, translations);
 
                         // 生成filter
@@ -647,7 +654,7 @@
                     var values = [];
                     $.each( services, function(i, v){
                         var type = v.name;
-                        var price = v.price.formated;
+                        var price = v.price.formatted;
 
                         // 生成filter
                         $('#service-type').append('<option value="'+ type +'">'+ type +'</option>');
