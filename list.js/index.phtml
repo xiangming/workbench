@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>quote tool</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="js/jquery.editable.js?20150311"></script>
+    <script src="js/list.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    
+    <style type="text/css">
+        textarea.form-control{
+            min-height: 100px;
+        }
+        .editable{
+            min-height: 34px;
+        }
+        td.editable{
+            height: 34px;
+        }
+        td.editable.item{
+            text-align: left;
+        }
+
+        .quote-header{
+            border-bottom: 5px solid #767676;
+        }
+        .quote-form{
+            padding: 20px 0;
+        }
+
+        .table>thead>tr>th{
+            background: #767676;
+            color: #fff;
+            border: none;
+            text-align: center;
+        }
+        .table>thead>tr>th.item{
+            text-align: left;
+        }
+
+        .table>tbody>tr>td{
+            padding: 5px;
+            border: none;
+            text-align: center;
+        }
+        .table-striped>tbody>tr:nth-child(odd){
+            background: #EEE;
+        }
+
+        /*.table-editable .editable{
+            padding: 6px;
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+            height: 34px;
+            text-align: center;
+        }
+        .table-editable .editable.active{
+            border-color: #66AFE9;
+            background: #FFF;
+        }
+        .table-editable textarea.editable.active{
+            height: auto;
+        }*/
+        .table-wrapper{
+            max-height: 400px;
+            overflow: auto;
+            border: 1px solid #ddd;
+        }
+        .table-wrapper .table{
+            margin-bottom: 0;
+        }
+        .table-wrapper .table>thead>tr>th,
+        .table-wrapper .table>tbody>tr>td{
+            border: none;
+        }
+
+        .modal-open .modal{
+            overflow: hidden;
+        }
+        .modal-heading .close{
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+        }
+        .modal-heading .nav-tabs{
+            background: #f4f4f4;
+        }
+        .modal-heading .nav-tabs>li{
+            border-right: 1px solid #ddd;
+        }
+        .modal-heading .nav-tabs>li>a{
+            padding: 14px 15px;
+            margin-right: 0;
+            border-radius: 0;
+            border: none!important;
+            color: #555;
+            font-weight: 700;
+        }
+
+        .popover{
+            width: 600px;
+            max-width: 600px;
+        }
+
+        .glyphicon{
+            color: #999;
+        }
+        .glyphicon:hover{
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <div class="quote-header">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img style="height:90px" alt="Flashbay" border="0" src="http://www.flashbay.com/templates/images/flashbay_logo_us.jpg">
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <!-- sales & customer info -->
+        <form action="" class="form-horizontal quote-form">
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Company Address</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable" data-type="textarea">
+                            <?php echo $translatorInst -> getTranslationByName ('_FLASHBAY_ADDRESS');?>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Customer Address</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable" data-type="textarea">
+                            <?php echo @$customerInfo['customer_addr'];?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Created By</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable"><?php echo $salesPersonInfo['creator'];?></p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Contact Name</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable"><?php echo @$customerInfo['contact_name'];?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Phone</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable"><?php echo $salesPersonInfo['sales_phone'];?></p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Phone</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable"><?php echo @$customerInfo['customer_phone'];?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Email</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable"><?php echo $salesPersonInfo['sales_email'];?></p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Email</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable"><?php echo @$customerInfo['customer_email'];?></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Created Date</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable"><?php echo $salesPersonInfo['created_date'];?></p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Price Level</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable" data-type="select" data-choice='<?php echo json_encode ($priceLevels);?>'>
+                            <?php echo @$customerInfo['price_level'];?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2"></label>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Currency</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable" data-type="select" data-choice='<?php echo json_encode ($currenciesSupported);?>'>
+                            USD
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2"></label>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">
+                        Language
+                        <a href="#" data-toggle="tooltip" title="" data-original-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+                    </label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static editable" data-type="select" data-choice='<?php echo json_encode ($languagesSupported); ?>'>
+                        <?php echo @$customerInfo['language'];?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <!-- items -->
+        <table class="table table-striped table-editable">
+            <thead>
+                <tr>
+                    <th class="item">Item</th>
+                    <th>Quantity</th>
+                    <th>Unit price</th>
+                    <th>Amount</th>
+                    <th>Tax rate</th>
+                    <th>Tax amount</th>
+                    <th>Gross amount</th>
+                    <th>Virtual proof</th>
+                </tr>
+            </thead>
+            <tbody id="items">
+                <tr>
+                    <td class="editable item">CL.16GB.Black</td>
+                    <td class="editable">100</td>
+                    <td class="editable">$15.5</td>
+                    <td class="editable">$1550</td>
+                    <td class="editable">10%</td>
+                    <td class="editable">$155</td>
+                    <td class="editable">$1705</td>
+                    <td class="editable">PT001</td>
+                </tr>
+                <tr>
+                    <td class="editable item">CL.16GB.Blue</td>
+                    <td class="editable">100</td>
+                    <td class="editable">$15.5</td>
+                    <td class="editable">$1550</td>
+                    <td class="editable">10%</td>
+                    <td class="editable">$155</td>
+                    <td class="editable">$1705</td>
+                    <td class="editable">PT001</td>
+                </tr>
+                <tr>
+                    <td class="editable item"></td>
+                    <td class="editable"></td>
+                    <td class="editable"></td>
+                    <td class="editable"></td>
+                    <td class="editable"></td>
+                    <td class="editable"></td>
+                    <td class="editable"></td>
+                    <td class="editable"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- click item column -->
+    <div class="modal fade in" id="item-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-heading">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#model" role="tab" id="model-tab" data-toggle="tab" aria-controls="Model" aria-expanded="true">Model</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#accessory" role="tab" id="accessory-tab" data-toggle="tab" aria-controls="Accessory">Accessory</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#service" role="tab" id="service-tab" data-toggle="tab" aria-controls="Service">Service</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <!-- model tab -->
+                        <div role="tabpanel" class="tab-pane fade in active" id="model" aria-labelledby="model-tab">
+                            <!-- search -->
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+                            
+                            <!-- filters -->
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <select name="" id="model-type" class="form-control">
+                                        <option value="all">--type--</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="model-usb" class="form-control">
+                                        <option value="all">--USB version--</option>
+                                        <option value="USB2.0">USB2.0</option>
+                                        <option value="USB3.0">USB3.0</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="model-capacity" class="form-control">
+                                        <option value="all">--capacity--</option>
+                                        <option value="2GB">2GB</option>
+                                        <option value="4GB">4GB</option>
+                                        <option value="8GB">8GB</option>
+                                        <option value="16GB">16GB</option>
+                                        <option value="32GB">32GB</option>
+                                        <option value="64GB">64GB</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="model-color" class="form-control">
+                                        <option value="all">--color--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- main -->
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>USB version</th>
+                                            <th>Capacity</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td><a href="javascript:void(0);" class="type"></a></td>
+                                            <td class="usb"></td>
+                                            <td class="capacity"></td>
+                                            <td class="color"></td>
+                                            <td class="price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- accessory tab -->
+                        <div role="tabpanel" class="tab-pane fade" id="accessory" aria-labelledby="accessory-tab">
+                            <!-- search -->
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+                            
+                            <!-- filters -->
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <select name="" id="accessory-type" class="form-control">
+                                        <option value="all">--type--</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="accessory-color" class="form-control">
+                                        <option value="all">--color--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- main -->
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td><a href="javascript:void(0);" class="type"></a></td>
+                                            <td class="color"></td>
+                                            <td class="price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- service tab -->
+                        <div role="tabpanel" class="tab-pane fade" id="service" aria-labelledby="service-tab">
+                            <!-- search -->
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+                            
+                            <!-- main -->
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td><a href="javascript:void(0);" class="type"></a></td>
+                                            <td class="price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * quote main
+         */
+        var quote = {
+            target: null,
+            common: {
+                init: function(){
+                    $.ajax({
+                        url: 'data/data.json',
+                        type: 'GET',
+                        dataType: 'json',
+                        async: false,
+                        success: function(response){
+                            quote.models.init(response);
+                            quote.accessories.init(response);
+                            quote.services.init(response);
+
+                            //addTarget handle
+                            $(document).on('click', '.list .type', function(){
+                                quote.common.addTarget(this);
+                            });
+                        }
+                    });
+                },
+                addTarget: function(elem){
+                    var $elem    = $(elem);
+                    var type     = $elem.text();
+                    var usb      = $elem.parent('td').siblings('.usb').text();
+                    var capacity = $elem.parent('td').siblings('.capacity').text();
+                    var color    = $elem.parent('td').siblings('.color').text();
+
+                    usb = usb ? '.'+usb : '';
+                    capacity = capacity ? '.'+capacity : '';
+                    color = color ? '.'+color : '';
+
+                    $(quote.target).text(type+usb+capacity+color);
+
+                    $('#item-modal').modal('hide');
+                },
+                getColors: function(a, t){
+                    var results = [];
+                    for (var i = 0, l = a.length; i < l; i++) {
+                        results.push(t[a[i]]);
+                    };
+                    return results;
+                },
+                getColorOptions: function($o, t){
+                    for ( i in t) {
+                        var color = t[i];
+                        $o.append('<option value="'+ color +'">'+ color +'</option>');
+                    }
+                }
+            },
+            models: {
+                init: function(obj){
+                    var models = obj.models || {};
+                    var translations = obj.translations || {};
+
+                    quote.common.getColorOptions($('#model-color'), translations);
+
+                    // list.js
+                    var options = quote.models.options;
+                    var values = [];
+                    $.each( models, function(i, v){
+                        var type       = v.name;
+                        var priceRange = quote.models.getPriceRange(v.prices);
+                        var capacities = v.capacities;
+                        var colors     = quote.common.getColors(v.colors, translations);
+
+                        // 生成filter
+                        $('#model-type').append('<option value="'+ type +'">'+ type +'</option>');
+
+                        // 遍历USB
+                        for ( u in capacities) {
+                            var capacity = capacities[u];
+                            if (!!capacity[0]) {
+                                // 遍历capacity
+                                for ( ca in capacity ) {
+                                    // 遍历colors
+                                    for ( co in colors) {
+                                        values.push({type: type, usb: u, capacity: capacity[ca], color: colors[co], price: priceRange});
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    var modelList = new List('model', options, values);
+
+                    // filters for models
+                    $('#model select').change(function () {
+                        var type     = $('#model-type').val();
+                        var usb      = $('#model-usb').val();
+                        var capacity = $('#model-capacity').val();
+                        var color    = $('#model-color').val();
+
+                        // filter items in the list
+                        modelList.filter(function (item) {
+                            if ((item.values().type == type || type == 'all') && (item.values().usb == usb || usb == 'all') && (item.values().capacity == capacity || capacity == 'all') && (item.values().color == color || color == 'all')) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        });
+                    });
+                },
+                getPriceRange: function(o){
+                    var o = o || {};
+                    return (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.formated) + "<a tabindex=\"0\" role=\"button\" data-toggle=\"popover\" title=\"Classic\" data-content=\"And here's some amazing content. It's very engaging. Right?\"> <i class=\"glyphicon glyphicon-question-sign\"><\/i><\/a>";
+                },
+                getPriceTable: function(){
+
+                },
+                options: {
+                    valueNames: ['type', 'usb', 'capacity', 'color', 'price']
+                }
+            },
+            accessories: {
+                init: function(obj){
+                    var accessories = obj.accessories || {};
+                    var translations = obj.translations || {};
+
+                    quote.common.getColorOptions($('#accessory-color'), translations);
+
+                    var options = quote.accessories.options;
+                    
+                    var values = [];
+                    $.each( accessories, function(i, v){
+                        var type = v.name;
+                        var price = v.price.formated;
+                        var colors = quote.common.getColors(v.colors, translations);
+
+                        // 生成filter
+                        $('#accessory-type').append('<option value="'+ type +'">'+ type +'</option>');
+
+                        // 遍历colors
+                        for ( co in colors) {
+                            values.push({type: type, color: colors[co], price: price});
+                        }
+                    });
+
+                    var accessoryList = new List('accessory', options, values);
+
+                    // filters for accessories
+                    $('#accessory select').change(function () {
+                        var type = $('#accessory-type').val();
+                        var color = $('#accessory-color').val();
+
+                        // filter items in the list
+                        accessoryList.filter(function (item) {
+                            if ((item.values().type == type || type == 'all') && (item.values().color == color || color == 'all')) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        });
+                    });
+                },
+                options: {
+                    valueNames: ['type', 'color', 'price']
+                }
+            },
+            services: {
+                init: function(obj){
+                    var services = obj.services || {};
+                    var translations = obj.translations || {};
+
+                    var options = quote.services.options;
+
+                    var values = [];
+                    $.each( services, function(i, v){
+                        var type = v.name;
+                        var price = v.price.formated;
+
+                        // 生成filter
+                        $('#service-type').append('<option value="'+ type +'">'+ type +'</option>');
+
+                        values.push({type: type, price: price});
+                    });
+
+                    var serviceList = new List('service', options, values);
+                },
+                options: {
+                    valueNames: ['type', 'price']
+                }
+            }
+        };
+
+        $(document).ready(function() {
+            /**
+             * sortable
+             */
+            $( "#items" ).sortable();
+            $( "#items" ).disableSelection();
+
+            /**
+             * click Item column
+             */
+            $(document).on('click', '.item.editable', function(event){
+                $('#item-modal').modal();
+                var target = $(event.target);
+            //});
+            //$('#item-modal').on('show.bs.modal', function(event){
+                //var target = $(event.relatedTarget);
+                
+                console.log(target);
+
+                quote.target = target;
+            });
+
+            // init modal content
+            quote.common.init();
+
+            /**
+             * editable
+             */
+            // customer address
+            $('.editable').editable({
+                className: 'form-control'
+            }, function(e){
+                console.log(e.value);
+            });
+
+
+            // /**
+            //  * editable
+            //  */
+            // $('.table-editable').on('focus', '.editable', function(){
+            //     $this = $(this);
+            //     $('.table-editable .editable').removeClass('active');
+            //     $this.addClass('active');
+            // }).on('blur', '.editable', function(){
+            //     $this = $(this);
+            //     // $('.table-editable .editable').removeClass('active');
+            //     $this.removeClass('active');
+            // });
+            
+
+            /**
+             * init popover & tooltip
+             */
+            // $(document).on('mouseenter', '[data-toggle="popover"]', function(){
+            //     console.log(this);
+            //     $(this).popover({
+            //         placement: 'bottom',
+            //         trigger: 'focus hover'
+            //     });
+            // });
+            $('[data-toggle="popover"]').popover({
+                placement: 'bottom',
+                trigger: 'focus hover'
+            });
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
+</body>
+</html>
