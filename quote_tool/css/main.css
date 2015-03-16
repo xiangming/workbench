@@ -43,14 +43,6 @@ textarea.form-control{
 
 
 /**
- * .table-builder
- */
-.table-builder{
-    
-}
-
-
-/**
  * common style
  */
 .ui-sortable-handle, .item-row{
@@ -62,10 +54,11 @@ textarea.form-control{
 .quote-form{
     padding: 20px 0;
 }
-.btn-generate{
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.quote-builder{
+    
+}
+.quote-footer{
+    text-align: center;
 }
 
 #items .operations{

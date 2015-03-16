@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <a href="#" class="btn btn-primary btn-generate">Generate PDF</a>
-
     <div class="container">
         <!-- logo -->
         <div class="quote-header">
@@ -32,7 +30,7 @@
         </div>
 
         <!-- sales & customer info -->
-        <form action="" class="form-horizontal quote-form">
+        <form action="" class="quote-form form-horizontal">
             <div class="form-group">
                 <div class="nopdf">
                     <label for="" class="control-label col-sm-2">
@@ -115,7 +113,7 @@
         </form>
         
         <!-- item builder -->
-        <table class="table table-builder">
+        <table class="quote-builder table">
             <thead>
                 <tr>
                     <th class="item">Type</th>
@@ -181,7 +179,8 @@
                 </tr>
             </tbody>
         </table>
-
+        
+        <!-- item template -->
         <table id="item-tpl" class="hide">
             <tr class="item-row">
                 <td class="type">
@@ -235,20 +234,8 @@
             </tr>
         </table>
 
-        <!-- right-click menu -->
-        <div id="context-menu">
-            <ul class="dropdown-menu" role="menu">
-                <li>
-                    <a href="javascript:void(0);" tabindex="-1" data-action="add"><i class="glyphicon glyphicon-plus"></i> Add new row</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" tabindex="-1" data-action="copy"><i class="glyphicon glyphicon-duplicate"></i> Copy this row</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="javascript:void(0);" tabindex="-1" data-action="remove"><i class="glyphicon glyphicon-trash"></i> Remove this row</a>
-                </li>
-            </ul>
+        <div class="quote-footer">
+            <a href="#" class="btn btn-primary btn-lg btn-generate">Generate PDF</a>
         </div>
     </div>
 
