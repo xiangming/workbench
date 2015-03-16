@@ -15,118 +15,169 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="container">
-        <!-- logo -->
-        <div class="quote-header">
-            <div class="row">
-                <div class="col-sm-6">
-                    <img style="height:90px" alt="Flashbay" border="0" src="http://www.flashbay.com/templates/images/flashbay_logo_us.jpg">
-                </div>
-                <div class="col-sm-6">
-                    
-                </div>
-                <div class="clearfix"></div>
+    <div class="container" style="padding-top:20px;">
+        <!-- sales & customer info -->
+        <div class="panel">
+            <div class="panel-heading">Customer information</div>
+            <div class="panel-body">
+                <form action="" class="quote-form form-horizontal">
+                    <div class="form-group">
+                        <div class="nopdf">
+                            <label for="" class="control-label col-sm-2">
+                                Customer ID
+                            </label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <label for="" class="control-label col-sm-2">Customer Address</label>
+                            <div class="col-sm-9">
+                                <textarea name="" id="" rows="5" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="">
+                            <label for="" class="control-label col-sm-2">Currency</label>
+                            <div class="col-sm-3">
+                                <select name="" id="" class="form-control">
+                                    <option value="">option</option>
+                                    <option value="">option</option>
+                                    <option value="">option</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="" class="control-label col-sm-2 col-sm-offset-1">Contact Name</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="">
+                            <label for="" class="control-label col-sm-2">
+                                Language
+                            </label>
+                            <div class="col-sm-3">
+                                <select name="" id="" class="form-control">
+                                    <option value="">option</option>
+                                    <option value="">option</option>
+                                    <option value="">option</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="" class="control-label col-sm-2 col-sm-offset-1">Phone</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="">
+                            <label for="" class="control-label col-sm-2">Price Level</label>
+                            <div class="col-sm-3">
+                                <select name="" id="" class="form-control">
+                                    <option value="">option</option>
+                                    <option value="">option</option>
+                                    <option value="">option</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="" class="control-label col-sm-2 col-sm-offset-1">Email</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>                
+                </form>
             </div>
         </div>
-
-        <!-- sales & customer info -->
-        <form action="" class="quote-form form-horizontal">
-            <div class="form-group">
-                <div class="nopdf">
-                    <label for="" class="control-label col-sm-2">
-                        Customer ID
-                    </label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-
-                <div>
-                    <label for="" class="control-label col-sm-2">Customer Address</label>
-                    <div class="col-sm-4">
-                        <textarea name="" id="" rows="5" class="form-control"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="">
-                    <label for="" class="control-label col-sm-2">Currency</label>
-                    <div class="col-sm-4">
-                        <select name="" id="" class="form-control">
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label for="" class="control-label col-sm-2">Contact Name</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="">
-                    <label for="" class="control-label col-sm-2">
-                        Language
-                    </label>
-                    <div class="col-sm-4">
-                        <select name="" id="" class="form-control">
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label for="" class="control-label col-sm-2">Phone</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="">
-                    <label for="" class="control-label col-sm-2">Price Level</label>
-                    <div class="col-sm-4">
-                        <select name="" id="" class="form-control">
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label for="" class="control-label col-sm-2">Email</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-            </div>                
-        </form>
         
         <!-- item builder -->
-        <table class="quote-builder table">
-            <thead>
-                <tr>
-                    <th class="item">Type</th>
-                    <th>Model</th>
-                    <th>Interface</th>
-                    <th>Capacity</th>
-                    <th>Color</th>
-                    <th>Unit Price</th>
-                    <th>Tax Rate</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="items">
+        <div class="panel">
+            <!-- <div class="panel-heading">item builder</div> -->
+            <table class="quote-builder table">
+                <thead>
+                    <tr>
+                        <th class="item">Type</th>
+                        <th>Model</th>
+                        <th>Interface</th>
+                        <th>Capacity</th>
+                        <th>Color</th>
+                        <th>Unit Price</th>
+                        <th>Tax Rate</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="items">
+                    <tr class="item-row">
+                        <td class="type">
+                            <select name="" id="" class="form-control">
+                                <option value="">Model</option>
+                                <option value="">Accessory</option>
+                                <option value="">Service</option>
+                            </select>
+                        </td>
+                        <td class="model">
+                            <select name="" id="" class="form-control">
+                                <option value="">Classic</option>
+                                <option value="">Twister</option>
+                                <option value="">Wafer</option>
+                                <option value="">Kinetic</option>
+                            </select>
+                        </td>
+                        <td class="interface">
+                            <select name="" id="" class="form-control">
+                                <option value="">USB2.0</option>
+                                <option value="">USB3.0</option>
+                            </select>
+                        </td>
+                        <td class="capacity">
+                            <select name="" id="" class="form-control">
+                                <option value="">2GB</option>
+                                <option value="">4GB</option>
+                                <option value="">8GB</option>
+                                <option value="">16GB</option>
+                                <option value="">32GB</option>
+                            </select>
+                        </td>
+                        <td class="color">
+                            <select name="" id="" class="form-control">
+                                <option value="">Black</option>
+                                <option value="">White</option>
+                                <option value="">Blue</option>
+                                <option value="">Black</option>
+                            </select>
+                        </td>
+                        <td class="price" data-pattern="^(\d+)(\.\d+)?$">
+                            <input type="text" class="form-control">
+                        </td>
+                        <td class="taxRate">
+                            <input type="text" class="form-control">
+                        </td>
+                        <td class="operations">
+                            <a href="#" class="glyphicon glyphicon-plus" data-action="add"></a>
+                            <a href="#" class="glyphicon glyphicon-trash" data-action="remove"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- item template -->
+            <table id="item-tpl" class="hide">
                 <tr class="item-row">
                     <td class="type">
                         <select name="" id="" class="form-control">
@@ -177,62 +228,8 @@
                         <a href="#" class="glyphicon glyphicon-trash" data-action="remove"></a>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-        
-        <!-- item template -->
-        <table id="item-tpl" class="hide">
-            <tr class="item-row">
-                <td class="type">
-                    <select name="" id="" class="form-control">
-                        <option value="">Model</option>
-                        <option value="">Accessory</option>
-                        <option value="">Service</option>
-                    </select>
-                </td>
-                <td class="model">
-                    <select name="" id="" class="form-control">
-                        <option value="">Classic</option>
-                        <option value="">Twister</option>
-                        <option value="">Wafer</option>
-                        <option value="">Kinetic</option>
-                    </select>
-                </td>
-                <td class="interface">
-                    <select name="" id="" class="form-control">
-                        <option value="">USB2.0</option>
-                        <option value="">USB3.0</option>
-                    </select>
-                </td>
-                <td class="capacity">
-                    <select name="" id="" class="form-control">
-                        <option value="">2GB</option>
-                        <option value="">4GB</option>
-                        <option value="">8GB</option>
-                        <option value="">16GB</option>
-                        <option value="">32GB</option>
-                    </select>
-                </td>
-                <td class="color">
-                    <select name="" id="" class="form-control">
-                        <option value="">Black</option>
-                        <option value="">White</option>
-                        <option value="">Blue</option>
-                        <option value="">Black</option>
-                    </select>
-                </td>
-                <td class="price" data-pattern="^(\d+)(\.\d+)?$">
-                    <input type="text" class="form-control">
-                </td>
-                <td class="taxRate">
-                    <input type="text" class="form-control">
-                </td>
-                <td class="operations">
-                    <a href="#" class="glyphicon glyphicon-plus" data-action="add"></a>
-                    <a href="#" class="glyphicon glyphicon-trash" data-action="remove"></a>
-                </td>
-            </tr>
-        </table>
+            </table>
+        </div>
 
         <div class="quote-footer">
             <a href="#" class="btn btn-primary btn-lg btn-generate">Generate PDF</a>
