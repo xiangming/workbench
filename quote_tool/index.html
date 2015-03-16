@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>quote tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="js/bootstrap-contextmenu.js"></script>
+    <script src="js/jquery.editable.js"></script>
+    <script src="js/list.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <a href="#" class="btn btn-primary btn-generate">Generate PDF</a>
+
+    <div class="container">
+        <!-- logo -->
+        <div class="quote-header">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img style="height:90px" alt="Flashbay" border="0" src="http://www.flashbay.com/templates/images/flashbay_logo_us.jpg">
+                </div>
+                <div class="col-sm-6">
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <!-- sales & customer info -->
+        <form action="" class="form-horizontal quote-form">
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2 col-sm-offset-6">Customer Address</label>
+                <div class="col-sm-4">
+                    <p class="form-control-static editable" data-type="textarea" id="customer_addr">
+                        Flashbay Ltd<br>6 The Fountain Centre<br>Imperial Wharf,<br>London SW6 2TW<br>United Kingdom<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2 col-sm-offset-6">Contact Name</label>
+                <div class="col-sm-4">
+                    <p class="form-control-static editable" id="contact_name">James</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2 col-sm-offset-6">Phone</label>
+                <div class="col-sm-4">
+                    <p class="form-control-static editable" id="customer_phone">0755 2977 3450</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2 col-sm-offset-6">Email</label>
+                <div class="col-sm-4">
+                    <p class="form-control-static editable">james@flashbay.com</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2 col-sm-offset-6">Price Level</label>
+                <div class="col-sm-4">
+                    <p class="form-control-static editable" data-type="select" data-choice='{"level10":"level10","level9":"level9"}'>Level10</p>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2 col-sm-offset-6">Currency</label>
+                <div class="col-sm-4">
+                    <p class="form-control-static editable" data-type="select" data-choice='{"USD":"USD"}'>
+                        USD
+                    </p>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="" class="control-label col-sm-2 col-sm-offset-6">
+                    Language
+                    <a href="#" data-toggle="tooltip" title="" data-title="Some tooltip here"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+                </label>
+                <div class="col-sm-4">
+                    <p class="form-control-static editable" data-type="select" data-choice='{"English":"English"}'>
+                        English
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group nopdf">
+                <label for="" class="control-label col-sm-2 col-sm-offset-6">
+                    Customer ID
+                    <a href="#" data-toggle="tooltip" title="" data-original-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+                </label>
+                <div class="col-sm-4">
+                    <p class="form-control-static editable" id="customer_id" data-type="select" data-choice='{"7186":"7186", "53587":"53587"}'></p>
+                </div>
+            </div>
+        </form>
+        
+        <!-- item builder -->
+        <table class="table table-hover table-editable">
+            <thead>
+                <tr>
+                    <th class="item">Item</th>
+                    <th>Quantity</th>
+                    <th>Unit price</th>
+                    <th>Amount</th>
+                    <th>Tax rate</th>
+                    <th>Tax amount</th>
+                    <th>Gross amount</th>
+                    <!-- <th>Virtual proof</th> -->
+                </tr>
+            </thead>
+            <tbody id="items">
+                <tr data-toggle="context" class="item-row">
+                    <td class="editable item">Key.USB2.0.2GB.Silver</td>
+                    <td class="editable quantity" data-pattern="^\d+$">100</td>
+                    <td class="editable price" data-pattern="^(\d+)(\.\d+)?$">15.5</td>
+                    <td class="non-editable amount">1550</td>
+                    <td class="non-editable taxRate">10%</td>
+                    <td class="non-editable tax">155</td>
+                    <td class="non-editable gross">1705</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table id="item-tpl" class="hide">
+            <tr data-toggle="context" class="item-row">
+                <td class="editable item"></td>
+                <td class="editable quantity" data-pattern="^\d+$"></td>
+                <td class="editable price" data-pattern="^(\d+)(\.\d+)?$"></td>
+                <td class="non-editable amount"></td>
+                <td class="non-editable taxRate">10%</td>
+                <td class="non-editable tax"></td>
+                <td class="non-editable gross"></td>
+            </tr>
+        </table>
+
+        <!-- right-click menu -->
+        <div id="context-menu">
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="javascript:void(0);" tabindex="-1" data-action="add"><i class="glyphicon glyphicon-plus"></i> Add new row</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" tabindex="-1" data-action="copy"><i class="glyphicon glyphicon-duplicate"></i> Copy this row</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:void(0);" tabindex="-1" data-action="remove"><i class="glyphicon glyphicon-trash"></i> Remove this row</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- click item column -->
+    <div class="modal fade" id="item-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-heading">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#model" role="tab" id="model-tab" data-toggle="tab" aria-controls="Model" aria-expanded="true">Model</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#accessory" role="tab" id="accessory-tab" data-toggle="tab" aria-controls="Accessory">Accessory</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#service" role="tab" id="service-tab" data-toggle="tab" aria-controls="Service">Service</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <!-- model tab -->
+                        <div role="tabpanel" class="tab-pane fade in active" id="model" aria-labelledby="model-tab">
+                            <!-- search -->
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+                            
+                            <!-- filters -->
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <select name="" id="model-type" class="form-control">
+                                        <option value="all">--type--</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="model-usb" class="form-control">
+                                        <option value="all">--USB version--</option>
+                                        <option value="USB2.0">USB2.0</option>
+                                        <option value="USB3.0">USB3.0</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="model-capacity" class="form-control">
+                                        <option value="all">--capacity--</option>
+                                        <option value="2GB">2GB</option>
+                                        <option value="4GB">4GB</option>
+                                        <option value="8GB">8GB</option>
+                                        <option value="16GB">16GB</option>
+                                        <option value="32GB">32GB</option>
+                                        <option value="64GB">64GB</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="model-color" class="form-control">
+                                        <option value="all">--color--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- main -->
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>USB version</th>
+                                            <th>Capacity</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td><a href="javascript:void(0);" class="type"></a></td>
+                                            <td class="usb"></td>
+                                            <td class="capacity"></td>
+                                            <td class="color"></td>
+                                            <td class="price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- accessory tab -->
+                        <div role="tabpanel" class="tab-pane fade" id="accessory" aria-labelledby="accessory-tab">
+                            <!-- search -->
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+                            
+                            <!-- filters -->
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <select name="" id="accessory-type" class="form-control">
+                                        <option value="all">--type--</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="accessory-color" class="form-control">
+                                        <option value="all">--color--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- main -->
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td><a href="javascript:void(0);" class="type"></a></td>
+                                            <td class="color"></td>
+                                            <td class="price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- service tab -->
+                        <div role="tabpanel" class="tab-pane fade" id="service" aria-labelledby="service-tab">
+                            <!-- search -->
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+                            
+                            <!-- main -->
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td><a href="javascript:void(0);" class="type"></a></td>
+                                            <td class="price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/quote-builder.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            // init
+            quote.common.init();
+
+        });
+    </script>
+</body>
+</html>

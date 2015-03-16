@@ -107,34 +107,34 @@ var quote = {
                 var reg = new RegExp(target.data('pattern'));
                 if (e.value.match(reg)) {
                     //console.log(e.value);
-                    quote.common.calculate(target);
+                    //quote.common.calculate(target);
                 } else {
                     //console.log(e.value);
                     target.text(e.old_value);
                 };
             });
         },
-        calculate: function($trigger){
-            var $row = $trigger.parent('.item-row');
-            var $quantity = $row.children('.quantity');
-            var $price = $row.children('.price');
-            var $amount = $row.children('.amount');
-            var $taxRate = $row.children('.taxRate');
-            var $tax = $row.children('.tax');
-            var $gross = $row.children('.gross');
+        // calculate: function($trigger){
+        //     var $row = $trigger.parent('.item-row');
+        //     var $quantity = $row.children('.quantity');
+        //     var $price = $row.children('.price');
+        //     var $amount = $row.children('.amount');
+        //     var $taxRate = $row.children('.taxRate');
+        //     var $tax = $row.children('.tax');
+        //     var $gross = $row.children('.gross');
             
-            // 保留两位小数
-            var q = parseInt($quantity.text());
-            var p = parseFloat($price.text());
-            var a = parseFloat((q*p).toFixed(2));
-            var tr = parseFloat($taxRate.text())/100;
-            var t = parseFloat((tr*a).toFixed(2));
-            var g = (a + t).toFixed(2);
+        //     // 保留两位小数
+        //     var q = parseInt($quantity.text());
+        //     var p = parseFloat($price.text());
+        //     var a = parseFloat((q*p).toFixed(2));
+        //     var tr = parseFloat($taxRate.text())/100;
+        //     var t = parseFloat((tr*a).toFixed(2));
+        //     var g = (a + t).toFixed(2);
             
-            $amount.html(a?a:'');
-            $tax.html(t?t:'');
-            $gross.html(g?g:'');
-        },
+        //     $amount.html(a?a:'');
+        //     $tax.html(t?t:'');
+        //     $gross.html(g?g:'');
+        // },
         addTarget: function(elem){
             var $elem    = $(elem);
             var type     = $elem.text();

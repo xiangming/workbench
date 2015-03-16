@@ -34,16 +34,7 @@
         <form action="" class="form-horizontal quote-form">
             <div class="form-group">
                 <div class="">
-                    <label for="" class="control-label col-sm-2">Company Address</label>
-                    <div class="col-sm-4">
-                        <p class="form-control-static editable" data-type="textarea">
-                            <?php echo $translatorInst -> getTranslationByName ('_FLASHBAY_ADDRESS');?>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="">
-                    <label for="" class="control-label col-sm-2">Customer Address</label>
+                    <label for="" class="control-label col-sm-2 col-sm-offset-6">Customer Address</label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable" data-type="textarea" id="customer_addr">
                             <?php echo @$customerInfo['customer_addr'];?>
@@ -54,14 +45,7 @@
 
             <div class="form-group">
                 <div class="">
-                    <label for="" class="control-label col-sm-2">Created By</label>
-                    <div class="col-sm-4">
-                        <p class="form-control-static editable"><?php echo $salesPersonInfo['creator'];?></p>
-                    </div>
-                </div>
-
-                <div class="">
-                    <label for="" class="control-label col-sm-2">Contact Name</label>
+                    <label for="" class="control-label col-sm-2 col-sm-offset-6">Contact Name</label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable" id="contact_name">
                             <?php echo @$customerInfo['contact_name'];?>
@@ -72,14 +56,7 @@
 
             <div class="form-group">
                 <div class="">
-                    <label for="" class="control-label col-sm-2">Phone</label>
-                    <div class="col-sm-4">
-                        <p class="form-control-static editable"><?php echo $salesPersonInfo['sales_phone'];?></p>
-                    </div>
-                </div>
-
-                <div class="">
-                    <label for="" class="control-label col-sm-2">Phone</label>
+                    <label for="" class="control-label col-sm-2 col-sm-offset-6">Phone</label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable" id="customer_phone">
                             <?php echo @$customerInfo['customer_phone'];?>
@@ -90,14 +67,7 @@
 
             <div class="form-group">
                 <div class="">
-                    <label for="" class="control-label col-sm-2">Email</label>
-                    <div class="col-sm-4">
-                        <p class="form-control-static editable"><?php echo $salesPersonInfo['sales_email'];?></p>
-                    </div>
-                </div>
-
-                <div class="">
-                    <label for="" class="control-label col-sm-2">Email</label>
+                    <label for="" class="control-label col-sm-2 col-sm-offset-6">Email</label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable"><?php echo @$customerInfo['customer_email'];?></p>
                     </div>
@@ -106,14 +76,7 @@
 
             <div class="form-group">
                 <div class="">
-                    <label for="" class="control-label col-sm-2">Created Date</label>
-                    <div class="col-sm-4">
-                        <p class="form-control-static editable"><?php echo $salesPersonInfo['created_date'];?></p>
-                    </div>
-                </div>
-
-                <div class="">
-                    <label for="" class="control-label col-sm-2">Price Level</label>
+                    <label for="" class="control-label col-sm-2 col-sm-offset-6">Price Level</label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable" data-type="select" data-choice='<?php echo json_encode ($priceLevels);?>'>
                             <?php echo @$customerInfo['price_level'];?>
@@ -124,14 +87,7 @@
             
             <div class="form-group">
                 <div class="">
-                    <label for="" class="control-label col-sm-2"></label>
-                    <div class="col-sm-4">
-                        
-                    </div>
-                </div>
-
-                <div class="">
-                    <label for="" class="control-label col-sm-2">Currency</label>
+                    <label for="" class="control-label col-sm-2 col-sm-offset-6">Currency</label>
                     <div class="col-sm-4">
                         <p class="form-control-static editable" data-type="select" data-choice='<?php echo json_encode ($currenciesSupported);?>'>
                             <?php echo $currency;?>    
@@ -141,15 +97,8 @@
             </div>
             
             <div class="form-group">
-                <div class="">
-                    <label for="" class="control-label col-sm-2"></label>
-                    <div class="col-sm-4">
-                        
-                    </div>
-                </div>
-
                 <div class="nopdf">
-                    <label for="" class="control-label col-sm-2">
+                    <label for="" class="control-label col-sm-2 col-sm-offset-6">
                         Language
                         <a href="#" data-toggle="tooltip" title="" data-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
                     </label>
@@ -162,15 +111,8 @@
             </div>
 
             <div class="form-group">
-                <div class="">
-                    <label for="" class="control-label col-sm-2"></label>
-                    <div class="col-sm-4">
-                        
-                    </div>
-                </div>
-
                 <div class="nopdf">
-                    <label for="" class="control-label col-sm-2">
+                    <label for="" class="control-label col-sm-2 col-sm-offset-6">
                         Customer ID
                         <a href="#" data-toggle="tooltip" title="" data-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
                     </label>
