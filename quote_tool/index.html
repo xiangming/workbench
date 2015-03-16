@@ -107,38 +107,111 @@
         <table class="table table-hover table-editable">
             <thead>
                 <tr>
-                    <th class="item">Item</th>
-                    <th>Quantity</th>
-                    <th>Unit price</th>
-                    <th>Amount</th>
-                    <th>Tax rate</th>
-                    <th>Tax amount</th>
-                    <th>Gross amount</th>
-                    <!-- <th>Virtual proof</th> -->
+                    <th class="item">Type</th>
+                    <th>Model</th>
+                    <th>Interface</th>
+                    <th>Capacity</th>
+                    <th>Color</th>
+                    <th>Unit Price</th>
+                    <th>Tax Rate</th>
                 </tr>
             </thead>
             <tbody id="items">
                 <tr data-toggle="context" class="item-row">
-                    <td class="editable item">Key.USB2.0.2GB.Silver</td>
-                    <td class="editable quantity" data-pattern="^\d+$">100</td>
-                    <td class="editable price" data-pattern="^(\d+)(\.\d+)?$">15.5</td>
-                    <td class="non-editable amount">1550</td>
-                    <td class="non-editable taxRate">10%</td>
-                    <td class="non-editable tax">155</td>
-                    <td class="non-editable gross">1705</td>
+                    <td class="type">
+                        <select name="" id="" class="form-control">
+                            <option value="">Model</option>
+                            <option value="">Accessory</option>
+                            <option value="">Service</option>
+                        </select>
+                    </td>
+                    <td class="model">
+                        <select name="" id="" class="form-control">
+                            <option value="">Classic</option>
+                            <option value="">Twister</option>
+                            <option value="">Wafer</option>
+                            <option value="">Kinetic</option>
+                        </select>
+                    </td>
+                    <td class="interface">
+                        <select name="" id="" class="form-control">
+                            <option value="">USB2.0</option>
+                            <option value="">USB3.0</option>
+                        </select>
+                    </td>
+                    <td class="capacity">
+                        <select name="" id="" class="form-control">
+                            <option value="">2GB</option>
+                            <option value="">4GB</option>
+                            <option value="">8GB</option>
+                            <option value="">16GB</option>
+                            <option value="">32GB</option>
+                        </select>
+                    </td>
+                    <td class="color">
+                        <select name="" id="" class="form-control">
+                            <option value="">Black</option>
+                            <option value="">White</option>
+                            <option value="">Blue</option>
+                            <option value="">Black</option>
+                        </select>
+                    </td>
+                    <td class="price" data-pattern="^(\d+)(\.\d+)?$">
+                        <input type="text" class="form-control">
+                    </td>
+                    <td class="taxRate">
+                        <input type="text" class="form-control">
+                    </td>
                 </tr>
             </tbody>
         </table>
 
         <table id="item-tpl" class="hide">
             <tr data-toggle="context" class="item-row">
-                <td class="editable item"></td>
-                <td class="editable quantity" data-pattern="^\d+$"></td>
-                <td class="editable price" data-pattern="^(\d+)(\.\d+)?$"></td>
-                <td class="non-editable amount"></td>
-                <td class="non-editable taxRate">10%</td>
-                <td class="non-editable tax"></td>
-                <td class="non-editable gross"></td>
+                <td class="type">
+                    <select name="" id="" class="form-control">
+                        <option value="">Model</option>
+                        <option value="">Accessory</option>
+                        <option value="">Service</option>
+                    </select>
+                </td>
+                <td class="model">
+                    <select name="" id="" class="form-control">
+                        <option value="">Classic</option>
+                        <option value="">Twister</option>
+                        <option value="">Wafer</option>
+                        <option value="">Kinetic</option>
+                    </select>
+                </td>
+                <td class="interface">
+                    <select name="" id="" class="form-control">
+                        <option value="">USB2.0</option>
+                        <option value="">USB3.0</option>
+                    </select>
+                </td>
+                <td class="capacity">
+                    <select name="" id="" class="form-control">
+                        <option value="">2GB</option>
+                        <option value="">4GB</option>
+                        <option value="">8GB</option>
+                        <option value="">16GB</option>
+                        <option value="">32GB</option>
+                    </select>
+                </td>
+                <td class="color">
+                    <select name="" id="" class="form-control">
+                        <option value="">Black</option>
+                        <option value="">White</option>
+                        <option value="">Blue</option>
+                        <option value="">Black</option>
+                    </select>
+                </td>
+                <td class="price" data-pattern="^(\d+)(\.\d+)?$">
+                    <input type="text" class="form-control">
+                </td>
+                <td class="taxRate">
+                    <input type="text" class="form-control">
+                </td>
             </tr>
         </table>
 

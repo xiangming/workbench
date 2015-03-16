@@ -140,42 +140,101 @@
                 </tr>
             </thead>
             <tbody id="items">
-            <?php
-            foreach ($itemBuilderInst -> getItems () as $_itemInst) {
-            ?>
                 <tr data-toggle="context" class="item-row">
-                    <td class="editable item"><?php echo htmlentities ($_itemInst -> getName ()); ?></td>
-                    <td class="editable quantity" data-pattern="^\d+$"><?php echo $_itemInst -> getQty ();?></td>
-                    <td class="editable price" data-pattern="^(\d+)(\.\d+)?$"><?php echo $_itemInst -> getUnitPrice ();?></td>
-                    <td class="non-editable amount"><?php echo $_itemInst -> getAmount ();?></td>
-                    <td class="non-editable taxRate"><?php echo $_itemInst -> getTaxRate () * 100;?>%</td>
-                    <td class="non-editable tax"><?php echo $_itemInst -> getTax ();?></td>
-                    <td class="non-editable gross"><?php echo $_itemInst -> getGrossAmount ();?></td>
-                </tr>
-            <?php
-            }
-            ?>
-                <tr data-toggle="context" class="item-row">
-                    <td class="editable item"></td>
-                    <td class="editable quantity" data-pattern="^\d+$"></td>
-                    <td class="editable price" data-pattern="^(\d+)(\.\d+)?$"></td>
-                    <td class="non-editable amount"></td>
-                    <td class="non-editable taxRate">20%</td>
-                    <td class="non-editable tax"></td>
-                    <td class="non-editable gross"></td>
+                    <td class="type">
+                        <select name="" id="" class="form-control">
+                            <option value="">Model</option>
+                            <option value="">Accessory</option>
+                            <option value="">Service</option>
+                        </select>
+                    </td>
+                    <td class="model">
+                        <select name="" id="" class="form-control">
+                            <option value="">Classic</option>
+                            <option value="">Twister</option>
+                            <option value="">Wafer</option>
+                            <option value="">Kinetic</option>
+                        </select>
+                    </td>
+                    <td class="interface">
+                        <select name="" id="" class="form-control">
+                            <option value="">USB2.0</option>
+                            <option value="">USB3.0</option>
+                        </select>
+                    </td>
+                    <td class="capacity">
+                        <select name="" id="" class="form-control">
+                            <option value="">2GB</option>
+                            <option value="">4GB</option>
+                            <option value="">8GB</option>
+                            <option value="">16GB</option>
+                            <option value="">32GB</option>
+                        </select>
+                    </td>
+                    <td class="color">
+                        <select name="" id="" class="form-control">
+                            <option value="">Black</option>
+                            <option value="">White</option>
+                            <option value="">Blue</option>
+                            <option value="">Black</option>
+                        </select>
+                    </td>
+                    <td class="price" data-pattern="^(\d+)(\.\d+)?$">
+                        <input type="text" class="form-control">
+                    </td>
+                    <td class="taxRate">
+                        <input type="text" class="form-control">
+                    </td>
                 </tr>
             </tbody>
         </table>
 
         <table id="item-tpl" class="hide">
             <tr data-toggle="context" class="item-row">
-                <td class="editable item"></td>
-                <td class="editable quantity" data-pattern="^\d+$"></td>
-                <td class="editable price" data-pattern="^(\d+)(\.\d+)?$"></td>
-                <td class="non-editable amount"></td>
-                <td class="non-editable taxRate">10%</td>
-                <td class="non-editable tax"></td>
-                <td class="non-editable gross"></td>
+                <td class="type">
+                    <select name="" id="" class="form-control">
+                        <option value="">Model</option>
+                        <option value="">Accessory</option>
+                        <option value="">Service</option>
+                    </select>
+                </td>
+                <td class="model">
+                    <select name="" id="" class="form-control">
+                        <option value="">Classic</option>
+                        <option value="">Twister</option>
+                        <option value="">Wafer</option>
+                        <option value="">Kinetic</option>
+                    </select>
+                </td>
+                <td class="interface">
+                    <select name="" id="" class="form-control">
+                        <option value="">USB2.0</option>
+                        <option value="">USB3.0</option>
+                    </select>
+                </td>
+                <td class="capacity">
+                    <select name="" id="" class="form-control">
+                        <option value="">2GB</option>
+                        <option value="">4GB</option>
+                        <option value="">8GB</option>
+                        <option value="">16GB</option>
+                        <option value="">32GB</option>
+                    </select>
+                </td>
+                <td class="color">
+                    <select name="" id="" class="form-control">
+                        <option value="">Black</option>
+                        <option value="">White</option>
+                        <option value="">Blue</option>
+                        <option value="">Black</option>
+                    </select>
+                </td>
+                <td class="price" data-pattern="^(\d+)(\.\d+)?$">
+                    <input type="text" class="form-control">
+                </td>
+                <td class="taxRate">
+                    <input type="text" class="form-control">
+                </td>
             </tr>
         </table>
 
