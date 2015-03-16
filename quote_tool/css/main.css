@@ -1,0 +1,115 @@
+/**
+ * Reset BS3's style
+ */
+.modal-open .modal{
+    overflow: hidden;
+}
+.modal-heading .close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+}
+.modal-heading .nav-tabs{
+    background: #f4f4f4;
+}
+.modal-heading .nav-tabs>li{
+    border-right: 1px solid #ddd;
+}
+.modal-heading .nav-tabs>li>a{
+    padding: 14px 15px;
+    margin-right: 0;
+    border-radius: 0;
+    border: none!important;
+    color: #555;
+    font-weight: 700;
+}
+
+.table>thead>tr>th{
+    background: #767676;
+    color: #fff;
+    border: none;
+    text-align: center;
+}
+.table>tbody>tr>td{
+    padding: 5px;
+    border: none;
+    text-align: center;
+}
+.table-striped>tbody>tr:nth-child(even){
+    background: #EEE;
+}
+.table-striped>tbody>tr:nth-child(odd){
+    background: #FFF;
+}
+
+.popover{
+    width: 600px;
+    max-width: 600px;
+}
+
+.glyphicon{
+    /*color: #999;*/
+}
+.glyphicon:hover{
+    /*color: #555;*/
+}
+textarea.form-control{
+    min-height: 100px;
+}
+
+
+/**
+ * .table-editable
+ */
+.table-editable>thead>tr>th.item{
+    text-align: left;
+}
+.table-editable>tbody>tr:last-child{
+    /*background: #EEE;*/
+}
+.table-editable>tbody td.editable{
+    height: 34px;
+}
+.table-editable>tbody td.editable.item{
+    text-align: left;
+}
+
+
+/**
+ * datatable in modal
+ */
+.table-wrapper{
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid #ddd;
+}
+.table-wrapper .table{
+    margin-bottom: 0;
+}
+.table-wrapper .table>thead>tr>th,
+.table-wrapper .table>tbody>tr>td{
+    border: none;
+}
+
+
+/**
+ * common style
+ */
+.ui-sortable-handle{
+    /*cursor: move;*/
+}
+.quote-header{
+    border-bottom: 5px solid #767676;
+}
+.quote-form{
+    padding: 20px 0;
+}
+.editable{
+    min-height: 34px;
+}
+.btn-generate{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

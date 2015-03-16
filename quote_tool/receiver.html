@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Zimbra</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="js/list.min.js"></script>
+    <style type="text/css">
+        .quote-header{
+            border-bottom: 5px solid #767676;
+        }
+        .quote-form{
+            padding: 20px 0;
+        }
+        .table>thead>tr>th{
+            background: #767676;
+            color: #fff;
+            border: none;
+            text-align: center;
+        }
+
+        .table>tbody>tr>td{
+            padding: 5px;
+            border: none;
+            text-align: center;
+        }
+
+        .table-editable .editable{
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+            height: 34px;
+        }
+        .table-editable .editable.active{
+            border-color: #66AFE9;
+            background: #FFF;
+        }
+        .table-editable textarea.editable.active{
+            height: auto;
+        }
+        .table-wrapper{
+            max-height: 400px;
+            overflow: auto;
+            border: 1px solid #ddd;
+        }
+        .table-wrapper .table{
+            margin-bottom: 0;
+        }
+        .table-wrapper .table>thead>tr>th,
+        .table-wrapper .table>tbody>tr>td{
+            border: none;
+        }
+        .modal-open .modal{
+            overflow: hidden;
+        }
+        .tab-content{
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <div class="quote-header">
+            <div class="col-sm-6">LOGO</div>
+            <div class="col-sm-6"></div>
+            <div class="clearfix"></div>
+        </div>
+
+        <!-- sales & customer info -->
+        <form action="" class="form-horizontal quote-form">
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Company Address</label>
+                    <div class="col-sm-4">
+                        <textarea name="" id="" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Customer Address</label>
+                    <div class="col-sm-4">
+                        <textarea name="" id="" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Created By</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Contact Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Phone</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Phone</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Email</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">james@flashbay.com</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Email</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Created Date</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">04/03/2015</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Price Level</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2"></label>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Currency</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-sm-2"></label>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-sm-2">Language</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <!-- quote items -->
+        <table class="table table-striped table-hover table-editable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Price level</th>
+                    <th>Quantity</th>
+                    <th>Unit price</th>
+                    <th>Amount</th>
+                    <th>Tax code</th>
+                    <th>Tax rate</th>
+                    <th>Tax amount</th>
+                    <th>Gross amount</th>
+                    <th>Virtual proof</th>
+                </tr>
+            </thead>
+            <tbody id="items">
+                <tr>
+                    <td>CL.16GB.BLACK</td>
+                    <td></td>
+                    <td>price level 10</td>
+                    <td>100</td>
+                    <td>USD$15.5</td>
+                    <td>USD$1550</td>
+                    <td></td>
+                    <td>10%</td>
+                    <td>USD$155</td>
+                    <td>USD$1705</td>
+                    <td>PT001</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="item editable form-control" placeholder="Click to choose">
+                    </td>
+                    <td>
+                        <textarea name="" id="" class="editable form-control"></textarea>
+                    </td>
+                    <td><input type="text" class="editable form-control"></td>
+                    <td><input type="text" class="editable form-control"></td>
+                    <td><input type="text" class="editable form-control"></td>
+                    <td><input type="text" class="editable form-control"></td>
+                    <td>
+                        <select class="editable form-control">
+                            <option id="nl1" class="dropdownNotSelected">&nbsp;</option>
+                            <option id="nl2" class="dropdownNotSelected">Austria (LTD):AT_STANDARD-20%</option>
+                            <option id="nl3" class="dropdownNotSelected">Belgium (LTD) - old:VAT BE-EU-B2B-0%</option>
+                            <option id="nl4" class="dropdownNotSelected">Belgium (LTD) - old:VAT BEL - EXEMPT (E-BE)</option>
+                            <option id="nl5" class="dropdownNotSelected">Belgium (LTD) - old:VAT BEL-0% (O-BE)</option>
+                            <option id="nl6" class="dropdownNotSelected">Belgium (LTD) - old:VAT BEL-21%</option>
+                            <option id="nl7" class="dropdownNotSelected">Belgium (LTD):BE_EXEMPT - 0%</option>
+                            <option id="nl8" class="dropdownNotSelected">Belgium (LTD):BE_STANDARD-21%</option>
+                            <option id="nl9" class="dropdownNotSelected">Denmark (LTD):DK_STANDARD-25%</option>
+                            <option id="nl10" class="dropdownNotSelected">EU zero-rated  (LTD):EU_ valid on VIES - 0%</option>
+                            <option id="nl11" class="dropdownNotSelected">EU zero-rated  (LTD):EU_EXEMPT - 0%</option>
+                            <option id="nl12" class="dropdownNotSelected">Excluded:from VAT reporting- 0%</option>
+                            <option id="nl13" class="dropdownNotSelected">FB-US (CAN):GST - 0.0%</option>
+                            <option id="nl14" class="dropdownNotSelected">FB-US (USA):MX IVA-0.0%</option>
+                            <option id="nl15" class="dropdownNotSelected">FB-US (USA):NON CAL – 0.0%</option>
+                            <option id="nl16" class="dropdownNotSelected">FB-US (USA):USA CAL-0.0%</option>
+                            <option id="nl17" class="dropdownNotSelected">FB-US (USA):USA CAL-10.0%</option>
+                            <option id="nl18" class="dropdownNotSelected">FB-US (USA):USA CAL-10.25%</option>
+                            <option id="nl19" class="dropdownNotSelected">FB-US (USA):USA CAL-3.5%</option>
+                            <option id="nl20" class="dropdownNotSelected">FB-US (USA):USA CAL-7.25%</option>
+                            <option id="nl21" class="dropdownNotSelected">FB-US (USA):USA CAL-7.375%</option>
+                            <option id="nl22" class="dropdownNotSelected">FB-US (USA):USA CAL-7.5%</option>
+                            <option id="nl23" class="dropdownNotSelected">FB-US (USA):USA CAL-7.625%</option>
+                            <option id="nl24" class="dropdownNotSelected">FB-US (USA):USA CAL-7.75%</option>
+                            <option id="nl25" class="dropdownNotSelected">FB-US (USA):USA CAL-7.875%</option>
+                            <option id="nl26" class="dropdownNotSelected">FB-US (USA):USA CAL-7.975%</option>
+                            <option id="nl27" class="dropdownNotSelected">FB-US (USA):USA CAL-8.0%</option>
+                            <option id="nl28" class="dropdownNotSelected">FB-US (USA):USA CAL-8.125%</option>
+                            <option id="nl29" class="dropdownNotSelected">FB-US (USA):USA CAL-8.225%</option>
+                            <option id="nl30" class="dropdownNotSelected">FB-US (USA):USA CAL-8.25%</option>
+                            <option id="nl31" class="dropdownNotSelected">FB-US (USA):USA CAL-8.275%</option>
+                            <option id="nl32" class="dropdownNotSelected">FB-US (USA):USA CAL-8.375%</option>
+                            <option id="nl33" class="dropdownNotSelected">FB-US (USA):USA CAL-8.475%</option>
+                            <option id="nl34" class="dropdownNotSelected">FB-US (USA):USA CAL-8.5%</option>
+                            <option id="nl35" class="dropdownNotSelected">FB-US (USA):USA CAL-8.625%</option>
+                            <option id="nl36" class="dropdownNotSelected">FB-US (USA):USA CAL-8.725%</option>
+                            <option id="nl37" class="dropdownNotSelected">FB-US (USA):USA CAL-8.750%</option>
+                            <option id="nl38" class="dropdownNotSelected">FB-US (USA):USA CAL-8.875%</option>
+                            <option id="nl39" class="dropdownNotSelected">FB-US (USA):USA CAL-8.975%</option>
+                            <option id="nl40" class="dropdownNotSelected">FB-US (USA):USA CAL-9.00%</option>
+                            <option id="nl41" class="dropdownNotSelected">FB-US (USA):USA CAL-9.225%</option>
+                            <option id="nl42" class="dropdownNotSelected">FB-US (USA):USA CAL-9.250%</option>
+                            <option id="nl43" class="dropdownNotSelected">FB-US (USA):USA CAL-9.5%</option>
+                            <option id="nl44" class="dropdownNotSelected">FB-US (USA):USA CAL-9.75%</option>
+                            <option id="nl45" class="dropdownNotSelected">FB-US (USA):USA CAL/RSLLR – 0.0%</option>
+                            <option id="nl46" class="dropdownNotSelected">FB-US (USA):USA GOVNT – 0.0%</option>
+                            <option id="nl47" class="dropdownNotSelected">Finalnd (LTD):FI_STANDARD-24%</option>
+                            <option id="nl48" class="dropdownNotSelected">Ireland (LTD):IE_STANDARD-20%</option>
+                            <option id="nl49" class="dropdownNotSelected">Netherlands (LTD):NL_STANDARD-21%</option>
+                            <option id="nl50" class="dropdownNotSelected">Norway (LTD):NO_EXEMPT - 0%</option>
+                            <option id="nl51" class="dropdownNotSelected">Norway (LTD):NO_STANDARD - 25%</option>
+                            <option id="nl52" class="dropdownNotSelected">Poland (LTD):PL-STANDARD-23%</option>
+                            <option id="nl53" class="dropdownNotSelected">Sweden (LTD):SE_STANDARD-25%</option>
+                            <option id="nl54" class="dropdownNotSelected">Switzerland (LTD):CH_EXEMPT - 0%</option>
+                            <option id="nl55" class="dropdownNotSelected">TM-CN (CHN):CN-0%</option>
+                            <option id="nl56" class="dropdownNotSelected">TM-CN (CHN):CN-17%</option>
+                            <option id="nl57" class="dropdownNotSelected">TM-CN (CHN):CN-3%</option>
+                            <option id="nl58" class="dropdownNotSelected">UK (LTD):EU_  not valid on VIES - 20%</option>
+                            <option id="nl59" class="dropdownSelected">UK (LTD):UK _ EXEMPT- 0%</option>
+                            <option id="nl60" class="dropdownNotSelected">UK (LTD):UK_ ZERO - 0%</option>
+                            <option id="nl61" class="dropdownNotSelected">UK (LTD):UK_EXPORT - 0%</option>
+                            <option id="nl62" class="dropdownNotSelected">UK (LTD):VAT ES-GB-0% (B2B)</option>
+                            <option id="nl63" class="dropdownNotSelected">UK (LTD):VAT EZ-GB-0% (Zero)</option>
+                            <option id="nl64" class="dropdownNotSelected">UK (LTD):VAT GBR-5% (R-GB)</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="editable form-control"></td>
+                    <td><input type="text" class="editable form-control"></td>
+                    <td><input type="text" class="editable form-control"></td>
+                    <td><input type="text" class="editable form-control"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-8">
+                <button id="btn-save-attach" class="btn btn-lg btn-primary btn-block">Save & Attach to Email</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- click item column -->
+    <div class="modal fade" id="item-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#model" role="tab" id="model-tab" data-toggle="tab" aria-controls="Model" aria-expanded="true">Model</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#accessory" role="tab" id="accessory-tab" data-toggle="tab" aria-controls="Accessory">Accessory</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#service" role="tab" id="service-tab" data-toggle="tab" aria-controls="Service">Service</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <!-- model tab -->
+                        <div role="tabpanel" class="tab-pane fade in active" id="model" aria-labelledby="model-tab">
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+                            
+                            <!-- filters -->
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <select name="" id="type" class="form-control">
+                                        <option value="all">--type--</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="usb" class="form-control">
+                                        <option value="all">--USB version--</option>
+                                        <option value="USB2.0">USB2.0</option>
+                                        <option value="USB3.0">USB3.0</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="capacity" class="form-control">
+                                        <option value="all">--capacity--</option>
+                                        <option value="2GB">2GB</option>
+                                        <option value="4GB">4GB</option>
+                                        <option value="8GB">8GB</option>
+                                        <option value="16GB">16GB</option>
+                                        <option value="32GB">32GB</option>
+                                        <option value="64GB">64GB</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="color" class="form-control">
+                                        <option value="all">--color--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>USB version</th>
+                                            <th>Capacity</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <!-- <tr>
+                                            <td class="type">Alloy</td>
+                                            <td class="usb">USB3.0</td>
+                                            <td class="capacity">16GB</td>
+                                            <td class="color">Silver</td>
+                                            <td class="price">USD$5 ~ USD$15
+                                                <a tabindex="0" role="button" data-toggle="popover" title="Classic" data-content="And here's some amazing content. It's very engaging. Right?"><i class="glyphicon glyphicon-question-sign"></i></a>
+                                            </td>
+                                        </tr> -->
+                                        <tr>
+                                            <td class="type"></td>
+                                            <td class="usb"></td>
+                                            <td class="capacity"></td>
+                                            <td class="color"></td>
+                                            <td class="price"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <script>
+                                // debug
+                                function debug(o) {
+                                    console.log(o);
+                                }   
+
+                                // format the price range
+                                function getPriceRange(o){
+                                    var o = o || {};
+                                    return (o.min && o.min.currency) + (o.min && o.min.formated) + ' ~ ' + (o.max && o.max.currency) + (o.max && o.max.formated) + "<a tabindex=\"0\" role=\"button\" data-toggle=\"popover\" title=\"Classic\" data-content=\"And here's some amazing content. It's very engaging. Right?\"> <i class=\"glyphicon glyphicon-question-sign\"><\/i><\/a>";
+                                };
+
+                                // format color
+                                function formatColors(a, t) {
+                                    var results = [];
+                                    for (var i = 0, l = a.length; i < l; i++) {
+                                        results.push(t[a[i]]);
+                                    };
+                                    return results;
+                                }
+
+                                // get colors in translations
+                                function getColors(t) {
+                                    for ( i in t) {
+                                        var color = t[i];
+                                        $('#color').append('<option value="'+ color +'">'+ color +'</option>');
+                                    }
+                                }
+
+                                /**
+                                 * list.js the datatable for model
+                                 */
+                                var options = {
+                                    valueNames: ['type', 'usb', 'capacity', 'color', 'price']
+                                };
+
+                                $.ajax({
+                                    url: 'data/json.js',
+                                    type: 'GET',
+                                    dataType: 'json',
+                                    async: false,
+                                    success: function(response){
+                                        var models = response.models || {};
+                                        var translations = response.translations || {};
+
+                                        var $type = $('#type');
+                                        var $usb = $('#usb');
+                                        var $capacity = $('#capacity');
+                                        var $color = $('#color');
+                                        getColors(translations);
+
+                                        var values = [];
+                                        $.each( models, function(i, v){
+                                            var type = v.name;
+                                            var priceRange = getPriceRange(v.prices);
+                                            var capacities = v.capacities;
+                                            var colors = formatColors(v.colors, translations);
+
+                                            // 生成filter
+                                            $type.append('<option value="'+ type +'">'+ type +'</option>');
+
+                                            // 遍历USB
+                                            for ( u in capacities) {
+                                                var capacity = capacities[u];
+                                                if (!!capacity[0]) {
+                                                    // 遍历capacity
+                                                    for ( ca in capacity ) {
+                                                        // 遍历colors
+                                                        for ( co in colors) {
+                                                            values.push({type: type, usb: u, capacity: capacity[ca], color: colors[co], price: priceRange});
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                                
+                                        });
+
+                                        var modelList = new List('model', options, values);
+
+                                        // filter function
+                                        $('#model select').change(function () {
+                                            var type = $('#type').val();
+                                            var usb = $('#usb').val();
+                                            var capacity = $('#capacity').val();
+                                            var color = $('#color').val();
+
+                                            // filter items in the list
+                                            modelList.filter(function (item) {
+                                                if ((item.values().type == type || type == 'all') && (item.values().usb == usb || usb == 'all') && (item.values().capacity == capacity || capacity == 'all') && (item.values().color == color || color == 'all')) {
+                                                    return true;
+                                                } else {
+                                                    return false;
+                                                }
+                                            });
+                                        });
+                                    }
+                                });
+                            </script>
+                        </div>
+
+                        <!-- accessory tab -->
+                        <div role="tabpanel" class="tab-pane fade" id="accessory" aria-labelledby="accessory-tab">
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <select name="" id="accessory-type" class="form-control">
+                                        <option value="all">--type--</option>
+                                        <option value="Presentation Tin">Presentation Tin</option>
+                                        <option value="Magnet Box">Magnet Box</option>
+                                        <option value="Neckstrap">Neckstrap</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" id="accessory-color" class="form-control">
+                                        <option value="all">--color--</option>
+                                        <option value="White">white</option>
+                                        <option value="Silver">Silver</option>
+                                        <option value="Blue">blue</option>
+                                        <option value="Green">green</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Color</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td class="type">Presentation Tin</td>
+                                            <td class="color">White</td>
+                                            <td class="price">USD$25</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">Magnet Box</td>
+                                            <td class="color">Silver</td>
+                                            <td class="price">USD$15</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">Neckstrap</td>
+                                            <td class="color">Blue</td>
+                                            <td class="price">USD$5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <script>
+                                /**
+                                 * list.js the datatable for accessory
+                                 */
+                                var options = {
+                                    valueNames: ['type', 'color', 'price']
+                                };
+                                var accessoryList = new List('accessory', options);
+
+                                $('#accessory select').change(function () {
+                                    var type = $('#accessory-type').val();
+                                    var color = $('#accessory-color').val();
+
+                                    // filter items in the list
+                                    accessoryList.filter(function (item) {
+                                        if ((item.values().type == type || type == 'all') && (item.values().color == color || color == 'all')) {
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+
+                        <!-- service tab -->
+                        <div role="tabpanel" class="tab-pane fade" id="service" aria-labelledby="service-tab">
+                            <div class="form-group">
+                                <input class="search form-control" placeholder="Search" />
+                            </div>
+
+                            <div class="table-wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Reference price</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
+                                    <tbody class="list">
+                                        <tr>
+                                            <td class="type">Data Preloading</td>
+                                            <td class="price">USD$5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">File Lock/Dual Zone</td>
+                                            <td class="price">USD$15</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">Pantone Matched Shells</td>
+                                            <td class="price">USD$25</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="type">AutoRun Function</td>
+                                            <td class="price">USD$5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <script>
+                                /**
+                                 * list.js the datatable for service
+                                 */
+                                var options = {
+                                    valueNames: ['type', 'price']
+                                };
+                                var serviceList = new List('service', options);
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            /**
+             * sortable
+             */
+            $( "#items" ).sortable();
+            $( "#items" ).disableSelection();
+
+            /**
+             * editable
+             */
+            $('.table-editable').on('focus', '.editable', function(){
+                $this = $(this);
+                $('.table-editable .editable').removeClass('active');
+                $this.addClass('active');
+            }).on('blur', '.editable', function(){
+                $this = $(this);
+                // $('.table-editable .editable').removeClass('active');
+                $this.removeClass('active');
+            });
+
+            /**
+             * click Item column
+             */
+            $('.item').on('click', function(){
+                $('#item-modal').modal();
+            });
+
+            /**
+             * init popover
+             */
+            $('[data-toggle="popover"]').popover({
+                placement: 'bottom',
+                trigger: 'focus hover'
+            });
+
+            /**
+             * data
+             */
+
+             /**
+              * Test Quote Tool communication.
+              *
+              **/
+             $('#btn-save-attach').on('click', function(event){
+                window.opener.postMessage('QUOTE_TOOL_MESSAGE:logo.jpg|||http://www.flashbay.com/templates/images/flashbay_logo_us.jpg', 'https://zimbra.flashbay.mars');
+                window.close();
+             });
+             
+        });
+        
+    </script>
+</body>
+</html>
