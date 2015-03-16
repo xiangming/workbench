@@ -41,10 +41,26 @@
 textarea.form-control{
     min-height: 100px;
 }
-.form-control{box-shadow:none;border-color:#DDD;}
-.panel{border:none;}
-.panel-heading{background:#fff; border-color:#EFF2F7; font-size:16px; font-weight:700; border-bottom: 1px solid #EDEDED; box-shadow: #EAECF0 0px 0px 8px;}
-.panel-heading>.panel-title{font-weight:bold;}
+.form-control{
+    border-color: #ddd;
+    box-shadow: none;
+}
+.panel{
+    border: none;
+}
+.panel-heading{
+    font-size: 16px;
+    font-weight: 700;
+
+    border-color: #eff2f7;
+    border-bottom: 1px solid #ededed;
+    background: #fff;
+    /*box-shadow: #eaecf0 0 0 8px;*/
+}
+.panel-heading > .panel-title{
+    font-weight: bold;
+}
+
 
 
 /**
