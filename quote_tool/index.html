@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-    <script src="js/bootstrap-contextmenu.js"></script>
     <script src="js/jquery.editable.js"></script>
     <script src="js/list.min.js"></script>
 
@@ -116,7 +115,7 @@
         </form>
         
         <!-- item builder -->
-        <table class="table table-hover table-editable">
+        <table class="table table-builder">
             <thead>
                 <tr>
                     <th class="item">Type</th>
@@ -126,10 +125,11 @@
                     <th>Color</th>
                     <th>Unit Price</th>
                     <th>Tax Rate</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="items">
-                <tr data-toggle="context" class="item-row">
+                <tr class="item-row">
                     <td class="type">
                         <select name="" id="" class="form-control">
                             <option value="">Model</option>
@@ -174,12 +174,16 @@
                     <td class="taxRate">
                         <input type="text" class="form-control">
                     </td>
+                    <td class="operations">
+                        <a href="#" class="glyphicon glyphicon-plus" data-action="add"></a>
+                        <a href="#" class="glyphicon glyphicon-trash" data-action="remove"></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
 
         <table id="item-tpl" class="hide">
-            <tr data-toggle="context" class="item-row">
+            <tr class="item-row">
                 <td class="type">
                     <select name="" id="" class="form-control">
                         <option value="">Model</option>
@@ -224,6 +228,10 @@
                 <td class="taxRate">
                     <input type="text" class="form-control">
                 </td>
+                <td class="operations">
+                    <a href="#" class="glyphicon glyphicon-plus" data-action="add"></a>
+                    <a href="#" class="glyphicon glyphicon-trash" data-action="remove"></a>
+                </td>
             </tr>
         </table>
 
@@ -241,166 +249,6 @@
                     <a href="javascript:void(0);" tabindex="-1" data-action="remove"><i class="glyphicon glyphicon-trash"></i> Remove this row</a>
                 </li>
             </ul>
-        </div>
-    </div>
-
-    <!-- click item column -->
-    <div class="modal fade" id="item-modal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-heading">
-                    <ul id="myTab" class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active">
-                            <a href="#model" role="tab" id="model-tab" data-toggle="tab" aria-controls="Model" aria-expanded="true">Model</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#accessory" role="tab" id="accessory-tab" data-toggle="tab" aria-controls="Accessory">Accessory</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#service" role="tab" id="service-tab" data-toggle="tab" aria-controls="Service">Service</a>
-                        </li>
-                    </ul>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <div id="myTabContent" class="tab-content">
-                        <!-- model tab -->
-                        <div role="tabpanel" class="tab-pane fade in active" id="model" aria-labelledby="model-tab">
-                            <!-- search -->
-                            <div class="form-group">
-                                <input class="search form-control" placeholder="Search" />
-                            </div>
-                            
-                            <!-- filters -->
-                            <div class="form-group row">
-                                <div class="col-md-3">
-                                    <select name="" id="model-type" class="form-control">
-                                        <option value="all">--type--</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select name="" id="model-usb" class="form-control">
-                                        <option value="all">--USB version--</option>
-                                        <option value="USB2.0">USB2.0</option>
-                                        <option value="USB3.0">USB3.0</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select name="" id="model-capacity" class="form-control">
-                                        <option value="all">--capacity--</option>
-                                        <option value="2GB">2GB</option>
-                                        <option value="4GB">4GB</option>
-                                        <option value="8GB">8GB</option>
-                                        <option value="16GB">16GB</option>
-                                        <option value="32GB">32GB</option>
-                                        <option value="64GB">64GB</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select name="" id="model-color" class="form-control">
-                                        <option value="all">--color--</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <!-- main -->
-                            <div class="table-wrapper">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Type</th>
-                                            <th>USB version</th>
-                                            <th>Capacity</th>
-                                            <th>Color</th>
-                                            <th>Reference price</th>
-                                        </tr>
-                                    </thead>
-                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
-                                    <tbody class="list">
-                                        <tr>
-                                            <td><a href="javascript:void(0);" class="type"></a></td>
-                                            <td class="usb"></td>
-                                            <td class="capacity"></td>
-                                            <td class="color"></td>
-                                            <td class="price"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- accessory tab -->
-                        <div role="tabpanel" class="tab-pane fade" id="accessory" aria-labelledby="accessory-tab">
-                            <!-- search -->
-                            <div class="form-group">
-                                <input class="search form-control" placeholder="Search" />
-                            </div>
-                            
-                            <!-- filters -->
-                            <div class="form-group row">
-                                <div class="col-md-3">
-                                    <select name="" id="accessory-type" class="form-control">
-                                        <option value="all">--type--</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select name="" id="accessory-color" class="form-control">
-                                        <option value="all">--color--</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            <!-- main -->
-                            <div class="table-wrapper">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Type</th>
-                                            <th>Color</th>
-                                            <th>Reference price</th>
-                                        </tr>
-                                    </thead>
-                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
-                                    <tbody class="list">
-                                        <tr>
-                                            <td><a href="javascript:void(0);" class="type"></a></td>
-                                            <td class="color"></td>
-                                            <td class="price"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- service tab -->
-                        <div role="tabpanel" class="tab-pane fade" id="service" aria-labelledby="service-tab">
-                            <!-- search -->
-                            <div class="form-group">
-                                <input class="search form-control" placeholder="Search" />
-                            </div>
-                            
-                            <!-- main -->
-                            <div class="table-wrapper">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Type</th>
-                                            <th>Reference price</th>
-                                        </tr>
-                                    </thead>
-                                    <!-- IMPORTANT, class="list" have to be at tbody -->                            
-                                    <tbody class="list">
-                                        <tr>
-                                            <td><a href="javascript:void(0);" class="type"></a></td>
-                                            <td class="price"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

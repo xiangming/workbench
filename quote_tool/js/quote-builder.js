@@ -6,95 +6,86 @@
 var quote = {
     target: null,
     itemTpl: $('#item-tpl .item-row'),
-    // itemTpl: $('<tr data-toggle="context"class="item-row"><td class="editable item"></td><td class="editable quantity"data-pattern="^\\d+$"></td><td class="editable price"data-pattern="^(\\d+)(\\.\\d+)?$"></td><td class="non-editable amount"></td><td class="non-editable taxRate">10%</td><td class="non-editable tax"></td><td class="non-editable gross"></td></tr>'),
     common: {
         init: function(){
             quote.common.sortable();
             quote.common.editable();
-            quote.common.contextmenu();
+            //quote.common.contextmenu();
 
             /**
-             * click Item column
+             * operations of item builder
              */
-            $(document).on('click', '.item.editable', function(event){
-                $('#item-modal').modal();
-                var target = $(event.target);
-
-                quote.target = target;
+            $(document).on('click', '#items .operations .glyphicon', function(event){
+                var $target = $(event.target);
+                var $row = $target.closest('.item-row');
+                var action = $target.data('action');
+                switch(action) {
+                    case 'add': 
+                        $row.after(quote.itemTpl.clone(true));
+                        break;
+                    case 'copy':
+                        $row.after($row.clone(true));
+                        break;
+                    case 'remove':
+                        if ($('#items .item-row').length > 1) {
+                            $row.detach();
+                        } else {
+                            alert('One item at least!');
+                        }
+                        break;
+                    default:
+                        // do nothing
+                };
             });
 
-            $.ajax({
-                url: 'data/data.json',
-                // url: 'http://beta.flashbay.com/item_builder?init=1',
-                type: 'GET',
-                dataType: 'json',
-                async: false,
-                success: function(response){
-                    if (response.success) {
-                        var data = response.data;
-                        quote.models.init(data);
-                        quote.accessories.init(data);
-                        quote.services.init(data);
-
-                        //addTarget handle
-                        $(document).on('click', '.list .type', function(){
-                            quote.common.addTarget(this);
-                        });
-
-                        /**
-                         * init popover & tooltip
-                         */
-                        $('[data-toggle="popover"]').popover({
-                            placement: 'bottom',
-                            trigger: 'focus hover'
-                        });
-                        $('[data-toggle="tooltip"]').tooltip();
-                    } else {
-                        alert('Session expired, please reopen with zimbra.')
-                    };
-                        
-                }
+            /**
+             * init popover & tooltip
+             */
+            $('[data-toggle="popover"]').popover({
+                placement: 'bottom',
+                trigger: 'focus hover'
             });
+            $('[data-toggle="tooltip"]').tooltip();
         },
-        contextmenu: function(){
-            $('[data-toggle="context"]').contextmenu({
-                target: '#context-menu',
-                onItem: function(context, event) {
-                    var action = $(event.target).data('action');
-                    switch(action) {
-                        case 'add': 
-                            $(context).after(quote.itemTpl.clone(true));
+        // contextmenu: function(){
+        //     $('[data-toggle="context"]').contextmenu({
+        //         target: '#context-menu',
+        //         onItem: function(context, event) {
+        //             var action = $(event.target).data('action');
+        //             switch(action) {
+        //                 case 'add': 
+        //                     $(context).after(quote.itemTpl.clone(true));
                             
-                            // init for the new row
-                            $('.editable').unbind();
-                            quote.common.editable();
-                            $('[data-toggle="context"]').unbind();
-                            quote.common.contextmenu();
+        //                     // init for the new row
+        //                     $('.editable').unbind();
+        //                     quote.common.editable();
+        //                     $('[data-toggle="context"]').unbind();
+        //                     quote.common.contextmenu();
 
-                            break;
-                        case 'copy':
-                            $(context).after($(context).clone(true));
+        //                     break;
+        //                 case 'copy':
+        //                     $(context).after($(context).clone(true));
 
-                            // init for the new row
-                            $('.editable').unbind();
-                            quote.common.editable();
-                            $('[data-toggle="context"]').unbind();
-                            quote.common.contextmenu();
+        //                     // init for the new row
+        //                     $('.editable').unbind();
+        //                     quote.common.editable();
+        //                     $('[data-toggle="context"]').unbind();
+        //                     quote.common.contextmenu();
 
-                            break;
-                        case 'remove':
-                            if ($('#items [data-toggle="context"]').length > 1) {
-                                $(context).detach();
-                            } else {
-                                alert('One item at least!');
-                            }
-                            break;
-                        default:
-                            // do nothing
-                    };
-                }
-            });
-        },
+        //                     break;
+        //                 case 'remove':
+        //                     if ($('#items [data-toggle="context"]').length > 1) {
+        //                         $(context).detach();
+        //                     } else {
+        //                         alert('One item at least!');
+        //                     }
+        //                     break;
+        //                 default:
+        //                     // do nothing
+        //             };
+        //         }
+        //     });
+        // },
         sortable: function(){
             $( "#items" ).sortable();
             $( "#items" ).disableSelection();
