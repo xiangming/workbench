@@ -33,6 +33,7 @@
     padding: 10px;
 }
 .table>tbody>tr>td{
+    padding: 5px;
     border: none;
     /*border-bottom: 1px solid #ddd;*/
     text-align: center;
@@ -45,6 +46,7 @@ textarea.form-control{
     border-color: #ddd;
     box-shadow: none;
 }
+
 .panel{
     border: none;
 }
@@ -93,6 +95,8 @@ body{
 
 #items .operations{
     vertical-align: middle;
+    padding-left: 0;
+    width: 50px;
 }
 #items .operations .glyphicon{
     color: #767676;
@@ -101,3 +105,38 @@ body{
     color: #333;
     text-decoration: none;
 }
+#items td.price, #items td.taxRate{
+    width: 140px;
+}
+.invisiable {
+    visibility: hidden;
+}
+.error {
+    color: red;
+    transform: translateY(30%);
+    padding: 0;
+}
+.table > tbody > tr > .txt-right {
+    text-align: right;
+}
+
+/**
+ * pdf view
+ */
+.pdfView .form-group{
+    margin-bottom:5px;
+}
+.pdfView td.item{
+    min-width: 200px;
+}
+
+@media (min-width:480px) {
+    .pdfView .form-horizontal .control-label{
+        padding-top: 7px;
+        padding-right: 0px;
+        margin-bottom: 0;
+        text-align: left;
+    }
+}
+
+    

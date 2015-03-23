@@ -2,22 +2,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>quote tool</title>
+    <title>Quote tool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-    <script src="js/bootstrap-contextmenu.js"></script>
-    <script src="js/jquery.editable.js"></script>
-    <script src="js/list.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/components/internal_tools/netsuite/quote_tool/css/main.css">
 </head>
-<body>
-    <a href="#" class="btn btn-primary btn-generate">Generate PDF</a>
-
+<body style="background-color: #FFF;" class="pdfView">
     <div class="container">
         <!-- logo -->
         <div class="quote-header">
@@ -25,9 +16,7 @@
                 <div class="col-xs-6">
                     <img style="height:90px" alt="Flashbay" border="0" src="http://www.flashbay.com/templates/images/flashbay_logo_us.jpg">
                 </div>
-                <div class="col-xs-6">
-                    
-                </div>
+                <div class="col-xs-6"></div>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -38,8 +27,8 @@
                 <div class="">
                     <label for="" class="control-label col-xs-2">Company Address</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable" data-type="textarea">
-                            中国广东省深圳市宝安区<br>福永和平福园二路<br>西丰成工业园B栋三楼<br>天目电子(深圳)有限公司<br>518103<br>
+                        <p class="form-control-static" data-type="textarea">
+                            <?php echo $translatorInst -> getTranslationByName ('_FLASHBAY_ADDRESS');?>
                         </p>
                     </div>
                 </div>
@@ -47,8 +36,8 @@
                 <div class="">
                     <label for="" class="control-label col-xs-2">Customer Address</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable" data-type="textarea" id="customer_addr">
-                            Flashbay Ltd<br>6 The Fountain Centre<br>Imperial Wharf,<br>London SW6 2TW<br>United Kingdom<br>
+                        <p class="form-control-static" data-type="textarea">
+                            <?php echo nl2br (preg_replace ("#\n+#", "\n", strip_tags ($quoteFormCustomerInst -> getAddress ()))); ?>
                         </p>
                     </div>
                 </div>
@@ -58,14 +47,14 @@
                 <div class="">
                     <label for="" class="control-label col-xs-2">Created By</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable">Arvin</p>
+                        <p class="form-control-static"><?php echo $quoteFormSalesInst -> getName ();?></p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-xs-2">Contact Name</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable" id="contact_name">James</p>
+                        <p class="form-control-static"><?php echo $quoteFormCustomerInst -> getName ();?></p>
                     </div>
                 </div>
             </div>
@@ -74,14 +63,14 @@
                 <div class="">
                     <label for="" class="control-label col-xs-2">Phone</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable">0755 2977 3450</p>
+                        <p class="form-control-static"><?php echo $quoteFormSalesInst -> getPhone ();?></p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-xs-2">Phone</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable" id="customer_phone">0755 2977 3450</p>
+                        <p class="form-control-static"><?php echo $quoteFormCustomerInst -> getPhone ();?></p>
                     </div>
                 </div>
             </div>
@@ -90,14 +79,14 @@
                 <div class="">
                     <label for="" class="control-label col-xs-2">Email</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable">arvin@flashbay.com</p>
+                        <p class="form-control-static"><?php echo $quoteFormSalesInst -> getEmail ();?></p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-xs-2">Email</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable">james@flashbay.com</p>
+                        <p class="form-control-static"><?php echo $quoteFormCustomerInst -> getEmail ();?></p>
                     </div>
                 </div>
             </div>
@@ -106,14 +95,16 @@
                 <div class="">
                     <label for="" class="control-label col-xs-2">Created Date</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable">04/03/2015</p>
+                        <p class="form-control-static"><?php echo date ('m/d/Y', strtotime ($quoteFormInst -> getCreatedTime ()));?></p>
                     </div>
                 </div>
 
                 <div class="">
                     <label for="" class="control-label col-xs-2">Price Level</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable" data-type="select" data-choice='{"level10":"level10","level9":"level9"}'>Level10</p>
+                        <p class="form-control-static" data-type="select" data-choice="">
+                            <?php echo $priceLevels[$quoteFormCustomerInst -> getLevel ()];?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -125,55 +116,16 @@
                         
                     </div>
                 </div>
-
+                <!--
                 <div class="">
                     <label for="" class="control-label col-xs-2">Currency</label>
                     <div class="col-xs-4">
-                        <p class="form-control-static editable" data-type="select" data-choice='{"USD":"USD"}'>
-                            USD
+                        <p class="form-control-static editable" data-type="select" data-choice="">
+                            <?php echo $quoteFormInst -> getCurrency ();?>    
                         </p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="">
-                    <label for="" class="control-label col-xs-2"></label>
-                    <div class="col-xs-4">
-                        
-                    </div>
-                </div>
-
-                <div class="">
-                    <label for="" class="control-label col-xs-2">
-                        Language
-                        <a href="#" data-toggle="tooltip" title="" data-title="Some tooltip here"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
-                    </label>
-                    <div class="col-xs-4">
-                        <p class="form-control-static editable" data-type="select" data-choice='{"English":"English"}'>
-                            English
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="">
-                    <label for="" class="control-label col-xs-2"></label>
-                    <div class="col-xs-4">
-                        
-                    </div>
-                </div>
-
-                <div class="nopdf">
-                    <label for="" class="control-label col-xs-2">
-                        Customer ID
-                        <a href="#" data-toggle="tooltip" title="" data-original-title="This field will be hidden when generating PDF"> <i class="glyphicon glyphicon-exclamation-sign"></i></a>
-                    </label>
-                    <div class="col-xs-4">
-                        <p class="form-control-static editable" id="customer_id" data-type="select" data-choice='{"7186":"7186", "53587":"53587"}'></p>
-                    </div>
-                </div>
+                -->
             </div>
         </form>
         
@@ -192,30 +144,62 @@
                 </tr>
             </thead>
             <tbody id="items">
+            <?php
+            foreach ($quoteFormInst -> getItems () as $_itemInst) {
+                $itemName = '';
+                $itemCode = $_itemInst -> getCode ();
+                switch ($_itemInst -> getType ()) {
+                case QuoteFormItem :: TYPE_MODEL:
+                    $productInst = Product :: getByItemCode ($itemCode);
+                    $itemName    = $productInst -> getName ()
+                                   . ' USB' . $_itemInst -> getInterface () . '.0'
+                                   . ' ' . $_itemInst -> getCapacity ()
+                                   . ' ' . $translatorInst -> getTranslationByName ($_itemInst -> getColor ());
+                    break;
+                case QuoteFormItem :: TYPE_ACCESSORY:
+                    $itemName      = $translatorInst -> getTranslationByName ('ACCESSORY_' . $itemCode);
+                    break;
+                case QuoteFormItem :: TYPE_SERVICE:
+                    $serviceInst = Solution :: getByItemCode ($itemCode);
+                    $itemName    = $translatorInst -> getTranslationByName ($serviceInst->name);
+                    break;
+                }
+            ?>
                 <tr data-toggle="context" class="item-row">
-                    <td class="editable item">Key.USB2.0.2GB.Silver</td>
-                    <td class="editable quantity" data-pattern="^\d+$">100</td>
-                    <td class="editable price" data-pattern="^(\d+)(\.\d+)?$">15.5</td>
-                    <td class="non-editable amount">1550</td>
-                    <td class="non-editable taxRate">10%</td>
-                    <td class="non-editable tax">155</td>
-                    <td class="non-editable gross">1705</td>
+                    <td class="item"><?php echo $itemName; ?></td>
+                    <td class="quantity" data-pattern="^\d+$"><?php echo $_itemInst -> getQty ();?></td>
+                    <td class="price" data-pattern="^(\d+)(\.\d+)?$"><?php echo $currencyInst -> symbolFormat ($_itemInst -> getUnitPrice ());?></td>
+                    <td class="amount"><?php echo $currencyInst -> symbolFormat ($_itemInst -> getAmount ());?></td>
+                    <td class="taxRate"><?php echo $_itemInst -> getTaxRate () * 100;?>%</td>
+                    <td class="tax"><?php echo $currencyInst -> symbolFormat ($_itemInst -> getTax ());?></td>
+                    <td class="gross"><?php echo $currencyInst -> symbolFormat ($_itemInst -> getTotal ());?></td>
+                </tr>
+            <?php
+            }
+            ?>
+                <tr data-toggle="context" class="item-row">
+                    <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr data-toggle="context" class="item-row">
+                    <td></td><td></td><td></td><td></td>
+                    <td colspan="3" class="txt-right"><strong>Subtotal</strong>&nbsp;
+                        <?php echo $currencyInst -> symbolFormat ($quoteFormInst -> getSubTotal ());?>
+                    </td>
+                </tr>
+                <tr data-toggle="context" class="item-row">
+                    <td></td><td></td><td></td><td></td><td></td>
+                    <td colspan="3" class="txt-right"><strong>Tax</strong>&nbsp;
+                        <?php echo $currencyInst -> symbolFormat ($quoteFormInst -> getTax ());?>
+                    </td>
+                </tr>
+                <tr data-toggle="context" class="item-row">
+                    <td></td><td></td><td></td><td></td>
+                    <td colspan="3" class="txt-right"><strong>Grand Total</strong>&nbsp;
+                        <?php echo $currencyInst -> symbolFormat ($quoteFormInst -> getTotal ());?>
+                    </td>
                 </tr>
             </tbody>
         </table>
-
-        <table id="item-tpl" class="hide">
-            <tr data-toggle="context" class="item-row">
-                <td class="editable item"></td>
-                <td class="editable quantity" data-pattern="^\d+$"></td>
-                <td class="editable price" data-pattern="^(\d+)(\.\d+)?$"></td>
-                <td class="non-editable amount"></td>
-                <td class="non-editable taxRate">10%</td>
-                <td class="non-editable tax"></td>
-                <td class="non-editable gross"></td>
-            </tr>
-        </table>
-
         <!-- right-click menu -->
         <div id="context-menu">
             <ul class="dropdown-menu" role="menu">
@@ -392,15 +376,5 @@
             </div>
         </div>
     </div>
-
-    <script src="js/quote-builder.js"></script>
-    <script>
-        $(document).ready(function() {
-
-            // init
-            quote.common.init();
-
-        });
-    </script>
 </body>
 </html>

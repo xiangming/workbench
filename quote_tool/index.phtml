@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <title>quote tool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
     <script src="/components/internal_tools/netsuite/quote_tool/js/jquery.editable.js"></script>
     <script src="/components/internal_tools/netsuite/quote_tool/js/list.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
     
     <link rel="stylesheet" href="/components/internal_tools/netsuite/quote_tool/css/main.css?20150316">
 </head>
@@ -27,7 +29,10 @@
                                 Customer ID
                             </label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="customer_id" name="customer_id" value="<?php echo $customerInfo['customer_id'];?>">
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
                     </div>
@@ -36,7 +41,10 @@
                         <div>
                             <label for="" class="control-label col-sm-2">Customer Address</label>
                             <div class="col-sm-9">
-                                <textarea name="" id="" rows="5" class="form-control"></textarea>
+                                <textarea maxlength="256" name="customer_addr" id="customer_addr" name="customer_addr" rows="6" class="form-control required"><?php echo $customerInfo['customer_addr'];?></textarea>
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
                     </div>
@@ -45,18 +53,27 @@
                         <div>
                             <label for="" class="control-label col-sm-2">Contact Name</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control">
+                                <input type="text" maxlength="48" class="form-control required" id="customer_name" name="customer_name" value="<?php echo $customerInfo['customer_name'];?>">
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
-
                         <div class="">
-                            <label for="" class="control-label col-sm-2 col-sm-offset-1">Currency</label>
+                            <label for="" class="control-label col-sm-2">Currency</label>
                             <div class="col-sm-3">
-                                <select name="" id="" class="form-control">
-                                    <option value="">option</option>
-                                    <option value="">option</option>
-                                    <option value="">option</option>
+                                <select name="customer_currency" id="customer_currency" class="form-control">
+                                <?php
+                                foreach ($currenciesSupported as $_currency => $_val) {
+                                ?>
+                                    <option value="<?php echo $_currency;?>"<?php echo !strcasecmp ($customerInfo['customer_currency'], $_currency) ? ' selected' : '';?>><?php echo $_val;?></option>
+                                <?php
+                                }
+                                ?>
                                 </select>
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
                     </div>
@@ -65,20 +82,29 @@
                         <div>
                             <label for="" class="control-label col-sm-2">Phone</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control">
+                                <input type="text" maxlength="32" class="form-control required" id="customer_phone"  name="customer_phone" value="<?php echo $customerInfo['customer_phone'];?>">
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
-
                         <div class="">
-                            <label for="" class="control-label col-sm-2 col-sm-offset-1">
+                            <label for="" class="control-label col-sm-2">
                                 Language
                             </label>
                             <div class="col-sm-3">
-                                <select name="" id="" class="form-control">
-                                    <option value="">option</option>
-                                    <option value="">option</option>
-                                    <option value="">option</option>
+                                <select name="customer_language" id="customer_language" class="form-control">
+                                <?php
+                                foreach ($languagesSupported as $_lang => $_val) {
+                                ?>
+                                    <option value="<?php echo $_val;?>"<?php echo !strcasecmp ($customerInfo['customer_language'], $_val) ? ' selected' : '';?>><?php echo $_lang;?></option>
+                                <?php
+                                }
+                                ?>
                                 </select>
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
                     </div>
@@ -87,18 +113,27 @@
                         <div>
                             <label for="" class="control-label col-sm-2">Email</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control">
+                                <input type="text" maxlength="32" class="form-control required" id="customer_email" name="customer_email" value="<?php echo $customerInfo['customer_email'];?>">
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
-                        
                         <div class="">
-                            <label for="" class="control-label col-sm-2 col-sm-offset-1">Price Level</label>
+                            <label for="" class="control-label col-sm-2">Price Level</label>
                             <div class="col-sm-3">
-                                <select name="" id="" class="form-control">
-                                    <option value="">option</option>
-                                    <option value="">option</option>
-                                    <option value="">option</option>
+                                <select name="customer_level" id="customer_level" class="form-control">
+                                <?php
+                                foreach ($priceLevels as $_level => $_val) {
+                                ?>
+                                    <option value="<?php echo $_level;?>"<?php echo $customerInfo['customer_level'] == $_level ? ' selected' : '';?>><?php echo $_val;?></option>
+                                <?php
+                                }
+                                ?>
                                 </select>
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
                             </div>
                         </div>
                     </div>                
@@ -119,54 +154,43 @@
                         <th>Color</th>
                         <th>Unit Price</th>
                         <th>Tax Rate</th>
+                        <th>Quantity</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="items">
                     <tr class="item-row">
                         <td class="type">
-                            <select name="" id="" class="form-control">
-                                <option value="">Model</option>
-                                <option value="">Accessory</option>
-                                <option value="">Service</option>
+                            <select name="type" id="" class="form-control">
+                                <option value="<?php echo QuoteFormItem :: TYPE_MODEL;?>">Model</option>
+                                <option value="<?php echo QuoteFormItem :: TYPE_ACCESSORY;?>">Accessory</option>
+                                <option value="<?php echo QuoteFormItem :: TYPE_SERVICE;?>">Service</option>
                             </select>
                         </td>
                         <td class="model">
-                            <select name="" id="" class="form-control">
-                                <option value="">Classic</option>
-                                <option value="">Twister</option>
-                                <option value="">Wafer</option>
-                                <option value="">Kinetic</option>
+                            <select name="code" id="" class="form-control">
                             </select>
                         </td>
                         <td class="interface">
-                            <select name="" id="" class="form-control">
-                                <option value="">USB2.0</option>
-                                <option value="">USB3.0</option>
+                            <select name="interface" id="" class="form-control">
                             </select>
                         </td>
                         <td class="capacity">
-                            <select name="" id="" class="form-control">
-                                <option value="">2GB</option>
-                                <option value="">4GB</option>
-                                <option value="">8GB</option>
-                                <option value="">16GB</option>
-                                <option value="">32GB</option>
+                            <select name="capacity" id="" class="form-control">
                             </select>
                         </td>
                         <td class="color">
-                            <select name="" id="" class="form-control">
-                                <option value="">Black</option>
-                                <option value="">White</option>
-                                <option value="">Blue</option>
-                                <option value="">Black</option>
+                            <select name="color" id="" class="form-control">
                             </select>
                         </td>
                         <td class="price" data-pattern="^(\d+)(\.\d+)?$">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control required" name="unitPrice" placeholder="4.50">
                         </td>
                         <td class="taxRate">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="taxRate" placeholder="15%">
+                        </td>
+                        <td class="price" data-pattern="^(\d+)(\.\d+)?$">
+                            <input type="text" class="form-control required" name="qty" placeholder="500">
                         </td>
                         <td class="operations">
                             <a href="#" class="glyphicon glyphicon-plus" data-action="add"></a>
@@ -180,48 +204,36 @@
             <table id="item-tpl" class="hide">
                 <tr class="item-row">
                     <td class="type">
-                        <select name="" id="" class="form-control">
-                            <option value="">Model</option>
-                            <option value="">Accessory</option>
-                            <option value="">Service</option>
+                        <select name="type" id="" class="form-control">
+                            <option value="<?php echo QuoteFormItem :: TYPE_MODEL;?>">Model</option>
+                            <option value="<?php echo QuoteFormItem :: TYPE_ACCESSORY;?>">Accessory</option>
+                            <option value="<?php echo QuoteFormItem :: TYPE_SERVICE;?>">Service</option>
                         </select>
                     </td>
                     <td class="model">
-                        <select name="" id="" class="form-control">
-                            <option value="">Classic</option>
-                            <option value="">Twister</option>
-                            <option value="">Wafer</option>
-                            <option value="">Kinetic</option>
+                        <select name="code" id="" class="form-control">
                         </select>
                     </td>
                     <td class="interface">
-                        <select name="" id="" class="form-control">
-                            <option value="">USB2.0</option>
-                            <option value="">USB3.0</option>
+                        <select name="interface" id="" class="form-control">
                         </select>
                     </td>
                     <td class="capacity">
-                        <select name="" id="" class="form-control">
-                            <option value="">2GB</option>
-                            <option value="">4GB</option>
-                            <option value="">8GB</option>
-                            <option value="">16GB</option>
-                            <option value="">32GB</option>
+                        <select name="capacity" id="" class="form-control">
                         </select>
                     </td>
                     <td class="color">
-                        <select name="" id="" class="form-control">
-                            <option value="">Black</option>
-                            <option value="">White</option>
-                            <option value="">Blue</option>
-                            <option value="">Black</option>
+                        <select name="color" id="" class="form-control">
                         </select>
                     </td>
                     <td class="price" data-pattern="^(\d+)(\.\d+)?$">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control required" name="unitPrice" placeholder="4.50">
                     </td>
                     <td class="taxRate">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control required" name="taxRate" placeholder="15%">
+                    </td>
+                    <td class="price" data-pattern="^(\d+)(\.\d+)?$">
+                        <input type="text" class="form-control required" name="qty" placeholder="500">
                     </td>
                     <td class="operations">
                         <a href="#" class="glyphicon glyphicon-plus" data-action="add"></a>
@@ -235,8 +247,99 @@
             <a href="#" id="generatePDF" class="btn btn-primary btn-lg btn-generate">Generate PDF</a>
         </div>
     </div>
-
+    <div id="warningDialog" class="modal fade in">
+        <div class="modal-backdrop fade in" style="height: 100%;"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0;">
+                    <button type="button" class="close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <i class="fa fa-exclamation-triangle" style="font-size: 20px; color: orange; margin: 0 5px;"></i>
+                    <span id="warning-txt">One or more fields are empty.</span>
+                </div>
+                <div class="modal-footer" style="border-top: 0;">
+                    <button type="button" class="btn btn-primary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
+        var items = <?php echo json_encode ($json);?>;
+        var candidates = <?php echo json_encode ($candidateCustomerInfos);?>;//for autocomplete
+        function updateOptions (index)
+        {
+            var currentRow = $($('#items .item-row')[index]);
+            var type = $('.type > select', currentRow);
+            var model= $('.model > select', currentRow);
+
+            //productType: model/accessory/service
+            if (type.val ()) {
+                var options = '';
+                for (var item_code in items[type.val ()]) {
+                    var value = items[type.val ()][item_code]['name'];
+                    if (2 == type.val ()) {
+                        value = items.translations[value];
+                    }
+                    options += '<option value="' + item_code + '"' + (item_code == model.val () ? ' selected' : '') + '>' + value + '</option>';
+                }
+                model.html (options);
+            }
+            //capacity type:USB2.0/USB3.0
+            var isModel = 0 == type.val ();
+            var USBInterface = $('.interface > select', currentRow);
+            if (isModel) {
+                var options = '';
+                for (var USBType in items[0][model.val ()].capacities) {
+                    options += '<option value="' + USBType + '"' + (USBType == USBInterface.val () ? ' selected' : '') + '>' + USBType + '</option>';
+                }
+                USBInterface.html (options);
+            } else {
+                USBInterface.html ('');
+            }
+            //capacity value: 2GB/4GB/....
+            var capacity = $('.capacity > select', currentRow);
+            if (USBInterface.val ()) {
+                var options = '';
+                for (var cap in items[0][model.val ()].capacities[USBInterface.val ()]) {
+                    var v = items[0][model.val ()].capacities[USBInterface.val ()][cap];
+                    options += '<option value="' + v + '"' + (v == capacity.val () ? ' selected' : '') + '>' + v + '</option>';
+                }
+                capacity.html (options);
+            } else {
+                capacity.html ('');
+            }
+            //color
+            var color = $('.color > select', currentRow);
+            if (isModel && type.val ()) {
+                var options = '';
+                for (var c in items[type.val ()][model.val ()].colors) {
+                    var v = items[type.val ()][model.val ()].colors[c];
+                    options += '<option value="' + v + '"' + (v == color.val () ? ' selected' : '') + '>' + items.translations[v] + '</option>';
+                }
+                color.html (options);
+            } else {
+                color.html ('');
+            }
+        }
+        function itemChange (node)
+        {
+            $(node).change (function (_e) {
+                var index = $(this).closest ('.item-row').index ();
+                updateOptions (index);
+            });
+        }
+        $(function (e) {
+            updateOptions (0);
+            itemChange ($('#items .item-row select'));
+            dynamicCheck ();
+            autocompleteCustomerInfo ();
+            quote.common.init ();
+            PDFBind ();
+            $('#warningDialog button').click (function (e) {
+                $('#warningDialog').hide ();
+            });
+        });
         /**
          * quote main
          */
@@ -246,10 +349,6 @@
             customer_info: null,
             common: {
                 init: function(){
-                    quote.common.sortable();
-                    quote.common.editable();
-                    quote.common.getCustomerInfo();
-
                     /**
                      * operations of item builder
                      */
@@ -260,6 +359,10 @@
                         switch(action) {
                             case 'add': 
                                 $row.after(quote.itemTpl.clone(true));
+                                var index = $row.index () + 1;
+                                updateOptions (index);
+                                var node = $('#items .item-row')[index];
+                                itemChange ($('select', node));
                                 break;
                             case 'copy':
                                 $row.after($row.clone(true));
@@ -275,309 +378,171 @@
                                 // do nothing
                         };
                     });
-
-                    /**
-                     * init popover & tooltip
-                     */
-                    $('[data-toggle="popover"]').popover({
-                        placement: 'bottom',
-                        trigger: 'focus hover'
-                    });
-                    $('[data-toggle="tooltip"]').tooltip();
-                },
-                getCustomerInfo: function(){
-                    $.ajax({
-                        url: 'http://beta.flashbay.com/item_builder?action=list_addr',
-                        type: 'GET',
-                        dataType: 'json',
-                        async: false,
-                        success: function(response){
-                            if (response.success) {
-                                quote.customer_info = response.data;
-                                return response.data;
-                            } else {
-                                alert('Can\'t get customer info');
-                            };
-                        }
-                    });
-                },
-                updateCustomerInfo: function(id){
-                    var info = quote.customer_info[id];
-                    $customer_addr = $('#customer_addr').text(info.customer_addr);
-                    $contact_name = $('#contact_name').text(info.contact_name);
-                    $customer_phone = $('#customer_phone').text(info.customer_phone);
-                },
-                contextmenu: function(){
-                    $('[data-toggle="context"]').contextmenu({
-                        target: '#context-menu',
-                        onItem: function(context, event) {
-                            var action = $(event.target).data('action');
-                            switch(action) {
-                                case 'add': 
-                                    $(context).after(quote.itemTpl.clone(true));
-                                    
-                                    // init for the new row
-                                    $('.editable').unbind();
-                                    quote.common.editable();
-                                    $('[data-toggle="context"]').unbind();
-                                    quote.common.contextmenu();
-
-                                    break;
-                                case 'copy':
-                                    $(context).after($(context).clone(true));
-
-                                    // init for the new row
-                                    $('.editable').unbind();
-                                    quote.common.editable();
-                                    $('[data-toggle="context"]').unbind();
-                                    quote.common.contextmenu();
-
-                                    break;
-                                case 'remove':
-                                    if ($('#items [data-toggle="context"]').length > 1) {
-                                        $(context).detach();
-                                    } else {
-                                        alert('One item at least!');
-                                    }
-                                    break;
-                                default:
-                                    // do nothing
-                            };
-                        }
-                    });
-                },
-                sortable: function(){
-                    $( "#items" ).sortable();
-                    $( "#items" ).disableSelection();
-                },
-                editable: function(){
-                    $('.editable').editable({
-                        className: 'form-control'
-                    }, function(e){
-                        var target = e.target;
-                        var reg = new RegExp(target.data('pattern'));
-                        if (e.value.match(reg)) {
-                            console.log(e.value);
-                            if (target.parent('.item-row').length) quote.common.calculate(target);
-                            if (target.attr('id') === 'customer_id') quote.common.updateCustomerInfo(e.value);
-                        } else {
-                            console.log(e.value);
-                            target.text(e.old_value);
-                        };
-                    });
-                },
-                calculate: function($trigger){
-                    var $row = $trigger.parent('.item-row');
-                    var $quantity = $row.children('.quantity');
-                    var $price = $row.children('.price');
-                    var $amount = $row.children('.amount');
-                    var $taxRate = $row.children('.taxRate');
-                    var $tax = $row.children('.tax');
-                    var $gross = $row.children('.gross');
-                    
-                    // 保留两位小数
-                    var q = parseInt($quantity.text());
-                    var p = parseFloat($price.text());
-                    var a = parseFloat((q*p).toFixed(2));
-                    var tr = parseFloat($taxRate.text())/100;
-                    var t = parseFloat((tr*a).toFixed(2));
-                    var g = (a + t).toFixed(2);
-                    
-                    $amount.html(a);
-                    $tax.html(t);
-                    $gross.html(g);
-                },
-                addTarget: function(elem){
-                    var $elem    = $(elem);
-                    var type     = $elem.text();
-                    var usb      = $elem.parent('td').siblings('.usb').text();
-                    var capacity = $elem.parent('td').siblings('.capacity').text();
-                    var color    = $elem.parent('td').siblings('.color').text();
-
-                    usb = usb ? '.'+usb : '';
-                    capacity = capacity ? '.'+capacity : '';
-                    color = color ? '.'+color : '';
-
-                    $(quote.target).text(type+usb+capacity+color);
-
-                    $('#item-modal').modal('hide');
-                },
-                getColors: function(a, t){
-                    var results = [];
-                    for (var i = 0, l = a.length; i < l; i++) {
-                        results.push(t[a[i]]);
-                    };
-                    return results;
-                },
-                getColorOptions: function($o, t){
-                    for ( i in t) {
-                        var color = t[i];
-                        $o.append('<option value="'+ color +'">'+ color +'</option>');
-                    }
-                }
-            },
-            models: {
-                init: function(obj){
-                    var models = obj.models || {};
-                    var translations = obj.translations || {};
-
-                    quote.common.getColorOptions($('#model-color'), translations);
-
-                    // list.js
-                    var options = quote.models.options;
-                    var values = [];
-                    $.each( models, function(i, v){
-                        var type       = v.name;
-                        var priceRange = quote.models.getPriceRange(v.prices);
-                        var capacities = v.capacities;
-                        var colors     = quote.common.getColors(v.colors, translations);
-
-                        // 生成filter
-                        $('#model-type').append('<option value="'+ type +'">'+ type +'</option>');
-
-                        // 遍历USB
-                        for ( u in capacities) {
-                            var capacity = capacities[u];
-                            if (!!capacity[0]) {
-                                // 遍历capacity
-                                for ( ca in capacity ) {
-                                    // 遍历colors
-                                    for ( co in colors) {
-                                        values.push({type: type, usb: u, capacity: capacity[ca], color: colors[co], price: priceRange});
-                                    }
-                                }
-                            }
-                        }
-                    });
-                    var modelList = new List('model', options, values);
-
-                    // filters for models
-                    $('#model select').change(function () {
-                        var type     = $('#model-type').val();
-                        var usb      = $('#model-usb').val();
-                        var capacity = $('#model-capacity').val();
-                        var color    = $('#model-color').val();
-
-                        // filter items in the list
-                        modelList.filter(function (item) {
-                            if ((item.values().type == type || type == 'all') && (item.values().usb == usb || usb == 'all') && (item.values().capacity == capacity || capacity == 'all') && (item.values().color == color || color == 'all')) {
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        });
-                    });
-                },
-                getPriceRange: function(o){
-                    var o = o || {};
-                    return (o.min && o.min.formatted) + ' ~ ' + (o.max && o.max.formatted);
-                    // return (o.min && o.min.formatted) + ' ~ ' + (o.max && o.max.formatted) + '<a tabindex="0" role="button" data-toggle="popover" title="Price Table" data-content="Price Table"> <i class="glyphicon glyphicon-question-sign"></i></a>';
-                },
-                getPriceTable: function(){
-
-                },
-                options: {
-                    valueNames: ['type', 'usb', 'capacity', 'color', 'price']
-                }
-            },
-            accessories: {
-                init: function(obj){
-                    var accessories = obj.accessories || {};
-                    var translations = obj.translations || {};
-
-                    quote.common.getColorOptions($('#accessory-color'), translations);
-
-                    var options = quote.accessories.options;
-                    
-                    var values = [];
-                    $.each( accessories, function(i, v){
-                        var type = v.name;
-                        var price = v.price.formatted;
-                        var colors = quote.common.getColors(v.colors, translations);
-
-                        // 生成filter
-                        $('#accessory-type').append('<option value="'+ type +'">'+ type +'</option>');
-
-                        // 遍历colors
-                        for ( co in colors) {
-                            values.push({type: type, color: colors[co], price: price});
-                        }
-                    });
-
-                    var accessoryList = new List('accessory', options, values);
-
-                    // filters for accessories
-                    $('#accessory select').change(function () {
-                        var type = $('#accessory-type').val();
-                        var color = $('#accessory-color').val();
-
-                        // filter items in the list
-                        accessoryList.filter(function (item) {
-                            if ((item.values().type == type || type == 'all') && (item.values().color == color || color == 'all')) {
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        });
-                    });
-                },
-                options: {
-                    valueNames: ['type', 'color', 'price']
-                }
-            },
-            services: {
-                init: function(obj){
-                    var services = obj.services || {};
-                    var translations = obj.translations || {};
-
-                    var options = quote.services.options;
-
-                    var values = [];
-                    $.each( services, function(i, v){
-                        var type = v.name;
-                        var price = v.price.formatted;
-
-                        // 生成filter
-                        $('#service-type').append('<option value="'+ type +'">'+ type +'</option>');
-
-                        values.push({type: type, price: price});
-                    });
-
-                    var serviceList = new List('service', options, values);
-                },
-                options: {
-                    valueNames: ['type', 'price']
                 }
             }
         };
 
-        $(document).ready(function() {
+        function submitCheck ()
+        {
+            var isOK = true;
+            $('.required').each (function (index) {
+                if ('item-tpl' == $(this).closest ('table').attr('id')) return; 
+                if ($(this).val().trim ().length < 1) {
+                    $(this).parent ().siblings ('.error').removeClass ('invisiable');
+                    isOK = false;
+                } else {
+                    $(this).parent ().siblings ('.error').addClass ('invisiable');
+                }
+            });
+            return isOK;
+        }
 
-            // init
-            quote.common.init();
+        function dynamicCheck ()
+        {
+            $('.required').on ('data change blur', function (e) {
+                if ('item-tpl' == $(this).closest ('table').attr('id')) return; 
+                if ($(this).val().trim ().length < 2) {
+                    $(this).parent ().siblings ('.error').removeClass ('invisiable');
+                    isOK = false;
+                } else {
+                    $(this).parent ().siblings ('.error').addClass ('invisiable');
+                }
+            });
+        }
 
-        });
+        function getCustomerInfo ()
+        {
+            var customerInfoKey = ['customer_addr', 'customer_name', 'customer_currency', 'customer_phone',
+                                   'customer_language', 'customer_email', 'customer_level'
+                ];
+            var customerInfo = {};
+            for (var i = 0; i < customerInfoKey.length; ++i) {
+                var v = $('#' + customerInfoKey[i]).val ();
+                if (!v.length) {
+                    return false;
+                }
+                customerInfo[customerInfoKey[i]] = v;
+            }
+            return customerInfo;
+        }
+
+        function getItems ()
+        {
+            var allItems = $('.item-row');
+            var items    = [];
+            for (var i = 0; i < allItems.length - 1; ++i) {
+                var itemRow = {};
+                var item = $('select, input', $(allItems[i]));
+                for (var j = 0; j < item.length; ++j) {
+                    itemRow[$(item[j]).attr('name')] = $(item[j]).val ();
+                }
+                items.push (itemRow);
+            }
+            return items;
+        }
+
+        function json2URIEncode (json, keyPre, keySuffic)
+        {
+            var uriEncode = '';
+            for (var k in json) {
+                uriEncode += keyPre + k + keySuffic + '=' + encodeURIComponent (json[k]) + '&';
+            }
+            return uriEncode.replace (/&\s*$/, '');
+        }
+
+        function buildPostData ()
+        {
+            var customerInfo = getCustomerInfo ();
+            var items        = getItems ();
+            var postString   = json2URIEncode (customerInfo, '', '');
+            for (var i = 0; i < items.length; ++i) {
+                var pre = 'items[' + i + '][';
+                postString += '&' + json2URIEncode (items[i], pre, ']');
+            }
+            return postString;
+        }
+
+        function getCustomerIDByField (field, fieldValue)
+        {
+            var ids = [];
+            for (var id in candidates) {
+                if (fieldValue == candidates[id][field]) {
+                    ids.push (id);
+                }
+            }
+            if (1 == ids.length) return ids[0];
+            else return false;
+        }
+
+        function setCustomerInfoByID (cid)
+        {
+            $('[id^=customer_]').each (function (index) {
+                var id = $(this).attr('id');
+                var oldV = $(this).val ();
+                $(this).val (candidates[cid][id]);
+                if (oldV != candidates[cid][id]) {
+                    $(this).trigger ('data');
+                }
+            });
+        }
+
+        function autocompleteCustomerInfo ()
+        {
+            var customerIDs  = Object.keys (candidates); 
+            var customerAddrs= [];
+            var customerNames= [];
+            var customerPhones= [];
+
+            for (var id in candidates) {
+                if (-1 == customerAddrs.indexOf (candidates[id].customer_addr)) {
+                    customerAddrs.push (candidates[id].customer_addr);
+                }
+                if (-1 == customerNames.indexOf (candidates[id].customer_name)) {
+                    customerNames.push (candidates[id].customer_name);
+                }
+                if (-1 == customerPhones.indexOf (candidates[id].customer_phone)) {
+                    customerPhones.push (candidates[id].customer_phone);
+                }
+            }
+            $('#customer_id').autocomplete ({source: Object.keys (candidates)});
+            $('#customer_addr').autocomplete ({source: customerAddrs});
+            $('#customer_name').autocomplete ({source: customerNames});
+            $('#customer_phone').autocomplete ({source: customerPhones});
+
+            $('[id^=customer_]').on ('change blur', function (e) {
+                var id = $(this).attr ('id');
+                var cid = getCustomerIDByField (id, $(this).val ());
+                if (false !== cid) {
+                    setCustomerInfoByID (cid);
+                }
+            });
+        }
+
         function PDFBind ()
         {
             $('#generatePDF').click (function (e) {
-                $('.nopdf').remove ();
-                var html = document.documentElement;
+                if (!submitCheck ()) {
+                    $('#warningDialog').show ();
+                    return false;
+                }
                 $.ajax ({url: '/item_builder?action=save',
                         type: 'POST',
-                        data: 'page=' + window.encodeURIComponent (html),
+                        data: buildPostData (),
                         dataType: 'json',
                         success: function (response) {
                             if (response.success) {
-                                window.opener.postMessage('QUOTE_TOOL_MESSAGE:Flashbay_quote.pdf|||http://www.flashbay.de/gen.php?uri=' + response.data, 'https://zimbra.flashbay.mars');
-                                window.close();
+                                var PDFUrl= window.location.origin + '/pdf/gen.php?uri=' + window.location.origin + '/item_builder?form_id=' + response.data;
+                                window.open (PDFUrl);
+                                //window.opener.postMessage('QUOTE_TOOL_MESSAGE:Flashbay_quote.pdf|||http://www.flashbay.de/gen.php?uri=' + response.data, 'https://zimbra.flashbay.mars');
+                                //window.close();
                             } else {
-                                alert ('Failed to generate PDF');
+                                $('#warning-txt').text (response.message);
+                                $('#warningDialog').show ();
                             }
                         }
                 });	
             });
         }
-        PDFBind ();
     </script>
 </body>
 </html>

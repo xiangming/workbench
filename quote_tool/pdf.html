@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>quote tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="js/jquery.editable.js"></script>
+    <script src="js/list.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/main.css?20150316">
+</head>
+<body style="background-color: #FFF;" class="pdfView">
+    <div class="container">
+        <!-- logo -->
+        <div class="quote-header">
+            <div class="row">
+                <div class="col-xs-6">
+                    <img style="height:90px" alt="Flashbay" border="0" src="http://www.flashbay.com/templates/images/flashbay_logo_us.jpg"></div>
+                <div class="col-xs-6"></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <!-- sales & customer info -->
+        <form action="" class="form-horizontal quote-form">
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Company Address</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static" data-type="textarea">
+                            Flashbay Inc.
+                            <br>
+                            569 Clyde Avenue,
+                            <br>
+                            Unit 500,
+                            <br>
+                            Mountain View, CA 94043
+                            <br>United States</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Customer Address</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static" data-type="textarea">
+                            SOLERA Amandine
+                            <br>
+                            MAISONS SYLVA
+                            <br>
+                            6 allée des 4 Chemins
+                            <br>
+                            ZAC des 4 Chemins
+                            <br>
+                            LA GARDE
+                            <br>
+                            83130
+                            <br>France</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Created By</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static">Adam Pickrell</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Contact Name</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static">maisons gautier</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Phone</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static">0800 612 16 56 (GB) - 8001</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Phone</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static">0033 4 94 01 71 55</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Email</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static">adam@flashbay.com</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Email</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static">a.solera@maisons-gautier.fr</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Created Date</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static">03/20/2015</p>
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="" class="control-label col-xs-2">Price Level</label>
+                    <div class="col-xs-4">
+                        <p class="form-control-static" data-type="select" data-choice="">Level 6</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <label for="" class="control-label col-xs-2"></label>
+                    <div class="col-xs-4"></div>
+                </div>
+                <!--
+                <div class="">
+                <label for="" class="control-label col-xs-2">Currency</label>
+                <div class="col-xs-4">
+                    <p class="form-control-static editable" data-type="select" data-choice="">EUR</p>
+                </div>
+            </div>
+            -->
+        </div>
+    </form>
+
+    <!-- item builder -->
+    <table class="table table-hover table-editable">
+        <thead>
+            <tr>
+                <th class="item">Item</th>
+                <th>Quantity</th>
+                <th>Unit price</th>
+                <th>Amount</th>
+                <th>Tax rate</th>
+                <th>Tax amount</th>
+                <th>Gross amount</th>
+                <!-- <th>Virtual proof</th>
+            -->
+        </tr>
+    </thead>
+    <tbody id="items">
+        <tr data-toggle="context" class="item-row">
+            <td class="item">Classic USB2.0 32GB Pantone Reflex Blue C</td>
+            <td class="quantity" data-pattern="^\d+$">500</td>
+            <td class="price" data-pattern="^(\d+)(\.\d+)?$">8.50€</td>
+            <td class="amount">4,250.00€</td>
+            <td class="taxRate">15%</td>
+            <td class="tax">637.50€</td>
+            <td class="gross">4,887.50€</td>
+        </tr>
+        <tr data-toggle="context" class="item-row">
+            <td class="item">Presentation Tin</td>
+            <td class="quantity" data-pattern="^\d+$">500</td>
+            <td class="price" data-pattern="^(\d+)(\.\d+)?$">3.20€</td>
+            <td class="amount">1,600.00€</td>
+            <td class="taxRate">10%</td>
+            <td class="tax">160.00€</td>
+            <td class="gross">1,760.00€</td>
+        </tr>
+        <tr data-toggle="context" class="item-row">
+            <td class="item">Data Preloading</td>
+            <td class="quantity" data-pattern="^\d+$">500</td>
+            <td class="price" data-pattern="^(\d+)(\.\d+)?$">0.50€</td>
+            <td class="amount">250.00€</td>
+            <td class="taxRate">0%</td>
+            <td class="tax">0.00€</td>
+            <td class="gross">250.00€</td>
+        </tr>
+        <tr data-toggle="context" class="item-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr data-toggle="context" class="item-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="3" class="txt-right"> <strong>Subtotal</strong>
+                &nbsp;
+                        6,100.00€
+            </td>
+        </tr>
+        <tr data-toggle="context" class="item-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="3" class="txt-right"> <strong>Tax</strong>
+                &nbsp;
+                        797.50€
+            </td>
+        </tr>
+        <tr data-toggle="context" class="item-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="3" class="txt-right">
+                <strong>Grand Total</strong>
+                &nbsp;
+                        6,897.50€
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- right-click menu -->
+<div id="context-menu">
+    <ul class="dropdown-menu" role="menu">
+        <li>
+            <a href="javascript:void(0);" tabindex="-1" data-action="add"> <i class="glyphicon glyphicon-plus"></i>
+                Add new row
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" tabindex="-1" data-action="copy"> <i class="glyphicon glyphicon-duplicate"></i>
+                Copy this row
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="javascript:void(0);" tabindex="-1" data-action="remove">
+                <i class="glyphicon glyphicon-trash"></i>
+                Remove this row
+            </a>
+        </li>
+    </ul>
+</div>
+</div>
+
+<!-- click item column -->
+<div class="modal fade" id="item-modal">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-heading">
+            <ul id="myTab" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#model" role="tab" id="model-tab" data-toggle="tab" aria-controls="Model" aria-expanded="true">Model</a>
+                </li>
+                <li role="presentation">
+                    <a href="#accessory" role="tab" id="accessory-tab" data-toggle="tab" aria-controls="Accessory">Accessory</a>
+                </li>
+                <li role="presentation">
+                    <a href="#service" role="tab" id="service-tab" data-toggle="tab" aria-controls="Service">Service</a>
+                </li>
+            </ul>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="myTabContent" class="tab-content">
+                <!-- model tab -->
+                <div role="tabpanel" class="tab-pane fade in active" id="model" aria-labelledby="model-tab">
+                    <!-- search -->
+                    <div class="form-group">
+                        <input class="search form-control" placeholder="Search"></div>
+
+                    <!-- filters -->
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <select name="" id="model-type" class="form-control">
+                                <option value="all">--type--</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="" id="model-usb" class="form-control">
+                                <option value="all">--USB version--</option>
+                                <option value="USB2.0">USB2.0</option>
+                                <option value="USB3.0">USB3.0</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="" id="model-capacity" class="form-control">
+                                <option value="all">--capacity--</option>
+                                <option value="2GB">2GB</option>
+                                <option value="4GB">4GB</option>
+                                <option value="8GB">8GB</option>
+                                <option value="16GB">16GB</option>
+                                <option value="32GB">32GB</option>
+                                <option value="64GB">64GB</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="" id="model-color" class="form-control">
+                                <option value="all">--color--</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- main -->
+                    <div class="table-wrapper">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>USB version</th>
+                                    <th>Capacity</th>
+                                    <th>Color</th>
+                                    <th>Reference price</th>
+                                </tr>
+                            </thead>
+                            <!-- IMPORTANT, class="list" have to be at tbody -->
+                            <tbody class="list">
+                                <tr>
+                                    <td>
+                                        <a href="javascript:void(0);" class="type"></a>
+                                    </td>
+                                    <td class="usb"></td>
+                                    <td class="capacity"></td>
+                                    <td class="color"></td>
+                                    <td class="price"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- accessory tab -->
+                <div role="tabpanel" class="tab-pane fade" id="accessory" aria-labelledby="accessory-tab">
+                    <!-- search -->
+                    <div class="form-group">
+                        <input class="search form-control" placeholder="Search"></div>
+
+                    <!-- filters -->
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <select name="" id="accessory-type" class="form-control">
+                                <option value="all">--type--</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select name="" id="accessory-color" class="form-control">
+                                <option value="all">--color--</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- main -->
+                    <div class="table-wrapper">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Color</th>
+                                    <th>Reference price</th>
+                                </tr>
+                            </thead>
+                            <!-- IMPORTANT, class="list" have to be at tbody -->
+                            <tbody class="list">
+                                <tr>
+                                    <td>
+                                        <a href="javascript:void(0);" class="type"></a>
+                                    </td>
+                                    <td class="color"></td>
+                                    <td class="price"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- service tab -->
+                <div role="tabpanel" class="tab-pane fade" id="service" aria-labelledby="service-tab">
+                    <!-- search -->
+                    <div class="form-group">
+                        <input class="search form-control" placeholder="Search"></div>
+
+                    <!-- main -->
+                    <div class="table-wrapper">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Reference price</th>
+                                </tr>
+                            </thead>
+                            <!-- IMPORTANT, class="list" have to be at tbody -->
+                            <tbody class="list">
+                                <tr>
+                                    <td>
+                                        <a href="javascript:void(0);" class="type"></a>
+                                    </td>
+                                    <td class="price"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"49fb6c9d0f","applicationID":"5429972","transactionName":"MVZWYkEHCBFXUkNYCggcYURaSQ8MUlRPHxUOQw==","queueTime":0,"applicationTime":26,"atts":"HRFVFAkdGx8=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-627.min.js"}</script>
+
+<script src="http://js-agent.newrelic.com/nr-627.min.js"></script>
+</body>
+</html>
