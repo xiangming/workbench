@@ -20,69 +20,15 @@
     <div class="container" style="padding-top:20px;">
         <!-- sales & customer info -->
         <div class="panel">
-            <div class="panel-heading">Customer information</div>
+            <div class="panel-heading"><?php echo sprintf ('Quote for Customer: %s', $customerInfo['customer_email']);?></div>
             <div class="panel-body">
                 <form action="" class="quote-form form-horizontal">
-                    <div class="form-group">
-                        <div class="nopdf">
-                            <label for="" class="control-label col-sm-2">
-                                Customer ID
-                            </label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="customer_id" name="customer_id" value="<?php echo $customerInfo['customer_id'];?>">
-                            </div>
-                            <div class="error col-sm-1 invisiable">
-                                <i class="fa fa-close"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div>
-                            <label for="" class="control-label col-sm-2">Customer Address</label>
-                            <div class="col-sm-9">
-                                <textarea maxlength="256" name="customer_addr" id="customer_addr" name="customer_addr" rows="6" class="form-control required"><?php echo $customerInfo['customer_addr'];?></textarea>
-                            </div>
-                            <div class="error col-sm-1 invisiable">
-                                <i class="fa fa-close"></i>
-                            </div>
-                        </div>
-                    </div>
-
+                    <input type="hidden" name="customer_email" id="customer_email" value="<?php echo $customerInfo['customer_email'];?>">
                     <div class="form-group">
                         <div>
                             <label for="" class="control-label col-sm-2">Contact Name</label>
                             <div class="col-sm-3">
-                                <input type="text" maxlength="48" class="form-control required" id="customer_name" name="customer_name" value="<?php echo $customerInfo['customer_name'];?>">
-                            </div>
-                            <div class="error col-sm-1 invisiable">
-                                <i class="fa fa-close"></i>
-                            </div>
-                        </div>
-                        <div class="">
-                            <label for="" class="control-label col-sm-2">Currency</label>
-                            <div class="col-sm-3">
-                                <select name="customer_currency" id="customer_currency" class="form-control">
-                                <?php
-                                foreach ($currenciesSupported as $_currency => $_val) {
-                                ?>
-                                    <option value="<?php echo $_currency;?>"<?php echo !strcasecmp ($customerInfo['customer_currency'], $_currency) ? ' selected' : '';?>><?php echo $_val;?></option>
-                                <?php
-                                }
-                                ?>
-                                </select>
-                            </div>
-                            <div class="error col-sm-1 invisiable">
-                                <i class="fa fa-close"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div>
-                            <label for="" class="control-label col-sm-2">Phone</label>
-                            <div class="col-sm-3">
-                                <input type="text" maxlength="32" class="form-control required" id="customer_phone"  name="customer_phone" value="<?php echo $customerInfo['customer_phone'];?>">
+                                <input type="text" maxlength="48" class="form-control required" id="customer_contact" name="customer_contact" value="<?php echo $customerInfo['customer_contact'];?>">
                             </div>
                             <div class="error col-sm-1 invisiable">
                                 <i class="fa fa-close"></i>
@@ -111,16 +57,47 @@
 
                     <div class="form-group">
                         <div>
-                            <label for="" class="control-label col-sm-2">Email</label>
+                            <label for="" class="control-label col-sm-2">Customer Name</label>
                             <div class="col-sm-3">
-                                <input type="text" maxlength="32" class="form-control required" id="customer_email" name="customer_email" value="<?php echo $customerInfo['customer_email'];?>">
+                                <input type="text" maxlength="48" class="form-control required" id="customer_name" name="customer_name" value="<?php echo $customerInfo['customer_name'];?>">
                             </div>
                             <div class="error col-sm-1 invisiable">
                                 <i class="fa fa-close"></i>
                             </div>
                         </div>
                         <div class="">
-                            <label for="" class="control-label col-sm-2">Price Level</label>
+                            <label for="" class="control-label col-sm-2">Currency</label>
+                            <div class="col-sm-3">
+                                <select name="customer_currency" id="customer_currency" class="form-control">
+                                <?php
+                                foreach ($currenciesSupported as $_currency => $_val) {
+                                ?>
+                                    <option value="<?php echo $_currency;?>"<?php echo !strcasecmp ($customerInfo['customer_currency'], $_currency) ? ' selected' : '';?>><?php echo $_val;?></option>
+                                <?php
+                                }
+                                ?>
+                                </select>
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label for="" class="control-label col-sm-2">Customer Address</label>
+                            <div class="col-sm-9">
+                                <textarea maxlength="256" name="customer_addr" id="customer_addr" name="customer_addr" rows="6" class="form-control required"><?php echo $customerInfo['customer_addr'];?></textarea>
+                            </div>
+                            <div class="error col-sm-1 invisiable">
+                                <i class="fa fa-close"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="">
+                            <label for="" class="control-label col-sm-2">Autofill using price level</label>
                             <div class="col-sm-3">
                                 <select name="customer_level" id="customer_level" class="form-control">
                                 <?php
@@ -136,7 +113,7 @@
                                 <i class="fa fa-close"></i>
                             </div>
                         </div>
-                    </div>                
+                    </div>
                 </form>
             </div>
         </div>
@@ -152,9 +129,9 @@
                         <th>Interface</th>
                         <th>Capacity</th>
                         <th>Color</th>
-                        <th>Unit Price</th>
-                        <th>Tax Rate</th>
                         <th>Quantity</th>
+                        <th>Tax Rate</th>
+                        <th>Unit Price</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -184,13 +161,13 @@
                             </select>
                         </td>
                         <td class="price" data-pattern="^(\d+)(\.\d+)?$">
-                            <input type="text" class="form-control required" name="unitPrice" placeholder="4.50">
+                            <input type="text" class="form-control required" name="qty" placeholder="500">
                         </td>
                         <td class="taxRate">
-                            <input type="text" class="form-control" name="taxRate" placeholder="15%">
+                            <input type="text" class="form-control required" name="taxRate" placeholder="15%">
                         </td>
                         <td class="price" data-pattern="^(\d+)(\.\d+)?$">
-                            <input type="text" class="form-control required" name="qty" placeholder="500">
+                            <input type="text" class="form-control required" name="unitPrice" placeholder="4.50">
                         </td>
                         <td class="operations">
                             <a href="#" class="glyphicon glyphicon-plus" data-action="add"></a>
@@ -227,13 +204,13 @@
                         </select>
                     </td>
                     <td class="price" data-pattern="^(\d+)(\.\d+)?$">
-                        <input type="text" class="form-control required" name="unitPrice" placeholder="4.50">
+                        <input type="text" class="form-control required" name="qty" placeholder="500">
                     </td>
                     <td class="taxRate">
                         <input type="text" class="form-control required" name="taxRate" placeholder="15%">
                     </td>
                     <td class="price" data-pattern="^(\d+)(\.\d+)?$">
-                        <input type="text" class="form-control required" name="qty" placeholder="500">
+                        <input type="text" class="form-control required" name="unitPrice" placeholder="4.50">
                     </td>
                     <td class="operations">
                         <a href="#" class="glyphicon glyphicon-plus" data-action="add"></a>
@@ -256,7 +233,7 @@
                 </div>
                 <div class="modal-body">
                     <i class="fa fa-exclamation-triangle" style="font-size: 20px; color: orange; margin: 0 5px;"></i>
-                    <span id="warning-txt">One or more fields are empty.</span>
+                    <span id="warning-txt"></span>
                 </div>
                 <div class="modal-footer" style="border-top: 0;">
                     <button type="button" class="btn btn-primary">Close</button>
@@ -322,6 +299,7 @@
                 color.html ('');
             }
         }
+
         function itemChange (node)
         {
             $(node).change (function (_e) {
@@ -329,6 +307,38 @@
                 updateOptions (index);
             });
         }
+
+        function getItemPrice (itemRowDOM)
+        {
+            var currency  = $('#customer_currency').val ();
+            var priceLevel= $('#customer_level').val ();
+            var type      = $('select[name=type]', $(itemRowDOM)).val ();
+            var itemCode  = $('select[name=code]', $(itemRowDOM)).val ();
+            var capacity  = $('select[name=capacity]', $(itemRowDOM)).val ();
+            var qty       = $('input[name=qty]', $(itemRowDOM)).val ();
+
+            if (!(qty = qty.match (/^[0-9]+$/))) {
+                $('input[name=qty]', $(itemRowDOM)).val ('').focus ();
+                $('#warning-txt').text ('Invalid quantity');
+                $('#warningDialog').show ();
+                return false;
+            }
+            $.ajax ({
+                url: '/item_builder?action=price',
+                method: 'POST',
+                data: 'type=' + type + '&currency=' + currency + '&level=' + priceLevel + '&code=' + itemCode + '&capacity=' + capacity + '&qty=' + qty,
+                dataType: 'json',
+                success: function (response) {
+                    if (response.success) {
+                        $('input[name=unitPrice]', $(itemRowDOM)).val (response.data.formatted);
+                    } else {
+                        $('#warning-txt').text (response.message);
+                        $('#warningDialog').show ();
+                    }
+                }
+            });
+        }
+
         $(function (e) {
             updateOptions (0);
             itemChange ($('#items .item-row select'));
@@ -339,6 +349,23 @@
             $('#warningDialog button').click (function (e) {
                 $('#warningDialog').hide ();
             });
+
+            $('input[name=qty]').on ('blur', function (e) {
+                getItemPrice ($(this).closest ('.item-row'));
+            });
+            $('select[name=type], select[name=code], select[name=capacity]').on ('change', function (e) {
+                var itemRowDOM = $(this).closest ('.item-row');
+                var qty = $('input[name=qty]', itemRowDOM).val ();
+                if ('' != qty) {
+                    getItemPrice (itemRowDOM);
+                }
+            });
+            //
+            if ((candidates.hasOwnProperty ('length') && !candidates.length)
+                || !Object.keys (candidates).length) {
+                $('#warning-txt').text ('You can only send a quote to a contact saved in Netsuite. Please add contact to Netsuite with this email address');
+                $('#warningDialog').show ();
+            }
         });
         /**
          * quote main
@@ -412,7 +439,7 @@
 
         function getCustomerInfo ()
         {
-            var customerInfoKey = ['customer_addr', 'customer_name', 'customer_currency', 'customer_phone',
+            var customerInfoKey = ['customer_addr', 'customer_name', 'customer_contact', 'customer_currency',
                                    'customer_language', 'customer_email', 'customer_level'
                 ];
             var customerInfo = {};
@@ -491,7 +518,7 @@
             var customerIDs  = Object.keys (candidates); 
             var customerAddrs= [];
             var customerNames= [];
-            var customerPhones= [];
+            var contactNames = [];
 
             for (var id in candidates) {
                 if (-1 == customerAddrs.indexOf (candidates[id].customer_addr)) {
@@ -500,14 +527,14 @@
                 if (-1 == customerNames.indexOf (candidates[id].customer_name)) {
                     customerNames.push (candidates[id].customer_name);
                 }
-                if (-1 == customerPhones.indexOf (candidates[id].customer_phone)) {
-                    customerPhones.push (candidates[id].customer_phone);
+                if (-1 == contactNames.indexOf (candidates[id].customer_contact)) {
+                    contactNames.push (candidates[id].customer_contact);
                 }
             }
             $('#customer_id').autocomplete ({source: Object.keys (candidates)});
             $('#customer_addr').autocomplete ({source: customerAddrs});
             $('#customer_name').autocomplete ({source: customerNames});
-            $('#customer_phone').autocomplete ({source: customerPhones});
+            $('#customer_contact').autocomplete ({source: contactNames});
 
             $('[id^=customer_]').on ('change blur', function (e) {
                 var id = $(this).attr ('id');
@@ -518,10 +545,18 @@
             });
         }
 
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
         function PDFBind ()
         {
             $('#generatePDF').click (function (e) {
                 if (!submitCheck ()) {
+                    $('#warning-txt').text ('One or more fields are empty.');
                     $('#warningDialog').show ();
                     return false;
                 }
@@ -531,10 +566,28 @@
                         dataType: 'json',
                         success: function (response) {
                             if (response.success) {
-                                var PDFUrl= window.location.origin + '/pdf/gen.php?uri=' + window.location.origin + '/item_builder?form_id=' + response.data;
-                                window.open (PDFUrl);
+                                var PDFUrl= 'http://beta.flashbay.de/pdf/gen.php?uri=' + window.location.origin + '/item_builder?form_id=' + response.data;
                                 //window.opener.postMessage('QUOTE_TOOL_MESSAGE:Flashbay_quote.pdf|||http://www.flashbay.de/gen.php?uri=' + response.data, 'https://zimbra.flashbay.mars');
-                                //window.close();
+                                QuoteToolConfig = {};
+                                QuoteToolConfig.POST_ORIGIN = 'https://zimbra.flashbay.com';
+                                QuoteToolConfig.POST_MESSAGE_TYPE = 'QuoteToolMessage';
+                                QuoteToolConfig.UPLOAD_STATUS_UPLOADING = 1;
+                                QuoteToolConfig.UPLOAD_STATUS_UPLOADED = 2;
+                                QuoteToolConfig.UPLOAD_STATUS_OTHER_UPLOADING = -1;
+                                QuoteToolConfig.UPLOAD_STATUS_UPLOAD_FAILED = -2;
+                                QuoteToolConfig.UPLOAD_STATUS_COMPOSE_CLOSED = -3
+
+                                var request = {
+                                    type: QuoteToolConfig.POST_MESSAGE_TYPE,
+                                    token: getParameterByName('token'),
+                                    flag: 'something special',
+                                    file: {
+                                        name: 'Quote item.pdf',
+                                        url: PDFUrl
+                                    }
+                                };
+                                window.opener.postMessage(request, QuoteToolConfig.POST_ORIGIN);
+                                window.close();
                             } else {
                                 $('#warning-txt').text (response.message);
                                 $('#warningDialog').show ();

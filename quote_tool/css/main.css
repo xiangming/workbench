@@ -75,7 +75,7 @@ body{
     cursor: move;
 }
 .quote-header{
-    border-bottom: 5px solid #767676;
+    border-bottom: 3px solid #767676;
 }
 .quote-form{
     /*padding: 20px 0;*/
@@ -124,19 +124,16 @@ body{
  * pdf view
  */
 .pdfView .form-group{
-    margin-bottom:5px;
+    margin-bottom: 0;
+    line-height: 1.2;
 }
 .pdfView td.item{
     min-width: 200px;
 }
 
-@media (min-width:480px) {
-    .pdfView .form-horizontal .control-label{
+.pdfView .form-horizontal .control-label {
         padding-top: 7px;
         padding-right: 0px;
         margin-bottom: 0;
         text-align: left;
-    }
 }
-
-    

@@ -5,6 +5,7 @@ define ('TL_PL_PRICE_LEVELS', 'pl_price_levels');
 define ('TL_EXCHANGE_RATES', 'exchange_rates');
 define ('TL_TRANSLATIONS', 'translations');
 define ('TL_CUSTOMERS', 'master_customers');
+define ('TL_CONTACTS', 'master_contacts');
 
 define ('TL_PRODUCTS', 'products');
 define ('TL_ACCESSORYS', 'accessories');
@@ -16,7 +17,7 @@ function initCustomerInfo (&$customerInfo)
 {
     $customerInfo =
         array (
-            'customer_id' => '', 'customer_addr' => '', 'customer_name' => '',
+            'customer_id' => '', 'customer_addr' => '', 'customer_name' => '', 'customer_contact' => '',
             'customer_currency' => PriceList :: $defaultCurrency, 'customer_phone'=> '', 'customer_language' => 'us',
             'customer_email' => '', 'customer_level' => 14,
     );
@@ -30,13 +31,15 @@ function getCustomerInfoById ($customerID)
     if ($customerInst) {
         $territoryInst = Territory :: fromAlpha2 ($customerInst->countryCode);
         $defaultAddr   = $customerInst -> getDefaultAddress ('billing');
-        $defaultContact= $customerInst -> getPrimaryContact ();
+        $contactInsts  = $customerInst -> getContacts ();
+        $defaultContact= $contactInsts ? end ($contactInsts) : false;
         $allPriceLevels= getAllPriceLevels ();
         $defaultCustomerInfo =
             array (
                 'customer_id'   => intval ($customerID),
                 'customer_addr' => $defaultAddr ? $defaultAddr -> __toString () : '',
-                'customer_name'  => $defaultContact ? $defaultContact->firstName . '_' . $defaultContact->lastName : $customerInst->realName,
+                'customer_name' => $customerInst->realName ? : $customerInst->name,
+                'customer_contact'=> $defaultContact ? $defaultContact->firstName . ' ' . $defaultContact->lastName : $customerInst->realName,
                 'customer_phone'=> $defaultContact ? $defaultContact->phone : $customerInst->phone,
                 'customer_email'=> $customerInst->email,
                 'customer_level'   => array_search ($customerInst -> getPriceLevel (), $allPriceLevels),
@@ -97,7 +100,7 @@ function parseCustomerInfo ($POST, &$error)
         switch ($_k) {
         case 'customer_name':
         case 'customer_addr':
-        case 'customer_phone':
+        case 'customer_contact':
             if (!empty ($POST[$_k])) $_v = strip_tags ($POST[$_k]);
             else array_push ($error, $_k);
             break;
@@ -208,6 +211,47 @@ $priceLevels         = getAllPriceLevels ();
 $currenciesSupported = getAllCurrencies ();
 //languages
 $languagesSupported  = getAllLanguages ();
+
+if (isset ($_REQUEST['action']) && 'price' == $_REQUEST['action']) {//get unit price
+    $type        = intval (@$_REQUEST['type']);
+    $currency    = isset ($_REQUEST['currency']) ? $_REQUEST['currency'] : '';
+    $priceLevelID= intval (@$_REQUEST['level']);
+    //
+    $code        = isset ($_REQUEST['code']) ? $_REQUEST['code'] : '';
+    $qty         = intval (@$_REQUEST['qty']);
+    $capacity    = isset ($_REQUEST['capacity']) ? $_REQUEST['capacity'] : '';
+    $currencyInst = Currency :: getByCode ($currency);
+    if (isCompoundValid ($code, $type)
+        && !empty ($currencyInst)
+        && isset ($priceLevels[$priceLevelID])
+        && $qty && $capacity) {
+        //
+        $options =
+            array (
+                'customer' => new Customer, 'currency' => $currencyInst,
+                'priceLevel' => PriceList :: getPriceLevel ($priceLevels[$priceLevelID]), 'customerVisit' => true
+        );
+        $priceListInst = new PriceList ($options);
+        switch ($type) {
+        case QuoteFormItem :: TYPE_MODEL:
+            $productInst = Product :: getByItemCode ($code);
+            $value = floatval ($priceListInst -> price ($qty, $capacity, $productInst, array ('currency' => $currency)));
+            break;
+        case QuoteFormItem :: TYPE_ACCESSORY:
+            $accessory = Accessory :: getByItemCode ($code);
+            $value = floatval ($priceListInst -> smartPrice ($accessory->basePrice));
+            break;
+        case QuoteFormItem :: TYPE_SERVICE:
+            $serviceInst = Solution :: getByItemCode ($code);
+            $value = floatval ($priceListInst -> smartPrice ($serviceInst->basePrice));
+            break;
+        }
+        $response= array ('success' => true, 'data' => array ('currency' => $currency, 'value' => $value, 'formatted' => $currencyInst -> symbolFormat ($value)));
+    } else {
+        $response = array ('success' => false, 'message' => 'Invalid Parameter.');
+    }
+    exit (json_encode ($response)); 
+}
 //
 if (!strcasecmp ($_SERVER['REQUEST_METHOD'], 'POST')) {//Save items
     $salesEmail = isset ($_REQUEST['sales_email']) ? $_REQUEST['sales_email'] : @$_SESSION['sales_email'];
@@ -222,6 +266,7 @@ if (!strcasecmp ($_SERVER['REQUEST_METHOD'], 'POST')) {//Save items
         $quoteFormCustomerInst = new QuoteFormCustomer ($customerInfo['customer_email']);
         $quoteFormCustomerInst -> setAddress ($customerInfo['customer_addr']);
         $quoteFormCustomerInst -> setName ($customerInfo['customer_name']);
+        $quoteFormCustomerInst -> setContact ($customerInfo['customer_contact']);
         $quoteFormCustomerInst -> setCurrency ($customerInfo['customer_currency']);
         $quoteFormCustomerInst -> setPhone ($customerInfo['customer_phone']);
         $quoteFormCustomerInst -> setLanguage ($customerInfo['customer_language']);
@@ -266,6 +311,9 @@ if (isset ($_REQUEST['form_id'])) {//PDF
     $translatorInst       = new Translator ($quoteFormCustomerInst -> getLanguage ());
     $currencyInst         = Currency :: getByCode  ($quoteFormInst -> getCurrency ());
 
+    $quoteFormInst -> setStatus (QuoteForm :: ST_GENERATED);
+    $quoteFormInst -> store ();
+
     include dirname (__FILE__) . DIRECTORY_SEPARATOR . 'pdf.phtml';
     exit;
 
@@ -285,6 +333,7 @@ if (isset ($_REQUEST['form_id'])) {//PDF
                 'customer_id'  => '',
                 'customer_addr'=> $lastCustomerInst -> getAddress (),
                 'customer_name' => $lastCustomerInst -> getName (),
+                'customer_contact'  => $lastCustomerInst -> getContact (),
                 'customer_phone' => $lastCustomerInst -> getPhone (),
                 'customer_language'=> $lastCustomerInst -> getLanguage (),
                 'customer_email' => $lastCustomerInst -> getEmail (),
@@ -294,8 +343,17 @@ if (isset ($_REQUEST['form_id'])) {//PDF
     } else {//look up customer history
         $sql = sprintf ('SELECT internalID FROM ' . TL_CUSTOMERS . ' WHERE email = \'%s\'', Db :: getDb () -> quote ($_REQUEST['customer_email']));
         $candidateCustomerInsts = Db :: getDb (FB_DATA_DB) -> getAll ($sql, 'Customer');
-        foreach ($candidateCustomerInsts as $_customerInst) {
-            $candidateCustomerInfos[$_customerInst->internalID] = getCustomerInfoById ($_customerInst->internalID);
+        if (!empty ($candidateCustomerInsts)) {
+            foreach ($candidateCustomerInsts as $_customerInst) {
+                $candidateCustomerInfos[$_customerInst->internalID] = getCustomerInfoById ($_customerInst->internalID);
+            }
+        } else {
+            $sql = sprintf ('SELECT * FROM ' . TL_CONTACTS . ' WHERE email=\'%s\'', Db :: getDb () -> quote ($_REQUEST['customer_email']));
+            $contactInfo = Db :: getDb (FB_DATA_DB) -> getAll ($sql);
+            foreach ($contactInfo as $_contact) {
+                $candidateCustomerInfos[$_contact->companyID] = getCustomerInfoById ($_contact->companyID);
+                $candidateCustomerInfos[$_contact->companyID]['customer_contact'] = $_contact->firstName . ' ' . $_contact->lastName;
+            }
         }
         if (1 == sizeof ($candidateCustomerInfos)) {//Only one customer
             $customerInfo = array_merge ($customerInfo, current ($candidateCustomerInfos));
