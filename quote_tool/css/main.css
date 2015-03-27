@@ -119,6 +119,11 @@ body{
 .table > tbody > tr > .txt-right {
     text-align: right;
 }
+.control-label.autofill {
+        padding-top: 7px;
+        margin-bottom: 0;
+        text-align: right;
+}
 
 /**
  * pdf view
