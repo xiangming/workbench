@@ -46,6 +46,9 @@ textarea.form-control{
     border-color: #ddd;
     box-shadow: none;
 }
+.form-group:last-child{
+    margin-bottom: 0;
+}
 
 .panel{
     border: none;

@@ -14,6 +14,11 @@
         .content{
             min-height: 1200px;
         }
+        .navigation{
+            padding-top: 100px;
+            padding-bottom: 0;
+            background: #b10031;
+        }
     </style>
 </head>
 <body>
@@ -21,263 +26,279 @@
         <div class="container">
             <div class="navbar">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="#">
                         <img src="img/flashbay_logo_us.jpg" height="90" alt="">
                     </a>
                 </div>
-                
-                <div id="navbar-collapse" class="collapse navbar-collapse navigation">
-                    <ul class="nav navbar-nav">
-                        <li class="active" id="products">
-                            <a href="#" onmouseover="MenuStart();">Products</a>
-                            <ul id="MenuResponse" class="image_dropdown">
-                                <li class="overview">
-                                    <a href="http://www.flashbay.com/products/custom-usb-flash-drives" onmouseover="name_replace('View All','common')" onmouseout="name_replace(0,'common')">USB Flash Drives</a>
-                                    <span id="pncommon"></span>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/twister-flash-drive" title="Twister" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/TW_s.png" alt="Twister" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/kinetic-flash-drive" title="Kinetic" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/KN_s.png" alt="Kinetic" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/key-flash-drive" title="Key" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/KS_s.png" alt="Key" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/focus-flash-drive" title="Focus" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/FC_s.png" alt="Focus" onmousemove="name_replace(this.alt,'common',1)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/executive-flash-drive" title="Executive" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/EX_s.png" alt="Executive" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/rotator-flash-drive" title="Rotator" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/RT_s.png" alt="Rotator" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/classic-flash-drive" title="Classic" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/CS_s.png" alt="Classic" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/halo-flash-drive" title="Halo" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/HA_s.png" alt="Halo" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/pod-flash-drive" title="Pod" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/PO_s.png" alt="Pod" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/trix-flash-drive" title="Trix" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/TX_s.png" alt="Trix" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/wooden-flash-drive" title="Nature" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/NA_s.png" alt="Nature" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/ellipse-flash-drive" title="Ellipse" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/EL_s.png" alt="Ellipse" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/image-flash-drive" title="Image" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/IM_s.png" alt="Image" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/flip-flash-drive" title="Flip" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/FS_s.png" alt="Flip" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
-                                </li>
-                                <li class="overview">
-                                    <a href="http://www.flashbay.com/products/custom-usb-cards" onmouseover="name_replace('View All','card')" onmouseout="name_replace(0,'card')">USB Cards</a>
-                                    <span id="pncard"></span>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/wafer-usb-card" title="Wafer" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/WA_s.png" alt="Wafer" onmousemove="name_replace(this.alt,'card',0)" onmouseout="name_replace(0,'card')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/alloy-usb-card" title="Alloy" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/AY_s.png" alt="Alloy" onmousemove="name_replace(this.alt,'card',0)" onmouseout="name_replace(0,'card')"></a>
-                                </li>
-                                <li class="overview">
-                                    <a href="http://www.flashbay.com/products/logo-usb-flash-drives" onmouseover="name_replace('View All','multifunction')" onmouseout="name_replace(0,'multifunction')">Multi-function USB Flash Drives</a>
-                                    <span id="pnmultifunction"></span>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/usb-pen-note" title="Note" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/NT_s.png" alt="Note" onmousemove="name_replace(this.alt,'multifunction',1)" onmouseout="name_replace(0,'multifunction')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/clip-flash-drive" title="Clip" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/CL_s.png" alt="Clip" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/pop-flash-drive" title="Pop" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/PS_s.png" alt="Pop" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/usb-slap-bracelet" title="Slap" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/SL_s.png" alt="Slap" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/light-flash-drive" title="Light" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/LT_s.png" alt="Light" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/usb-pen" title="Ink" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/IK_s.png" alt="Ink" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/lizzard-usb-bracelet" title="Lizzard" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/WB_s.png" alt="Lizzard" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/products/event-flash-drive" title="Event" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
-                                        <img src="http://static.flashbay.com/images/products/EV_s.png" alt="Event" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">Services</a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="http://www.flashbay.com/services/data-preloading">
-                                        <span class="sublevel">Data Preloading</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/services/file-lock-flash-drive">
-                                        <span class="sublevel">File Lock/Dual Zone</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/services/pantone-flash-drives">
-                                        <span class="sublevel">Pantone Matched Shells</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/services/usb-autorun">
-                                        <span class="sublevel">AutoRun Function</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/services/volume-label">
-                                        <span class="sublevel">Volume Label</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Accessories</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">Support</a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="http://www.flashbay.com/support/customer-centre" rel="nofollow">
-                                        <span class="sublevel">Customer Center</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/support/faq" rel="nofollow">
-                                        <span class="sublevel">FAQs</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/support/faq/order-usb-flash-drives" rel="nofollow">
-                                        <span class="sublevel">Order Guide</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/support/faq/usb-flash-drive-resellers" rel="nofollow">
-                                        <span class="sublevel">Resellers</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/support/faq/custom-flash-drive-warranty" rel="nofollow">
-                                        <span class="sublevel">Flashbay Warranty</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">About Us</a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="http://www.flashbay.com/about/environment">
-                                        <span class="sublevel">Environment</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/about/usb-flash-drive-factory" rel="nofollow">
-                                        <span class="sublevel">Flashbay Factory</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/about/usb-flash-drive-certificates" rel="nofollow">
-                                        <span class="sublevel">Certificates</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/about/supplier-code-of-conduct" rel="nofollow">
-                                        <span class="sublevel">Supplier Conduct</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/about/privacy" rel="nofollow">
-                                        <span class="sublevel">Privacy Notice</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/about/cookie" rel="nofollow">
-                                        <span class="sublevel">Cookie Policy</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/about/terms-and-conditions" rel="nofollow">
-                                        <span class="sublevel">Terms and Conditions</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.flashbay.com/about/jobs" rel="nofollow">
-                                        <span class="sublevel">Careers at Flashbay</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.trustpilot.com/review/www.flashbay.com" rel="nofollow" target="_blank">
-                                        <span class="sublevel">What Customers Say</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Contact Us</a>
-                        </li>
-                    </ul>
+                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <li class="freephone">
+                            <b>Freephone: 0207 371 7333 (GB)</b>
+                        </li>
                         <li>
                             <a href="#" class="btn_quote" id="mm_get_quote">Get Quote</a>
                         </li>
-                        <li>
-                            <a href="#">Sign in</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="img/us.png" height="20" width="20" alt="">
-                            </a>
-                        </li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navbar navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar-collapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="active" id="products">
+                        <a href="#" onmouseover="MenuStart();">Products</a>
+                        <ul id="MenuResponse" class="image_dropdown">
+                            <li class="overview">
+                                <a href="http://www.flashbay.com/products/custom-usb-flash-drives" onmouseover="name_replace('View All','common')" onmouseout="name_replace(0,'common')">USB Flash Drives</a>
+                                <span id="pncommon"></span>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/twister-flash-drive" title="Twister" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/TW_s.png" alt="Twister" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/kinetic-flash-drive" title="Kinetic" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/KN_s.png" alt="Kinetic" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/key-flash-drive" title="Key" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/KS_s.png" alt="Key" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/focus-flash-drive" title="Focus" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/FC_s.png" alt="Focus" onmousemove="name_replace(this.alt,'common',1)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/executive-flash-drive" title="Executive" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/EX_s.png" alt="Executive" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/rotator-flash-drive" title="Rotator" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/RT_s.png" alt="Rotator" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/classic-flash-drive" title="Classic" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/CS_s.png" alt="Classic" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/halo-flash-drive" title="Halo" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/HA_s.png" alt="Halo" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/pod-flash-drive" title="Pod" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/PO_s.png" alt="Pod" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/trix-flash-drive" title="Trix" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/TX_s.png" alt="Trix" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/wooden-flash-drive" title="Nature" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/NA_s.png" alt="Nature" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/ellipse-flash-drive" title="Ellipse" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/EL_s.png" alt="Ellipse" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/image-flash-drive" title="Image" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/IM_s.png" alt="Image" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/flip-flash-drive" title="Flip" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/FS_s.png" alt="Flip" onmousemove="name_replace(this.alt,'common',0)" onmouseout="name_replace(0,'common')"></a>
+                            </li>
+                            <li class="overview">
+                                <a href="http://www.flashbay.com/products/custom-usb-cards" onmouseover="name_replace('View All','card')" onmouseout="name_replace(0,'card')">USB Cards</a>
+                                <span id="pncard"></span>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/wafer-usb-card" title="Wafer" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/WA_s.png" alt="Wafer" onmousemove="name_replace(this.alt,'card',0)" onmouseout="name_replace(0,'card')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/alloy-usb-card" title="Alloy" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/AY_s.png" alt="Alloy" onmousemove="name_replace(this.alt,'card',0)" onmouseout="name_replace(0,'card')"></a>
+                            </li>
+                            <li class="overview">
+                                <a href="http://www.flashbay.com/products/logo-usb-flash-drives" onmouseover="name_replace('View All','multifunction')" onmouseout="name_replace(0,'multifunction')">Multi-function USB Flash Drives</a>
+                                <span id="pnmultifunction"></span>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/usb-pen-note" title="Note" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/NT_s.png" alt="Note" onmousemove="name_replace(this.alt,'multifunction',1)" onmouseout="name_replace(0,'multifunction')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/clip-flash-drive" title="Clip" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/CL_s.png" alt="Clip" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/pop-flash-drive" title="Pop" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/PS_s.png" alt="Pop" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/usb-slap-bracelet" title="Slap" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/SL_s.png" alt="Slap" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/light-flash-drive" title="Light" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/LT_s.png" alt="Light" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/usb-pen" title="Ink" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/IK_s.png" alt="Ink" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/lizzard-usb-bracelet" title="Lizzard" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/WB_s.png" alt="Lizzard" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/products/event-flash-drive" title="Event" onmouseover="if(navigator.platform=='MacIntel')this.title='';">
+                                    <img src="http://static.flashbay.com/images/products/EV_s.png" alt="Event" onmousemove="name_replace(this.alt,'multifunction',0)" onmouseout="name_replace(0,'multifunction')"></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Services</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.flashbay.com/services/data-preloading">
+                                    <span class="sublevel">Data Preloading</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/services/file-lock-flash-drive">
+                                    <span class="sublevel">File Lock/Dual Zone</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/services/pantone-flash-drives">
+                                    <span class="sublevel">Pantone Matched Shells</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/services/usb-autorun">
+                                    <span class="sublevel">AutoRun Function</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/services/volume-label">
+                                    <span class="sublevel">Volume Label</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Accessories</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Support</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.flashbay.com/support/customer-centre" rel="nofollow">
+                                    <span class="sublevel">Customer Center</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/support/faq" rel="nofollow">
+                                    <span class="sublevel">FAQs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/support/faq/order-usb-flash-drives" rel="nofollow">
+                                    <span class="sublevel">Order Guide</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/support/faq/usb-flash-drive-resellers" rel="nofollow">
+                                    <span class="sublevel">Resellers</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/support/faq/custom-flash-drive-warranty" rel="nofollow">
+                                    <span class="sublevel">Flashbay Warranty</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.flashbay.com/about/environment">
+                                    <span class="sublevel">Environment</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/about/usb-flash-drive-factory" rel="nofollow">
+                                    <span class="sublevel">Flashbay Factory</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/about/usb-flash-drive-certificates" rel="nofollow">
+                                    <span class="sublevel">Certificates</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/about/supplier-code-of-conduct" rel="nofollow">
+                                    <span class="sublevel">Supplier Conduct</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/about/privacy" rel="nofollow">
+                                    <span class="sublevel">Privacy Notice</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/about/cookie" rel="nofollow">
+                                    <span class="sublevel">Cookie Policy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/about/terms-and-conditions" rel="nofollow">
+                                    <span class="sublevel">Terms and Conditions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.flashbay.com/about/jobs" rel="nofollow">
+                                    <span class="sublevel">Careers at Flashbay</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.trustpilot.com/review/www.flashbay.com" rel="nofollow" target="_blank">
+                                    <span class="sublevel">What Customers Say</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/us.png" height="20" width="20" alt="">
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

@@ -30,6 +30,7 @@ body{
 }
 
 .navbar .navbar-brand {
+    height: 55px;
     padding: 0;
 }
 
@@ -41,15 +42,20 @@ body{
     list-style: none;
 }
 
-.navbar .navbar-nav > li > a {
-    /*display: inline-block;*/
+.navbar .navbar-nav li.freephone {
+    line-height: 40px;
+    margin-right: 40px;
+    color: #555;
+}
 
+.navbar .navbar-nav > li > a {
     padding: 15px;
 
     line-height: 20px;
 
-    color: #555;
-    border-radius: 5px;
+    font-weight: 700;
+
+    color: #fff;
 }
 
 .navbar .navbar-nav li a:focus,
@@ -103,7 +109,7 @@ body{
         transition: all .5s ease;
     }
     .navbar-collapse.collapse {
-        padding-left: 240px;
+        /*padding-left: 240px;*/
 
         transition: all .5s ease;
     }
@@ -135,11 +141,20 @@ body{
  * Content
  */
 .content{
-    padding-top: 100px;
+    /*padding-top: 100px;*/
     margin-bottom: 30px;
 }
 
-#mm_get_quote.btn_quote{background-color:#5FBF5F;color:#fff;background-image: linear-gradient(to bottom, #62c462, #51a351);font-weight:bold}
+#mm_get_quote.btn_quote {
+    padding: 10px 20px;
+    font-weight: bold;
+
+    color: #fff;
+    background-color: #5fbf5f;
+    background-image: linear-gradient(to bottom, #62c462, #51a351);
+    border-radius: 5px;
+}
+
 #mm_get_quote.btn_quote:hover,
 #mm_get_quote.btn_quote:focus {
   background-color: #51a351;
