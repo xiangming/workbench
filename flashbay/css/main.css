@@ -1,5 +1,9 @@
 body{
-  background: #f9f9f9;
+    font-family: arial, helvetica, sans-serif;
+    background: #f9f9f9;
+}
+.fa{
+    font-size: 16px;
 }
 
 /*header*/
@@ -15,6 +19,7 @@ body{
 
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,.11);
+    letter-spacing: 0.5px;
 
     transition: padding .5s ease;
 }
@@ -23,6 +28,7 @@ body{
     margin-bottom: 0;
 
     border: none;
+    letter-spacing: 0.5px;
 }
 
 .navbar-toggle .icon-bar {
@@ -57,6 +63,9 @@ body{
 
     color: #fff;
 }
+.navbar .navbar-nav > li > a > .fa.fa-user{
+    font-size: 18px;
+}
 
 .navbar .navbar-nav li a:focus,
 .navbar .navbar-nav li a:hover {
@@ -88,7 +97,7 @@ body{
 
 @media (min-width:768px) {
     .navbar .navbar-nav > li > a {
-        padding: 10px;
+        padding: 10px 12px;
     }
 
     /*when scrolling down the page logo size and navbar height reduced*/
@@ -109,7 +118,7 @@ body{
         transition: all .5s ease;
     }
     .navbar-collapse.collapse {
-        /*padding-left: 240px;*/
+        padding-left: 0;
 
         transition: all .5s ease;
     }
@@ -262,12 +271,16 @@ body{
     color: #fff;
     text-decoration: none
 }
+.footer .footer-content .fa.fa-rss-square{
+    color:#FFA900
+}
 
 .footer .footer-bar {
     padding: 10px 0;
     font-size: 12px;
     background: #2b2b2b;
-    background: #fff;
+    background-color: #333;
+    color: #fff;
 }
 
 .footer .footer-bar .footer-bar-left {
@@ -278,4 +291,9 @@ body{
 .footer .footer-bar .footer-bar-right {
     float: right;
     margin-top: 10px
+}
+
+.flags{
+    display: inline-block;
+    height: 40px;
 }
