@@ -1,0 +1,1 @@
+<?=Misc::dynamicKeywordReplace('FB_HOME_HEADER')?>
