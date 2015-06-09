@@ -1,0 +1,114 @@
+.pexeto-style-switcher {
+    position: fixed;
+	left: 0px;
+	top: 100px;
+	padding: 11px;
+	width: 76px;
+	min-height: 200px;
+	background-color: #fff;
+	font-size: 11px;
+	z-index:10000;
+	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	-moz-border-radius:0  5px 5px 0;
+	-webkit-border-radius: 0  5px 5px 0;
+	border-radius: 0  5px 5px 0;
+	display: none;
+}
+
+
+.pexeto-style-switcher span {
+	font-size: 10px;
+}
+
+.ss-toggle-btn {
+	width: 26px;
+	height: 25px;
+	padding: 4px;
+	position: absolute;
+	right: -34px;
+	top: 31px;
+	background-image: url(../images/switch-btn.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px 20px;
+	border-width: 0px;
+	background-color: #ffffff;
+	box-shadow:none;
+	cursor: pointer;
+	border-radius: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+border-left: 0;
+}
+
+.ss-toggle-btn a{
+	outline:none;
+}
+
+
+.ss-wrapper{
+	margin-bottom: 10px;
+}
+
+.ss-wrapper label{
+	display: block;
+	margin-bottom: 5px;
+}
+
+.ss-color, .ss-pattern{
+	width:20px;
+	height:15px;
+	display:inline-block;
+	margin-right:3px;
+	margin-left:2px;
+	margin-bottom:5px;	
+	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3) inset;
+	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3) inset;
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3) inset;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+}
+
+.pexeto-style-switcher hr{
+	
+	margin-bottom:10px;
+	margin-top:-2px;
+	color:#ccc;
+	background-color:#ccc;
+	border-color:#ccc;
+}
+
+.ss-picker-btn{
+	background-color: #faf9f4;
+	width: 122%;
+	padding: 3px 0;
+	margin-left: -11px;
+	margin-top: 5px;
+	height: 30px;
+	position: relative;
+	cursor: pointer;
+	box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.03) inset, 0 -1px 0 0 rgba(0, 0, 0, 0.03) inset;
+}
+.ss-picker-btn span{
+	padding-left: 10px;
+	display: block;
+	width: 50px;
+	line-height: 1.1em;
+	margin-top: 4px;
+}
+
+.ss-picker-preview{
+	width:20px;
+	height:17px;
+	position: absolute;
+	top:8px;
+	right:15px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	border:2px solid #fff;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+

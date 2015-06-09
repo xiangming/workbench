@@ -3,6 +3,7 @@ Thumbs.db
 db.json
 debug.log
 node_modules/
+bower_components/
 __MACOSX/
 public/
 .deploy/

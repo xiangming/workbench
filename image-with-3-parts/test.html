@@ -1,0 +1,48 @@
+<style>
+
+html, body, div {margin:0px; padding:0px;}
+
+.header_img_container {width:100%; text-align: center; overflow:hidden;}
+
+.header_image_l, .header_image, .header_image_r {
+text-align: left;
+display:inline-block;
+height: 160px;
+position: relative;
+background-repeat: no-repeat;
+}
+
+.header_image_l {
+width: 810px;
+left:-810px;
+background-size: 810px 160px;
+}
+
+.header_image {
+width: 980px;
+background-size: 980px 160px;
+}
+
+.header_image_r {
+width: 810px;
+left:1790px;
+background-size: 810px 160px;
+}
+
+</style>
+
+<div class='header_img_container'>
+    <div class='header_image' style='background-image: url(eco_flash_drive_header.jpg);'>
+        <div class='header_image_l' style='background-image: url(eco_flash_drive_header_l.jpg);'>
+            <div class='header_image_r' style='background-image: url(eco_flash_drive_header_r.jpg);'></div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class='header_image' style='background-image: url(eco_flash_drive_header.jpg);'><div class='header_image_l' style='background-image: url(eco_flash_drive_header_l.jpg);'><div class='header_image_r' style='background-image: url(eco_flash_drive_header_r.jpg);'></div></div></div>
+
+    <br>
+
+    <div class='header_image' style='background-image: url($resourceDomain/images/header/eco_flash_drive_header.jpg);'><div class='header_image_l' style='background-image: url($resourceDomain/images/header/eco_flash_drive_header_l.jpg);'><div class='header_image_r' style='background-image: url($resourceDomain/images/header/eco_flash_drive_header_r.jpg);'></div></div></div>
+</div>

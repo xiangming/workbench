@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mountain with clouds</title>
+
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+
+		.hero{
+			background: #000;
+		}
+
+		.hero-image-wrapper{
+			height: 100vh;
+			overflow: hidden;
+			background: url(img/hero-desktop.jpg) center center no-repeat #252528;
+			background-size: cover;
+		}
+
+		.hero-clouds{
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 30;
+			width: 4010px;
+			height: 700px;
+			background: url(http://www.invisionapp.com/subsystems/do_ui_kit/assets/img/clouds.png) 0px 100% repeat-x;
+			-webkit-animation: cloudLoop 80s linear infinite;
+			animation: cloudLoop 80s linear infinite;
+		}
+
+		.hero-gradient{
+			margin-top: -600px;
+			padding-top: 450px;
+			min-height: 900px;
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTUwMHB4IiBoZWlnaHQ9IjE3NTBweCIgdmlld0JveD0iMCAwIDE1MDAgMTc1MCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyI+ICAgICAgICA8dGl0bGU+Ymc8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+ICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSIgaWQ9ImxpbmVhckdyYWRpZW50LTEiPiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMyNTI1MjgiIHN0b3Atb3BhY2l0eT0iMCIgb2Zmc2V0PSIwJSI+PC9zdG9wPiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMwMDAwMDAiIG9mZnNldD0iMTguMTEyMjQ0OSUiPjwvc3RvcD4gICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMDAwMDAwIiBvZmZzZXQ9IjU2LjEyMDQ1NiUiPjwvc3RvcD4gICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNzM3MkExIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4gICAgICAgIDwvbGluZWFyR3JhZGllbnQ+ICAgIDwvZGVmcz4gICAgPGcgaWQ9ImxhbmRpbmctcGFnZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+ICAgICAgICA8ZyBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgLTUyNi4wMDAwMDApIiBpZD0iYmciIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMSkiPiAgICAgICAgICAgIDxyZWN0IHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiIHg9IjAiIHk9IjUyNiIgd2lkdGg9IjE1MDAiIGhlaWdodD0iMTc1MCI+PC9yZWN0PiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
+			background: linear-gradient(-180deg,rgba(37, 37, 40, 0) 0,#000 31.25em,#000 56%,#7372A0 100%);
+			background-size: cover;
+		}
+
+		@-webkit-keyframes cloudLoop {
+			0% {
+				-webkit-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0)
+			}
+
+			100% {
+				-webkit-transform: translate3d(-50%,0,0);
+				transform: translate3d(-50%,0,0)
+			}
+		}
+
+		@keyframes cloudLoop {
+			0% {
+				-webkit-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0)
+			}
+
+			100% {
+				-webkit-transform: translate3d(-50%,0,0);
+				transform: translate3d(-50%,0,0)
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+	<section class="hero" id="intro">
+		<div class="hero-image-wrapper">
+			<div class="hero-container">
+				<div class="hero-clouds"></div>
+			</div>
+		</div>
+
+		<div class="hero-gradient"></div>
+	</section>
+
+</body>
+</html>
