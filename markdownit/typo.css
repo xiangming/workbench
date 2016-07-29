@@ -1,0 +1,236 @@
+@charset "utf-8";
+.typo {
+  font: 300 18px/1.8 "Georgia", "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  color: #444443;
+}
+.typo h1,
+.typo h2,
+.typo h3,
+.typo h4,
+.typo h5,
+.typo h6 {
+  color: #222223;
+  /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.typo h1 {
+  font-size: 1.8em;
+}
+.typo h2 {
+  font-size: 1.5em;
+}
+.typo h3 {
+  font-size: 1.2em;
+}
+.typo h4,
+.typo h5,
+.typo h6 {
+  font-size: 1em;
+}
+.typo h6 {
+  font-weight: 500;
+}
+.typo ul,
+.typo ol {
+  margin: 0 0 30px;
+}
+.typo ul li,
+.typo ol li {
+  padding: 10px 0;
+}
+.typo ol {
+  counter-reset: ol-counter;
+}
+.typo p {
+  margin-top: 0;
+  margin-bottom: 1em;
+  max-width: 100%;
+}
+.typo a {
+  word-wrap: break-word;
+  text-decoration: none;
+}
+.typo a:focus,
+.typo a:hover {
+  text-decoration: underline;
+}
+.typo strong,
+.typo b {
+  font-weight: 700;
+}
+.typo em,
+.typo i {
+  font-style: italic;
+}
+.typo img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.2em 0;
+  border: none;
+  /* Remove border on IE */
+}
+.typo figure {
+  position: relative;
+  clear: both;
+  outline: 0;
+  margin: 10px 0 30px;
+  padding: 0;
+  min-height: 100px;
+}
+.typo figure img {
+  display: block;
+  max-width: 100%;
+  margin: auto auto 4px;
+  box-sizing: border-box;
+}
+.typo figure figcaption {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #888;
+}
+.typo figure figcaption a {
+  text-decoration: none;
+  color: #888;
+}
+.typo hr {
+  display: block;
+  margin: 40px auto;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+.typo blockquote {
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 300;
+  color: #aaa;
+  padding-left: 55px;
+  margin: 0 0 30px;
+  position: relative;
+}
+.typo blockquote:last-child {
+  margin-bottom: 0;
+}
+.typo blockquote:before {
+  font-size: 60px;
+  content: '\201C';
+  color: #ddd;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+.typo code,
+.typo tt {
+  color: #808080;
+  font-size: 0.8em;
+  background-color: #f9f9f7;
+  padding: 1px 2px;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  word-wrap: break-word;
+}
+.typo pre {
+  margin: 1.64em 0;
+  padding: 15px;
+  border: none;
+  overflow: auto;
+  line-height: 1.5;
+  font-size: 0.96em;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #4c4c4c;
+  background-color: #f9f9f7;
+}
+.typo pre code,
+.typo pre tt {
+  color: #4c4c4c;
+  border: none;
+  background: none;
+  padding: 0;
+}
+.typo table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 1.5em;
+  font-size: 0.96em;
+  box-sizing: border-box;
+}
+.typo table th,
+.typo table td {
+  text-align: left;
+  padding: 4px 8px 4px 10px;
+  border: 1px solid #dadada;
+}
+.typo table th {
+  background: #F1F1F1;
+  font-style: normal;
+  font-weight: 400;
+}
+.typo table td {
+  vertical-align: top;
+}
+.typo table pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.typo iframe {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+.typo acronym,
+.typo abbr {
+  border-bottom: 1px dotted;
+  font-variant: normal;
+  cursor: help;
+}
+.typo del {
+  text-decoration: line-through;
+}
+.typo sub,
+.typo sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+.typo :root sub,
+.typo :root sup {
+  vertical-align: baseline;
+  /* for ie9 and other modern browsers */
+}
+.typo sup {
+  top: -0.5em;
+}
+.typo sub {
+  bottom: -0.25em;
+}
+.typo mark {
+  background: #fffdd1;
+  border-bottom: 1px solid #ffedce;
+  padding: 2px;
+  margin: 0 5px;
+}
+@media (max-width: 767px) {
+  .typo h1 {
+    font-size: 1.4em;
+  }
+  .typo h2 {
+    font-size: 1.2em;
+  }
+  .typo h3,
+  .typo h4,
+  .typo h5,
+  .typo h6 {
+    font-size: 1em;
+  }
+}

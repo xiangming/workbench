@@ -1,0 +1,65 @@
+body, html{
+  height: 100%;
+}
+body {
+  background-color: #2D2E34;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  overflow: hidden;
+  color: #888C99;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+section{
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+h1{
+  letter-spacing: .1em;
+  font-weight: 100;
+  font-size: 30px;
+  line-height: 1.3em;
+}
+
+.socl{
+	margin-top: 40px;
+  text-align: center;
+}
+.socl a{
+  margin: 10px;
+  display: inline-block;
+}
+
+.socl svg{
+  height: 16px;
+  fill: #ABB0B7;
+}
+
+.socl a:hover svg{
+	fill: white;
+}
+
+@media screen and (max-width : 768px) {
+  section{
+    width: auto;
+  }
+}
+
+@-webkit-keyframes scaleIn {
+    from {
+      -webkit-transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+    }
+}
